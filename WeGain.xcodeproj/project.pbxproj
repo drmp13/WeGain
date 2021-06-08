@@ -214,8 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				7D4B86FD266E64E6006E9169 /* AddMeal */,
-				7D4B86FC266E64DB006E9169 /* MealPlanSummary */,
 				7D4B86FB266E616A006E9169 /* MealList */,
+				7D4B86FC266E64DB006E9169 /* MealPlanSummary */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -243,8 +243,7 @@
 				7D4B8710266E6D7A006E9169 /* Controllers */,
 				7D4B8711266E6D81006E9169 /* Views */,
 			);
-			name = MealList;
-			path = ../MealList;
+			path = MealList;
 			sourceTree = "<group>";
 		};
 		7D4B86FC266E64DB006E9169 /* MealPlanSummary */ = {
