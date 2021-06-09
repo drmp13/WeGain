@@ -18,9 +18,7 @@ class MealRepository {
     }
     
     func fetch() -> [Meal] {
-        if meals == nil {
-            self.meals = self.dataStore?.fetch()
-        }
+        self.meals = self.dataStore?.fetch()
         
         return meals ?? []
     }

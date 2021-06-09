@@ -18,9 +18,7 @@ class ProfileRepository {
     }
     
     func fetch() -> Profile {
-        if profile == nil {
-            profile = self.dataStore?.fetch()
-        }
+        self.profile = self.dataStore?.fetch()
         
         return profile!
     }
