@@ -22,12 +22,24 @@ class PlanRepository {
         plans = self.dataStore?.fetch()
     }
     
+    private func addNewPlan(for date: Date) -> Plan {
+        let context = PersistenceManager.shared.persistentContainer.viewContext
+        let plan = Plan(context: context)
+        plan.date = date
+        
+        self.plans?.append(plan)
+        
+        try? context.save()
+        
+        return plan
+    }
+    
     func getPlan(for date: Date) -> Plan {
         let plan = self.plans?.first(where: {
             $0.date == date
         })
         
-        return plan ?? Plan()
+        return plan ?? self.addNewPlan(for: date)
     }
     
     func addMeal(for date: Date, meal: Meal) {
