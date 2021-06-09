@@ -37,6 +37,10 @@
 		7DEF0C8E266FCE60008A2566 /* WeGainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF0C8D266FCE60008A2566 /* WeGainTests.swift */; };
 		7DFE39D2266E712800B8F66B /* AddMeal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE39D1266E712800B8F66B /* AddMeal.storyboard */; };
 		7DFE39D5266E71FA00B8F66B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE39D4266E71FA00B8F66B /* PersistenceManager.swift */; };
+		AB6726E72670BD3F007313B6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6726E62670BD3F007313B6 /* OnboardingViewController.swift */; };
+		AB6726ED2670BE3C007313B6 /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6726EC2670BE3C007313B6 /* OnboardingContentViewController.swift */; };
+		AB6726F12670BE5F007313B6 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6726F02670BE5F007313B6 /* OnboardingPageViewController.swift */; };
+		AB6726F72670C05A007313B6 /* SwipeInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6726F62670C05A007313B6 /* SwipeInfo.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,10 @@
 		7DEF0C8F266FCE60008A2566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DFE39D1266E712800B8F66B /* AddMeal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMeal.storyboard; sourceTree = "<group>"; };
 		7DFE39D4266E71FA00B8F66B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		AB6726E62670BD3F007313B6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		AB6726EC2670BE3C007313B6 /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
+		AB6726F02670BE5F007313B6 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		AB6726F62670C05A007313B6 /* SwipeInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SwipeInfo.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +165,7 @@
 		7D4B86D6266E4B97006E9169 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				AB6726B526708F34007313B6 /* Onboarding */,
 				7DEF0C78266FB20A008A2566 /* MealChoices */,
 				7D4B86E2266E53DA006E9169 /* MealPlan */,
 				7D4B86E3266E53DF006E9169 /* Profile */,
@@ -416,6 +425,57 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		AB6726B526708F34007313B6 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AB6726B626708F42007313B6 /* Model */,
+				AB6726B726708F48007313B6 /* Pages */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AB6726B626708F42007313B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AB6726B726708F48007313B6 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				AB6726B826708F69007313B6 /* SwipeInfo */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		AB6726B826708F69007313B6 /* SwipeInfo */ = {
+			isa = PBXGroup;
+			children = (
+				AB6726F52670BF05007313B6 /* Views */,
+				AB6726F42670BEF1007313B6 /* Controllers */,
+			);
+			path = SwipeInfo;
+			sourceTree = "<group>";
+		};
+		AB6726F42670BEF1007313B6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB6726E62670BD3F007313B6 /* OnboardingViewController.swift */,
+				AB6726EC2670BE3C007313B6 /* OnboardingContentViewController.swift */,
+				AB6726F02670BE5F007313B6 /* OnboardingPageViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AB6726F52670BF05007313B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB6726F62670C05A007313B6 /* SwipeInfo.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -503,6 +563,7 @@
 				7D4B8707266E6834006E9169 /* UserProfile.storyboard in Resources */,
 				7D4B8713266E6D94006E9169 /* MealList.storyboard in Resources */,
 				7D4B8709266E683F006E9169 /* MealPlanSummary.storyboard in Resources */,
+				AB6726F72670C05A007313B6 /* SwipeInfo.storyboard in Resources */,
 				7DFE39D2266E712800B8F66B /* AddMeal.storyboard in Resources */,
 				7D4B86E8266E56BF006E9169 /* MealPlanCell.xib in Resources */,
 			);
@@ -526,12 +587,15 @@
 				7DEF0C7C266FB2F9008A2566 /* MealDataStore.swift in Sources */,
 				7DEF0C86266FC734008A2566 /* Plan+UpdateMeal.swift in Sources */,
 				7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */,
+				AB6726E72670BD3F007313B6 /* OnboardingViewController.swift in Sources */,
 				7D4B86F3266E584A006E9169 /* PlanDataStore.swift in Sources */,
+				AB6726F12670BE5F007313B6 /* OnboardingPageViewController.swift in Sources */,
 				7D23FA6E266E448F00791CD4 /* WeGain.xcdatamodeld in Sources */,
 				7D4B870F266E6CED006E9169 /* MealPlanSummaryViewController.swift in Sources */,
 				7D4B86DC266E4E5C006E9169 /* AppColor.swift in Sources */,
 				7D23FA66266E448F00791CD4 /* SceneDelegate.swift in Sources */,
 				7DEF0C82266FB59B008A2566 /* Profile+GenderType.swift in Sources */,
+				AB6726ED2670BE3C007313B6 /* OnboardingContentViewController.swift in Sources */,
 				7D4B8715266E6D9F006E9169 /* MealListViewController.swift in Sources */,
 				7D4B86F8266E5B17006E9169 /* ProfileRepository.swift in Sources */,
 				7D4B86F1266E582C006E9169 /* PlanRepository.swift in Sources */,
@@ -707,6 +771,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				INFOPLIST_FILE = WeGain/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -726,6 +791,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QH35NFSG6;
 				INFOPLIST_FILE = WeGain/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
