@@ -6,14 +6,40 @@
 //
 
 import XCTest
+import CoreData
 
 @testable import WeGain
 class WeGainTests: XCTestCase {
     let context = PersistenceManager.shared.persistentContainer.viewContext
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        self.resetData()
+        
+        self.testAddProfile()
+        self.testEditProfile()
+        self.testAddMeal()
+        self.testDeleteMeal()
+        self.testAddMealPlan()
+        self.testUpdateMealPlan()
+        self.testDeleteMealPlan()
+    }
+    
+    func resetData() {
+        let context = PersistenceManager.shared.persistentContainer.viewContext
+        
+        var request = NSFetchRequest<NSFetchRequestResult>(entityName: "Meal")
+        var deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        _ = try? context.execute(deleteRequest)
+        
+        request = NSFetchRequest<NSFetchRequestResult>(entityName: "Plan")
+        deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        _ = try? context.execute(deleteRequest)
+        
+        request = NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        _ = try? context.execute(deleteRequest)
+        
+        try? context.save()
     }
 
     func testAddProfile() {
@@ -58,14 +84,35 @@ class WeGainTests: XCTestCase {
     }
     
     func testAddMealPlan() {
+        let date = Calendar.current.startOfDay(for: Date())
         
-    }
-    
-    func testDeleteMealPlan() {
+        let meal = MealRepository.shared.fetch()
         
+        PlanRepository.shared.addMeal(for: date, meal: meal[0])
+        let plan = PlanRepository.shared.getPlan(for: date)
+
+        XCTAssertEqual(plan.meals?.count, 1)
     }
     
     func testUpdateMealPlan() {
+        let date = Calendar.current.startOfDay(for: Date())
+        let meal = PlanRepository.shared.getPlan(for: date).meals?.allObjects as! [Meal]
+        print(meal.count)
+        PlanRepository.shared.toggleMeal(for: date, meal: meal[0])
         
+        let newPlan = PlanRepository.shared.getPlan(for: date)
+        let newMeal = (newPlan.meals?.allObjects as! [Meal])[0]
+        
+        XCTAssertEqual(newMeal.eaten, true)
+    }
+    
+    func testDeleteMealPlan() {
+        let date = Calendar.current.startOfDay(for: Date())
+        
+        let meal = PlanRepository.shared.getPlan(for: date).meals?.allObjects as! [Meal]
+        PlanRepository.shared.deleteMeal(for: date, meal: meal[0])
+        let plan = PlanRepository.shared.getPlan(for: date)
+        
+        XCTAssertEqual(plan.meals?.count, 0)
     }
 }
