@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005457E52671158500CD9B06 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005457E42671158500CD9B06 /* PieChart.swift */; };
 		7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FA63266E448F00791CD4 /* AppDelegate.swift */; };
 		7D23FA66266E448F00791CD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FA65266E448F00791CD4 /* SceneDelegate.swift */; };
 		7D23FA6B266E448F00791CD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D23FA69266E448F00791CD4 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		005457E42671158500CD9B06 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		7D23FA60266E448F00791CD4 /* WeGain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeGain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D23FA63266E448F00791CD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D23FA65266E448F00791CD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				7D4B8708266E683F006E9169 /* MealPlanSummary.storyboard */,
+				005457E42671158500CD9B06 /* PieChart.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				AB6726F12670BE5F007313B6 /* OnboardingPageViewController.swift in Sources */,
 				BF55818D2670ECBB00F8DF9D /* CalendarCell.swift in Sources */,
 				7D23FA6E266E448F00791CD4 /* WeGain.xcdatamodeld in Sources */,
+				005457E52671158500CD9B06 /* PieChart.swift in Sources */,
 				7D4B870F266E6CED006E9169 /* MealPlanSummaryViewController.swift in Sources */,
 				7D4B86DC266E4E5C006E9169 /* AppColor.swift in Sources */,
 				7D23FA66266E448F00791CD4 /* SceneDelegate.swift in Sources */,
