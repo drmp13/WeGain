@@ -41,6 +41,8 @@
 		AB6726ED2670BE3C007313B6 /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6726EC2670BE3C007313B6 /* OnboardingContentViewController.swift */; };
 		AB6726F12670BE5F007313B6 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6726F02670BE5F007313B6 /* OnboardingPageViewController.swift */; };
 		AB6726F72670C05A007313B6 /* SwipeInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6726F62670C05A007313B6 /* SwipeInfo.storyboard */; };
+		BF55818D2670ECBB00F8DF9D /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55818B2670ECBB00F8DF9D /* CalendarCell.swift */; };
+		BF55818E2670ECBB00F8DF9D /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF55818C2670ECBB00F8DF9D /* CalendarCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		AB6726EC2670BE3C007313B6 /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
 		AB6726F02670BE5F007313B6 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		AB6726F62670C05A007313B6 /* SwipeInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SwipeInfo.storyboard; sourceTree = "<group>"; };
+		BF55818B2670ECBB00F8DF9D /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		BF55818C2670ECBB00F8DF9D /* CalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,7 @@
 		7D4B86DA266E4E30006E9169 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BF55818A2670EC6E00F8DF9D /* CallendarCell */,
 				7D4B86E4266E5603006E9169 /* MealListCell */,
 				7D4B86E1266E4E91006E9169 /* MealPlanCell */,
 			);
@@ -476,6 +481,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BF55818A2670EC6E00F8DF9D /* CallendarCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF55818B2670ECBB00F8DF9D /* CalendarCell.swift */,
+				BF55818C2670ECBB00F8DF9D /* CalendarCell.xib */,
+			);
+			path = CallendarCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -556,6 +570,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF55818E2670ECBB00F8DF9D /* CalendarCell.xib in Resources */,
 				7D4B86EC266E56CD006E9169 /* MealListCell.xib in Resources */,
 				7D23FA73266E449100791CD4 /* LaunchScreen.storyboard in Resources */,
 				7D23FA70266E449100791CD4 /* Assets.xcassets in Resources */,
@@ -590,6 +605,7 @@
 				AB6726E72670BD3F007313B6 /* OnboardingViewController.swift in Sources */,
 				7D4B86F3266E584A006E9169 /* PlanDataStore.swift in Sources */,
 				AB6726F12670BE5F007313B6 /* OnboardingPageViewController.swift in Sources */,
+				BF55818D2670ECBB00F8DF9D /* CalendarCell.swift in Sources */,
 				7D23FA6E266E448F00791CD4 /* WeGain.xcdatamodeld in Sources */,
 				7D4B870F266E6CED006E9169 /* MealPlanSummaryViewController.swift in Sources */,
 				7D4B86DC266E4E5C006E9169 /* AppColor.swift in Sources */,
