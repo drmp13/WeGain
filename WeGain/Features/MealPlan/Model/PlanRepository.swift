@@ -30,22 +30,26 @@ class PlanRepository {
         return plan ?? Plan()
     }
     
-    func addMeal(for plan: Plan, meal: Meal) {
+    func addMeal(for date: Date, meal: Meal) {
         let context = PersistenceManager.shared.persistentContainer.viewContext
+        let plan = self.getPlan(for: date)
+        
         plan.addToMeals(meal)
         
         try? context.save()
     }
     
-    func deleteMeal(for plan: Plan, meal: Meal) {
+    func deleteMeal(for date: Date, meal: Meal) {
         let context = PersistenceManager.shared.persistentContainer.viewContext
+        let plan = self.getPlan(for: date)
         
         plan.removeFromMeals(meal)
         try? context.save()
     }
     
-    func toggleMeal(for plan: Plan, meal: Meal) {
+    func toggleMeal(for date: Date, meal: Meal) {
         let context = PersistenceManager.shared.persistentContainer.viewContext
+        let plan = self.getPlan(for: date)
         
         plan.updateMeal(toBeUpdated: meal)
         try? context.save()
