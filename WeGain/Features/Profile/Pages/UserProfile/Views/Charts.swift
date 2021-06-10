@@ -16,24 +16,6 @@ struct Charts: View {
                 LineChart(chartData: data)
                     .pointMarkers(chartData: data)
                     .touchOverlay(chartData: data, specifier: "%.0f")
-                    .yAxisPOI(chartData: data,
-                              markerName: "Step Count Aim",
-                              markerValue: 15_000,
-                              labelPosition: .center(specifier: "%.0f"),
-                              labelColour: Color.black,
-                              labelBackground: Color(red: 1.0, green: 0.75, blue: 0.25),
-                              lineColour: Color(red: 1.0, green: 0.75, blue: 0.25),
-                              strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                    .yAxisPOI(chartData: data,
-                              markerName: "Minimum Recommended",
-                              markerValue: 10_000,
-                              labelPosition: .center(specifier: "%.0f"),
-                              labelColour: Color.white,
-                              labelBackground: Color(red: 0.25, green: 0.75, blue: 1.0),
-                              lineColour: Color(red: 0.25, green: 0.75, blue: 1.0),
-                              strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
-                    .averageLine(chartData: data,
-                                 strokeStyle: StrokeStyle(lineWidth: 3, dash: [5,10]))
                     .xAxisGrid(chartData: data)
                     .yAxisGrid(chartData: data)
                     .xAxisLabels(chartData: data)
@@ -49,19 +31,18 @@ struct Charts: View {
         
         static func weekOfData() -> LineChartData {
             let data = LineDataSet(dataPoints: [
-                LineChartDataPoint(value: 12000, xAxisLabel: "M", description: "Monday"),
-                LineChartDataPoint(value: 10000, xAxisLabel: "T", description: "Tuesday"),
-                LineChartDataPoint(value: 8000,  xAxisLabel: "W", description: "Wednesday"),
-                LineChartDataPoint(value: 17500, xAxisLabel: "T", description: "Thursday"),
-                LineChartDataPoint(value: 16000, xAxisLabel: "F", description: "Friday"),
-                LineChartDataPoint(value: 11000, xAxisLabel: "S", description: "Saturday"),
-                LineChartDataPoint(value: 9000,  xAxisLabel: "S", description: "Sunday")
+                LineChartDataPoint(value: 50, xAxisLabel: "May 2021"),
+                LineChartDataPoint(value: 52, xAxisLabel: "June 2021"),
+                LineChartDataPoint(value: 50,  xAxisLabel: "July 2021"),
+                LineChartDataPoint(value: 53, xAxisLabel: "June 2021"),
+                LineChartDataPoint(value: 57, xAxisLabel: "August 2021"),
+                LineChartDataPoint(value: 60, xAxisLabel: "October 2021")
             ],
-            legendTitle: "Steps",
+            legendTitle: "Weight Progress",
             pointStyle: PointStyle(),
             style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .curvedLine))
             
-            let metadata   = ChartMetadata(title: "Step Count", subtitle: "Over a Week")
+            let metadata   = ChartMetadata(title: "", subtitle: "")
             
             let gridStyle  = GridStyle(numberOfLines: 7,
                                        lineColour   : Color(.lightGray).opacity(0.5),
@@ -85,8 +66,8 @@ struct Charts: View {
                                             yAxisLabelColour    : Color.primary,
                                             yAxisNumberOfLabels : 7,
                                             
-                                            baseline            : .minimumWithMaximum(of: 5000),
-                                            topLine             : .maximum(of: 20000),
+                                            baseline            : .minimumWithMaximum(of: 30),
+                                            topLine             : .maximum(of: 100),
                                             
                                             globalAnimation     : .easeOut(duration: 1))
             
