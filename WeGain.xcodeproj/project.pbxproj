@@ -31,11 +31,12 @@
 		7D4B8713266E6D94006E9169 /* MealList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D4B8712266E6D94006E9169 /* MealList.storyboard */; };
 		7D4B8715266E6D9F006E9169 /* MealListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4B8714266E6D9F006E9169 /* MealListViewController.swift */; };
 		7D4B871B266E6FAD006E9169 /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4B871A266E6FAD006E9169 /* AddMealViewController.swift */; };
+		7D6A644726721F4400554DC1 /* HistoryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6A644626721F4400554DC1 /* HistoryDataStore.swift */; };
+		7D6A644926721F7300554DC1 /* HistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6A644826721F7300554DC1 /* HistoryRepository.swift */; };
 		7DEF0C7C266FB2F9008A2566 /* MealDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF0C7B266FB2F9008A2566 /* MealDataStore.swift */; };
 		7DEF0C7E266FB389008A2566 /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF0C7D266FB389008A2566 /* MealRepository.swift */; };
-		7DEF0C80266FB39E008A2566 /* Meal+FoodTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF0C7F266FB39E008A2566 /* Meal+FoodTypeEnum.swift */; };
+		7DEF0C80266FB39E008A2566 /* Plan+PlanType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF0C7F266FB39E008A2566 /* Plan+PlanType.swift */; };
 		7DEF0C82266FB59B008A2566 /* Profile+GenderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF0C81266FB59B008A2566 /* Profile+GenderType.swift */; };
-		7DEF0C86266FC734008A2566 /* Plan+UpdateMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF0C85266FC734008A2566 /* Plan+UpdateMeal.swift */; };
 		7DEF0C8E266FCE60008A2566 /* WeGainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF0C8D266FCE60008A2566 /* WeGainTests.swift */; };
 		7DFE39D2266E712800B8F66B /* AddMeal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE39D1266E712800B8F66B /* AddMeal.storyboard */; };
 		7DFE39D5266E71FA00B8F66B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE39D4266E71FA00B8F66B /* PersistenceManager.swift */; };
@@ -84,11 +85,12 @@
 		7D4B8712266E6D94006E9169 /* MealList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MealList.storyboard; sourceTree = "<group>"; };
 		7D4B8714266E6D9F006E9169 /* MealListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListViewController.swift; sourceTree = "<group>"; };
 		7D4B871A266E6FAD006E9169 /* AddMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
+		7D6A644626721F4400554DC1 /* HistoryDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataStore.swift; sourceTree = "<group>"; };
+		7D6A644826721F7300554DC1 /* HistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepository.swift; sourceTree = "<group>"; };
 		7DEF0C7B266FB2F9008A2566 /* MealDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDataStore.swift; sourceTree = "<group>"; };
 		7DEF0C7D266FB389008A2566 /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
-		7DEF0C7F266FB39E008A2566 /* Meal+FoodTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meal+FoodTypeEnum.swift"; sourceTree = "<group>"; };
+		7DEF0C7F266FB39E008A2566 /* Plan+PlanType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+PlanType.swift"; sourceTree = "<group>"; };
 		7DEF0C81266FB59B008A2566 /* Profile+GenderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+GenderType.swift"; sourceTree = "<group>"; };
-		7DEF0C85266FC734008A2566 /* Plan+UpdateMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+UpdateMeal.swift"; sourceTree = "<group>"; };
 		7DEF0C8B266FCE60008A2566 /* WeGainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeGainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DEF0C8D266FCE60008A2566 /* WeGainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeGainTests.swift; sourceTree = "<group>"; };
 		7DEF0C8F266FCE60008A2566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -258,7 +260,7 @@
 			children = (
 				7D4B86F0266E582C006E9169 /* PlanRepository.swift */,
 				7D4B86F2266E584A006E9169 /* PlanDataStore.swift */,
-				7DEF0C85266FC734008A2566 /* Plan+UpdateMeal.swift */,
+				7DEF0C7F266FB39E008A2566 /* Plan+PlanType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,9 +276,8 @@
 		7D4B86F4266E5A3F006E9169 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7DEF0C81266FB59B008A2566 /* Profile+GenderType.swift */,
-				7D4B86F7266E5B17006E9169 /* ProfileRepository.swift */,
-				7D4B86F9266E5B20006E9169 /* ProfileDataStore.swift */,
+				7D6A644526721F3000554DC1 /* History */,
+				7D6A644426721F1900554DC1 /* Profile */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -391,6 +392,25 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7D6A644426721F1900554DC1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7DEF0C81266FB59B008A2566 /* Profile+GenderType.swift */,
+				7D4B86F7266E5B17006E9169 /* ProfileRepository.swift */,
+				7D4B86F9266E5B20006E9169 /* ProfileDataStore.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		7D6A644526721F3000554DC1 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				7D6A644626721F4400554DC1 /* HistoryDataStore.swift */,
+				7D6A644826721F7300554DC1 /* HistoryRepository.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		7DEF0C78266FB20A008A2566 /* MealChoices */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,7 +425,6 @@
 			children = (
 				7DEF0C7B266FB2F9008A2566 /* MealDataStore.swift */,
 				7DEF0C7D266FB389008A2566 /* MealRepository.swift */,
-				7DEF0C7F266FB39E008A2566 /* Meal+FoodTypeEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -614,6 +633,7 @@
 				AB6726F12670BE5F007313B6 /* OnboardingPageViewController.swift in Sources */,
 				BF55818D2670ECBB00F8DF9D /* CalendarCell.swift in Sources */,
 				7D23FA6E266E448F00791CD4 /* WeGain.xcdatamodeld in Sources */,
+				7D6A644726721F4400554DC1 /* HistoryDataStore.swift in Sources */,
 				005457E52671158500CD9B06 /* PieChart.swift in Sources */,
 				7D4B870F266E6CED006E9169 /* MealPlanSummaryViewController.swift in Sources */,
 				7D4B86DC266E4E5C006E9169 /* AppColor.swift in Sources */,
@@ -624,9 +644,10 @@
 				7D4B86F8266E5B17006E9169 /* ProfileRepository.swift in Sources */,
 				7D4B86F1266E582C006E9169 /* PlanRepository.swift in Sources */,
 				7D4B86FA266E5B20006E9169 /* ProfileDataStore.swift in Sources */,
-				7DEF0C80266FB39E008A2566 /* Meal+FoodTypeEnum.swift in Sources */,
+				7DEF0C80266FB39E008A2566 /* Plan+PlanType.swift in Sources */,
 				7D4B870B266E6A0A006E9169 /* UserProfileViewController.swift in Sources */,
 				7D4B871B266E6FAD006E9169 /* AddMealViewController.swift in Sources */,
+				7D6A644926721F7300554DC1 /* HistoryRepository.swift in Sources */,
 				7D4B86EB266E56CD006E9169 /* MealListCell.swift in Sources */,
 				7DEF0C7E266FB389008A2566 /* MealRepository.swift in Sources */,
 				7D4B86E7266E56BF006E9169 /* MealPlanCell.swift in Sources */,

@@ -7,16 +7,16 @@
 
 import Foundation
 
-enum FoodType: String {
+enum PlanType: String {
     case breakfast = "Breakfast"
     case lunch = "Lunch"
     case dinner = "Dinner"
 }
 
-extension Meal {
-    var foodType: FoodType {
+extension Plan {
+    var planType: PlanType {
         get {
-            return FoodType(rawValue: self.type!)!
+            return PlanType(rawValue: self.type!)!
         }
         set {
             self.type = newValue.rawValue

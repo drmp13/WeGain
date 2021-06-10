@@ -15,11 +15,12 @@ class PlanRepository {
     
     private init(dataStore: PlanDataStore) {
         self.dataStore = dataStore
-        self.fetch()
     }
     
-    private func fetch() {
+    func fetch() -> [Plan] {
         plans = self.dataStore?.fetch()
+        
+        return self.plans ?? []
     }
     
     private func addNewPlan(for date: Date) -> Plan {
@@ -34,36 +35,30 @@ class PlanRepository {
         return plan
     }
     
-    func getPlan(for date: Date) -> Plan {
-        let plan = self.plans?.first(where: {
-            $0.date == date
-        })
+    func getPlan(for date: Date, type: PlanType) -> [Plan] {
+        let plans = self.plans?.filter {
+            $0.date == date && $0.type == type.rawValue
+        }
         
-        return plan ?? self.addNewPlan(for: date)
+        return plans ?? []
     }
     
-    func addMeal(for date: Date, meal: Meal) {
+    func addPlan(for date: Date, meal: Meal, type: PlanType) {
         let context = PersistenceManager.shared.persistentContainer.viewContext
-        let plan = self.getPlan(for: date)
-        
-        plan.addToMeals(meal)
+        let plan = Plan(context: context)
+        plan.date = date
+        plan.meal = meal
+        plan.type = type.rawValue
         
         try? context.save()
+        
+        self.plans = self.dataStore?.fetch()
     }
     
-    func deleteMeal(for date: Date, meal: Meal) {
+    func toggleMeal(for plan: Plan) {
         let context = PersistenceManager.shared.persistentContainer.viewContext
-        let plan = self.getPlan(for: date)
+        plan.eaten.toggle()
         
-        plan.removeFromMeals(meal)
-        try? context.save()
-    }
-    
-    func toggleMeal(for date: Date, meal: Meal) {
-        let context = PersistenceManager.shared.persistentContainer.viewContext
-        let plan = self.getPlan(for: date)
-        
-        plan.updateMeal(toBeUpdated: meal)
         try? context.save()
     }
 }
