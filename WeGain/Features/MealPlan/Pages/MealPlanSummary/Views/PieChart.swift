@@ -10,7 +10,7 @@ import UIKit
 @IBDesignable
 class PieChart: UIView {
     @IBInspectable var color: UIColor = .red
-    @IBInspectable var ringWidth: CGFloat = 12
+    @IBInspectable var ringWidth: CGFloat = 16
     
     private var backgroundMask = CAShapeLayer()
     
