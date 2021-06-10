@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-CK-yM5">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-CK-yM5" customClass="DashboardCell" customModule="WeGain" customModuleProvider="target">
                                 <rect key="frame" x="16" y="225" width="382" height="256"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="4ZX-eI-BRU">
@@ -111,10 +111,10 @@
                                             <constraint firstAttribute="width" constant="115" id="Tel-54-1qe"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="850KCal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ID7-r4-IFu">
-                                        <rect key="frame" x="56" y="204" width="66" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="850KCal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ID7-r4-IFu">
+                                        <rect key="frame" x="49" y="204" width="80" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="66" id="9gE-ZT-Pro"/>
+                                            <constraint firstAttribute="width" constant="80" id="9gE-ZT-Pro"/>
                                             <constraint firstAttribute="height" constant="21" id="nBm-Mo-A3U"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -140,7 +140,7 @@
                                     <constraint firstItem="8cR-dk-8R0" firstAttribute="top" secondItem="RdS-BB-8XI" secondAttribute="bottom" constant="15" id="cPs-hL-FTY"/>
                                     <constraint firstItem="Ah2-72-m3Z" firstAttribute="top" secondItem="Baz-0l-AFX" secondAttribute="bottom" constant="27" id="imd-MY-dM3"/>
                                     <constraint firstItem="ID7-r4-IFu" firstAttribute="top" secondItem="Ah2-72-m3Z" secondAttribute="bottom" constant="16" id="koG-T5-BRm"/>
-                                    <constraint firstItem="ID7-r4-IFu" firstAttribute="leading" secondItem="iPf-CK-yM5" secondAttribute="leading" constant="56" id="mqq-aX-cMQ"/>
+                                    <constraint firstItem="ID7-r4-IFu" firstAttribute="leading" secondItem="iPf-CK-yM5" secondAttribute="leading" constant="49" id="mnr-tP-G7q"/>
                                     <constraint firstAttribute="trailing" secondItem="kcT-Yk-JFP" secondAttribute="trailing" constant="48" id="ng9-Dt-jpJ"/>
                                     <constraint firstItem="Baz-0l-AFX" firstAttribute="leading" secondItem="iPf-CK-yM5" secondAttribute="leading" constant="28" id="pKv-A2-n5D"/>
                                     <constraint firstItem="4ZX-eI-BRU" firstAttribute="leading" secondItem="3Gk-5n-F8F" secondAttribute="trailing" constant="8" id="uKO-Mc-qDm"/>
@@ -148,6 +148,13 @@
                                     <constraint firstItem="kcT-Yk-JFP" firstAttribute="top" secondItem="AZ1-CR-5xA" secondAttribute="bottom" constant="16" id="y6q-oc-1vL"/>
                                     <constraint firstAttribute="trailing" secondItem="AZ1-CR-5xA" secondAttribute="trailing" constant="48" id="yJe-a9-UmF"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="CaloriesBurnedLabel" destination="kcT-Yk-JFP" id="Z6v-b1-Xcf"/>
+                                    <outlet property="CaloriesEatenLabel" destination="ID7-r4-IFu" id="euB-kg-uh7"/>
+                                    <outlet property="CarboProgressView" destination="4ZX-eI-BRU" id="a3u-e7-Y1Y"/>
+                                    <outlet property="FatProgressView" destination="KrX-1a-KJ4" id="T9R-ab-Yig"/>
+                                    <outlet property="ProteinProgressView" destination="RPp-lK-nEg" id="wYx-Et-Sd3"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -161,13 +168,6 @@
                     <tabBarItem key="tabBarItem" title="Meal Plan" image="doc.plaintext.fill" catalog="system" id="faN-3s-gLA"/>
                     <navigationItem key="navigationItem" title="Meal Plan" id="zi0-aH-aHa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="CarboProgressBar" destination="4ZX-eI-BRU" id="0AL-oB-Yfw"/>
-                        <outlet property="DashboardView" destination="iPf-CK-yM5" id="t0e-Ps-aaI"/>
-                        <outlet property="FatProgressBar" destination="KrX-1a-KJ4" id="DiS-AA-dfy"/>
-                        <outlet property="PieChartCalories" destination="Baz-0l-AFX" id="88Z-il-dWj"/>
-                        <outlet property="ProteinProgressBar" destination="RPp-lK-nEg" id="Ao3-5d-Lb2"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
