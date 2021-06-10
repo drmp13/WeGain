@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		005457E52671158500CD9B06 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005457E42671158500CD9B06 /* PieChart.swift */; };
+		00931E062671F2A200AFD031 /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00931E052671F2A200AFD031 /* DashboardCell.swift */; };
 		7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FA63266E448F00791CD4 /* AppDelegate.swift */; };
 		7D23FA66266E448F00791CD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FA65266E448F00791CD4 /* SceneDelegate.swift */; };
 		7D23FA6B266E448F00791CD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D23FA69266E448F00791CD4 /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		005457E42671158500CD9B06 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		00931E052671F2A200AFD031 /* DashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
 		7D23FA60266E448F00791CD4 /* WeGain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeGain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D23FA63266E448F00791CD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D23FA65266E448F00791CD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			children = (
 				7D4B8708266E683F006E9169 /* MealPlanSummary.storyboard */,
 				005457E42671158500CD9B06 /* PieChart.swift */,
+				00931E052671F2A200AFD031 /* DashboardCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -622,6 +625,8 @@
 			files = (
 				7DFE39D5266E71FA00B8F66B /* PersistenceManager.swift in Sources */,
 				7DEF0C7C266FB2F9008A2566 /* MealDataStore.swift in Sources */,
+				00931E062671F2A200AFD031 /* DashboardCell.swift in Sources */,
+				7DEF0C86266FC734008A2566 /* Plan+UpdateMeal.swift in Sources */,
 				7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */,
 				AB6726E72670BD3F007313B6 /* OnboardingViewController.swift in Sources */,
 				7D4B86F3266E584A006E9169 /* PlanDataStore.swift in Sources */,
