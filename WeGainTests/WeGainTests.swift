@@ -22,6 +22,8 @@ class WeGainTests: XCTestCase {
         self.testDeleteMeal()
         self.testAddMealPlan()
         self.testUpdateMealPlan()
+        self.testAddHistory()
+        self.testDeleteHistory()
     }
     
     func resetData() {
@@ -36,6 +38,10 @@ class WeGainTests: XCTestCase {
         _ = try! context.execute(deleteRequest)
         
         request = NSFetchRequest<NSFetchRequestResult>(entityName: "Profile")
+        deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        _ = try! context.execute(deleteRequest)
+        
+        request = NSFetchRequest<NSFetchRequestResult>(entityName: "History")
         deleteRequest = NSBatchDeleteRequest(fetchRequest: request)
         _ = try! context.execute(deleteRequest)
         
@@ -100,5 +106,23 @@ class WeGainTests: XCTestCase {
         let newPlan = PlanRepository.shared.getPlan(for: date, type: .breakfast)[0]
 
         XCTAssertEqual(newPlan.eaten, true)
+    }
+    
+    func testAddHistory() {
+        let date = Calendar.current.startOfDay(for: Date())
+        HistoryRepository.shared.addHistory(for: date, weight: 24)
+        
+        let histories = HistoryRepository.shared.fetch()
+        
+        XCTAssertEqual(histories.count, 1)
+    }
+    
+    func testDeleteHistory() {
+        let history = HistoryRepository.shared.fetch()[0]
+        
+        HistoryRepository.shared.deleteHistory(history: history)
+        let histories = HistoryRepository.shared.fetch()
+        
+        XCTAssertEqual(histories.count, 0)
     }
 }
