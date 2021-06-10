@@ -15,11 +15,12 @@ class PlanRepository {
     
     private init(dataStore: PlanDataStore) {
         self.dataStore = dataStore
-        self.fetch()
     }
     
-    private func fetch() {
+    func fetch() -> [Plan] {
         plans = self.dataStore?.fetch()
+        
+        return self.plans ?? []
     }
     
     private func addNewPlan(for date: Date) -> Plan {
@@ -51,7 +52,7 @@ class PlanRepository {
         
         try? context.save()
         
-        self.fetch()
+        self.plans = self.dataStore?.fetch()
     }
     
     func toggleMeal(for plan: Plan) {
