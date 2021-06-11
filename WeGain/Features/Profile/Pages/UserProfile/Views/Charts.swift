@@ -33,7 +33,7 @@ struct Charts: View {
             let data = LineDataSet(dataPoints: [
                 LineChartDataPoint(value: 50, xAxisLabel: "May 2021"),
                 LineChartDataPoint(value: 52, xAxisLabel: "June 2021"),
-                LineChartDataPoint(value: 50,  xAxisLabel: "July 2021"),
+                LineChartDataPoint(value: 50, xAxisLabel: "July 2021"),
                 LineChartDataPoint(value: 53, xAxisLabel: "June 2021"),
                 LineChartDataPoint(value: 57, xAxisLabel: "August 2021"),
                 LineChartDataPoint(value: 60, xAxisLabel: "October 2021")
