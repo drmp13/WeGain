@@ -8,11 +8,11 @@
 import UIKit
 
 struct AppColor {
-    let red = UIColor(named: "WGRed")
-    let orange = UIColor(named: "WGOrange")
-    let yellow = UIColor(named: "WGYellow")
-    let lightyellow = UIColor(named: "WGLightYellow")
-    let dark = UIColor(named: "WGDark")
-    let gray = UIColor(named: "WGGray")
-    let white = UIColor(named: "WGWhite")
+    static let red = UIColor(named: "WGRed")
+    static let orange = UIColor(named: "WGOrange")
+    static let yellow = UIColor(named: "WGYellow")
+    static let lightyellow = UIColor(named: "WGLightYellow")
+    static let dark = UIColor(named: "WGDark")
+    static let gray = UIColor(named: "WGGray")
+    static let white = UIColor(named: "WGWhite")
 }

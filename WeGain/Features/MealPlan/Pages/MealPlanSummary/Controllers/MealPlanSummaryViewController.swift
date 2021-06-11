@@ -9,8 +9,17 @@ import UIKit
 
 class MealPlanSummaryViewController: UIViewController {
 
+    @IBOutlet weak var MealPlanTableView: UITableView!
+    @IBOutlet weak var WeeklyCalendarView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "\(MealPlanTableViewCell.self)", bundle: nil)
+        MealPlanTableView.register(nib, forCellReuseIdentifier: "mealPlanTypeCell")
+        
+        let nib_calendar = UINib(nibName: "\(CalendarCell.self)", bundle: nil)
+        WeeklyCalendarView.register(nib_calendar, forCellWithReuseIdentifier: "calendarCell")
     }
 
 }

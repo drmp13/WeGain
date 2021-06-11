@@ -18,23 +18,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-CK-yM5" customClass="DashboardCell" customModule="WeGain" customModuleProvider="target">
-                                <rect key="frame" x="16" y="225" width="382" height="256"/>
+                                <rect key="frame" x="16" y="208" width="382" height="256"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="4ZX-eI-BRU">
-                                        <rect key="frame" x="294" y="36" width="77" height="4"/>
+                                        <rect key="frame" x="294" y="36" width="77" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="77" id="35X-a5-2zk"/>
-                                            <constraint firstAttribute="height" constant="4" id="Coa-Ps-BcU"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="Lwg-Tl-1qe"/>
+                                            <constraint firstAttribute="height" constant="20" id="Coa-Ps-BcU"/>
                                         </constraints>
                                         <color key="progressTintColor" name="WGYellow"/>
                                         <color key="trackTintColor" name="WGWhite"/>
                                     </progressView>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RPp-lK-nEg">
-                                        <rect key="frame" x="294" y="82" width="77" height="4"/>
+                                        <rect key="frame" x="294" y="82" width="77" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="4" id="DDP-Mw-f9I"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="RTO-rU-hqk"/>
+                                            <constraint firstAttribute="height" constant="20" id="DDP-Mw-f9I"/>
                                             <constraint firstAttribute="width" constant="77" id="TRm-vD-6kz"/>
                                         </constraints>
                                         <color key="progressTintColor" name="WGYellow"/>
@@ -71,11 +69,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="KrX-1a-KJ4">
-                                        <rect key="frame" x="294" y="128" width="77" height="4"/>
+                                        <rect key="frame" x="294" y="128" width="77" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="4nZ-KJ-lGt"/>
                                             <constraint firstAttribute="width" constant="77" id="Q00-Ae-hFc"/>
-                                            <constraint firstAttribute="height" constant="4" id="g9I-hv-ZHM"/>
+                                            <constraint firstAttribute="height" constant="20" id="g9I-hv-ZHM"/>
                                         </constraints>
                                         <color key="progressTintColor" name="WGYellow"/>
                                         <color key="trackTintColor" name="WGWhite"/>
@@ -173,12 +170,12 @@
                                     <constraint firstAttribute="height" constant="256" id="XsG-DX-X0m"/>
                                     <constraint firstItem="nGa-r1-JmC" firstAttribute="top" secondItem="3Gk-5n-F8F" secondAttribute="bottom" id="Ydz-F4-M50"/>
                                     <constraint firstItem="8cR-dk-8R0" firstAttribute="top" secondItem="M9A-hg-9hN" secondAttribute="bottom" constant="8" id="Yue-tQ-J71"/>
-                                    <constraint firstItem="RPp-lK-nEg" firstAttribute="top" secondItem="4ZX-eI-BRU" secondAttribute="bottom" constant="42" id="Z5V-0v-cHJ"/>
-                                    <constraint firstItem="AZ1-CR-5xA" firstAttribute="top" secondItem="KrX-1a-KJ4" secondAttribute="bottom" constant="46" id="a1N-SB-9UV"/>
+                                    <constraint firstItem="RPp-lK-nEg" firstAttribute="top" secondItem="4ZX-eI-BRU" secondAttribute="bottom" constant="26" id="Z5V-0v-cHJ"/>
+                                    <constraint firstItem="AZ1-CR-5xA" firstAttribute="top" secondItem="KrX-1a-KJ4" secondAttribute="bottom" constant="30" id="a1N-SB-9UV"/>
                                     <constraint firstItem="3Gk-5n-F8F" firstAttribute="leading" secondItem="Baz-0l-AFX" secondAttribute="trailing" constant="21" id="b9g-WC-t5M"/>
                                     <constraint firstItem="3Gk-5n-F8F" firstAttribute="top" secondItem="iPf-CK-yM5" secondAttribute="top" constant="24" id="cx0-Au-zcI"/>
                                     <constraint firstItem="ID7-r4-IFu" firstAttribute="leading" secondItem="iPf-CK-yM5" secondAttribute="leading" constant="48" id="ghe-nX-fG1"/>
-                                    <constraint firstItem="KrX-1a-KJ4" firstAttribute="top" secondItem="RPp-lK-nEg" secondAttribute="bottom" constant="42" id="gkd-ug-DEi"/>
+                                    <constraint firstItem="KrX-1a-KJ4" firstAttribute="top" secondItem="RPp-lK-nEg" secondAttribute="bottom" constant="26" id="gkd-ug-DEi"/>
                                     <constraint firstItem="RdS-BB-8XI" firstAttribute="top" secondItem="nGa-r1-JmC" secondAttribute="bottom" constant="8" id="lMF-t3-Pkm"/>
                                     <constraint firstItem="ID7-r4-IFu" firstAttribute="top" secondItem="Ah2-72-m3Z" secondAttribute="bottom" constant="16" id="nWc-9E-VOp"/>
                                     <constraint firstItem="8cR-dk-8R0" firstAttribute="leading" secondItem="Baz-0l-AFX" secondAttribute="trailing" constant="21" id="nmE-w0-hLA"/>
@@ -198,18 +195,55 @@
                                     <outlet property="ProteinProgressView" destination="RPp-lK-nEg" id="wYx-Et-Sd3"/>
                                 </connections>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j3U-V6-Ne2">
+                                <rect key="frame" x="0.0" y="464" width="414" height="349"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="fY1-no-nok"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="OcC-by-y1b"/>
+                                </connections>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u3I-iM-Hcu">
+                                <rect key="frame" x="0.0" y="144" width="414" height="64"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="sxa-9v-CeL"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="a30-Zm-EGb">
+                                    <size key="itemSize" width="42" height="76"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="eVj-4E-WcV"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="gJn-n7-Git"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iPf-CK-yM5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="85" id="TK9-jp-37J"/>
+                            <constraint firstItem="j3U-V6-Ne2" firstAttribute="top" secondItem="iPf-CK-yM5" secondAttribute="bottom" id="Asy-lT-Y3b"/>
+                            <constraint firstItem="u3I-iM-Hcu" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ECF-S4-Ahx"/>
+                            <constraint firstItem="j3U-V6-Ne2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Ewl-eq-zdv"/>
+                            <constraint firstItem="u3I-iM-Hcu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="V7v-IN-zlY"/>
+                            <constraint firstItem="u3I-iM-Hcu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="4" id="ajP-vH-gsx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iPf-CK-yM5" secondAttribute="trailing" constant="16" id="b9b-Is-EhX"/>
+                            <constraint firstItem="j3U-V6-Ne2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="eFN-A9-n5n"/>
+                            <constraint firstItem="iPf-CK-yM5" firstAttribute="top" secondItem="u3I-iM-Hcu" secondAttribute="bottom" id="kGW-LH-c63"/>
+                            <constraint firstItem="j3U-V6-Ne2" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="ogQ-Dj-pbG"/>
                             <constraint firstItem="iPf-CK-yM5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="rec-lH-aeU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Meal Plan" image="doc.plaintext.fill" catalog="system" id="faN-3s-gLA"/>
                     <navigationItem key="navigationItem" title="Meal Plan" id="zi0-aH-aHa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="MealPlanTableView" destination="j3U-V6-Ne2" id="CGe-7T-3Hy"/>
+                        <outlet property="WeeklyCalendarView" destination="u3I-iM-Hcu" id="uQA-8p-b1E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
