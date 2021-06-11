@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,8 +16,154 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-CK-yM5" customClass="DashboardCell" customModule="WeGain" customModuleProvider="target">
+                                <rect key="frame" x="16" y="225" width="382" height="256"/>
+                                <subviews>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="4ZX-eI-BRU">
+                                        <rect key="frame" x="294" y="40" width="77" height="4"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="35X-a5-2zk"/>
+                                        </constraints>
+                                        <color key="progressTintColor" name="WGYellow"/>
+                                        <color key="trackTintColor" name="WGWhite"/>
+                                    </progressView>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RPp-lK-nEg">
+                                        <rect key="frame" x="294" y="76" width="77" height="4"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="TRm-vD-6kz"/>
+                                        </constraints>
+                                        <color key="progressTintColor" name="WGYellow"/>
+                                        <color key="trackTintColor" name="WGWhite"/>
+                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carbohydrate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gk-5n-F8F">
+                                        <rect key="frame" x="167" y="32" width="119" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="119" id="8Uc-hC-84E"/>
+                                            <constraint firstAttribute="height" constant="21" id="mhm-sz-ydy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" name="WGWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdS-BB-8XI">
+                                        <rect key="frame" x="167" y="68" width="65" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="10n-9n-e5m"/>
+                                            <constraint firstAttribute="width" constant="65" id="iKx-jF-sNJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" name="WGWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cR-dk-8R0">
+                                        <rect key="frame" x="167" y="104" width="30" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="f58-eP-3wb"/>
+                                            <constraint firstAttribute="height" constant="21" id="zbt-2v-VUF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" name="WGWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="KrX-1a-KJ4">
+                                        <rect key="frame" x="294" y="112" width="77" height="4"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="Q00-Ae-hFc"/>
+                                        </constraints>
+                                        <color key="progressTintColor" name="WGYellow"/>
+                                        <color key="trackTintColor" name="WGWhite"/>
+                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EATEN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ah2-72-m3Z">
+                                        <rect key="frame" x="56" y="162" width="66" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="D9s-M7-O5P"/>
+                                            <constraint firstAttribute="width" constant="66" id="Oen-Tq-r0d"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <color key="textColor" name="WGWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BURNED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZ1-CR-5xA">
+                                        <rect key="frame" x="248" y="162" width="86" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="86" id="dpF-Va-3fz"/>
+                                            <constraint firstAttribute="height" constant="26" id="ope-Wc-zVZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <color key="textColor" name="WGWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40KCal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-Yk-JFP">
+                                        <rect key="frame" x="248" y="204" width="86" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="86" id="urp-n2-9Uu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="WGWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Baz-0l-AFX" customClass="PieChart" customModule="WeGain" customModuleProvider="target">
+                                        <rect key="frame" x="28" y="20" width="115" height="115"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="115" id="3dJ-a2-sIb"/>
+                                            <constraint firstAttribute="width" constant="115" id="Tel-54-1qe"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="850KCal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ID7-r4-IFu">
+                                        <rect key="frame" x="49" y="204" width="80" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="9gE-ZT-Pro"/>
+                                            <constraint firstAttribute="height" constant="21" id="nBm-Mo-A3U"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="WGWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="WGRed"/>
+                                <constraints>
+                                    <constraint firstItem="AZ1-CR-5xA" firstAttribute="top" secondItem="KrX-1a-KJ4" secondAttribute="bottom" constant="46" id="5EK-uD-1Vj"/>
+                                    <constraint firstItem="Baz-0l-AFX" firstAttribute="top" secondItem="iPf-CK-yM5" secondAttribute="top" constant="20" id="GY7-gh-VR2"/>
+                                    <constraint firstAttribute="trailing" secondItem="4ZX-eI-BRU" secondAttribute="trailing" constant="11" id="NcY-fF-8sK"/>
+                                    <constraint firstAttribute="trailing" secondItem="RPp-lK-nEg" secondAttribute="trailing" constant="11" id="Oux-gy-erG"/>
+                                    <constraint firstItem="RPp-lK-nEg" firstAttribute="top" secondItem="4ZX-eI-BRU" secondAttribute="bottom" constant="32" id="Pgt-cp-iJg"/>
+                                    <constraint firstItem="KrX-1a-KJ4" firstAttribute="top" secondItem="RPp-lK-nEg" secondAttribute="bottom" constant="32" id="QbN-VD-kis"/>
+                                    <constraint firstItem="RPp-lK-nEg" firstAttribute="leading" secondItem="RdS-BB-8XI" secondAttribute="trailing" constant="62" id="SjI-nM-TPj"/>
+                                    <constraint firstAttribute="trailing" secondItem="KrX-1a-KJ4" secondAttribute="trailing" constant="11" id="Upw-W3-E6p"/>
+                                    <constraint firstItem="4ZX-eI-BRU" firstAttribute="top" secondItem="iPf-CK-yM5" secondAttribute="top" constant="40" id="X0O-WF-S0Q"/>
+                                    <constraint firstItem="3Gk-5n-F8F" firstAttribute="top" secondItem="iPf-CK-yM5" secondAttribute="top" constant="32" id="XfT-oE-AKf"/>
+                                    <constraint firstAttribute="height" constant="256" id="XsG-DX-X0m"/>
+                                    <constraint firstItem="KrX-1a-KJ4" firstAttribute="leading" secondItem="8cR-dk-8R0" secondAttribute="trailing" constant="97" id="Y4g-8g-2nC"/>
+                                    <constraint firstItem="Ah2-72-m3Z" firstAttribute="leading" secondItem="iPf-CK-yM5" secondAttribute="leading" constant="56" id="YcQ-gX-7eO"/>
+                                    <constraint firstItem="8cR-dk-8R0" firstAttribute="top" secondItem="RdS-BB-8XI" secondAttribute="bottom" constant="15" id="cPs-hL-FTY"/>
+                                    <constraint firstItem="Ah2-72-m3Z" firstAttribute="top" secondItem="Baz-0l-AFX" secondAttribute="bottom" constant="27" id="imd-MY-dM3"/>
+                                    <constraint firstItem="ID7-r4-IFu" firstAttribute="top" secondItem="Ah2-72-m3Z" secondAttribute="bottom" constant="16" id="koG-T5-BRm"/>
+                                    <constraint firstItem="ID7-r4-IFu" firstAttribute="leading" secondItem="iPf-CK-yM5" secondAttribute="leading" constant="49" id="mnr-tP-G7q"/>
+                                    <constraint firstAttribute="trailing" secondItem="kcT-Yk-JFP" secondAttribute="trailing" constant="48" id="ng9-Dt-jpJ"/>
+                                    <constraint firstItem="Baz-0l-AFX" firstAttribute="leading" secondItem="iPf-CK-yM5" secondAttribute="leading" constant="28" id="pKv-A2-n5D"/>
+                                    <constraint firstItem="4ZX-eI-BRU" firstAttribute="leading" secondItem="3Gk-5n-F8F" secondAttribute="trailing" constant="8" id="uKO-Mc-qDm"/>
+                                    <constraint firstItem="RdS-BB-8XI" firstAttribute="top" secondItem="3Gk-5n-F8F" secondAttribute="bottom" constant="15" id="wCl-2g-BPW"/>
+                                    <constraint firstItem="kcT-Yk-JFP" firstAttribute="top" secondItem="AZ1-CR-5xA" secondAttribute="bottom" constant="16" id="y6q-oc-1vL"/>
+                                    <constraint firstAttribute="trailing" secondItem="AZ1-CR-5xA" secondAttribute="trailing" constant="48" id="yJe-a9-UmF"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="CaloriesBurnedLabel" destination="kcT-Yk-JFP" id="Z6v-b1-Xcf"/>
+                                    <outlet property="CaloriesEatenLabel" destination="ID7-r4-IFu" id="euB-kg-uh7"/>
+                                    <outlet property="CarboProgressView" destination="4ZX-eI-BRU" id="a3u-e7-Y1Y"/>
+                                    <outlet property="FatProgressView" destination="KrX-1a-KJ4" id="T9R-ab-Yig"/>
+                                    <outlet property="ProteinProgressView" destination="RPp-lK-nEg" id="wYx-Et-Sd3"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iPf-CK-yM5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="85" id="TK9-jp-37J"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iPf-CK-yM5" secondAttribute="trailing" constant="16" id="b9b-Is-EhX"/>
+                            <constraint firstItem="iPf-CK-yM5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="rec-lH-aeU"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Meal Plan" image="doc.plaintext.fill" catalog="system" id="faN-3s-gLA"/>
                     <navigationItem key="navigationItem" title="Meal Plan" id="zi0-aH-aHa"/>
@@ -47,6 +194,15 @@
     </scenes>
     <resources>
         <image name="doc.plaintext.fill" catalog="system" width="115" height="128"/>
+        <namedColor name="WGRed">
+            <color red="0.76499998569488525" green="0.18400000035762787" blue="0.15299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WGWhite">
+            <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="WGYellow">
+            <color red="1" green="0.83899998664855957" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

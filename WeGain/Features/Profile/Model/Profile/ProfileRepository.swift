@@ -23,7 +23,7 @@ class ProfileRepository {
         return profile!
     }
     
-    func add(gender: String, height: Int16, weight: Int16, activity: Double) {
+    func add(gender: String, height: Double, weight: Double, activity: Double) {
         let context = PersistenceManager.shared.persistentContainer.viewContext
         
         let profile = Profile(context: context)
