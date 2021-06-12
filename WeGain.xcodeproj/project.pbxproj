@@ -11,6 +11,10 @@
 		6FE048D526711296005AA93E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE048D426711296005AA93E /* SwiftUICharts */; };
 		005457E52671158500CD9B06 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005457E42671158500CD9B06 /* PieChart.swift */; };
 		00931E062671F2A200AFD031 /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00931E052671F2A200AFD031 /* DashboardCell.swift */; };
+		00F9619C26734B65005ECED9 /* MealPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9619A26734B65005ECED9 /* MealPlanTableViewCell.swift */; };
+		00F9619D26734B65005ECED9 /* MealPlanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F9619B26734B65005ECED9 /* MealPlanTableViewCell.xib */; };
+		00F961A126734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F961A026734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift */; };
+		00F961A726735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F961A626735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift */; };
 		7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FA63266E448F00791CD4 /* AppDelegate.swift */; };
 		7D23FA66266E448F00791CD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FA65266E448F00791CD4 /* SceneDelegate.swift */; };
 		7D23FA6B266E448F00791CD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D23FA69266E448F00791CD4 /* Main.storyboard */; };
@@ -64,6 +68,10 @@
 		6F835E7D2670F87400D3ECF5 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 		005457E42671158500CD9B06 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		00931E052671F2A200AFD031 /* DashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
+		00F9619A26734B65005ECED9 /* MealPlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanTableViewCell.swift; sourceTree = "<group>"; };
+		00F9619B26734B65005ECED9 /* MealPlanTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealPlanTableViewCell.xib; sourceTree = "<group>"; };
+		00F961A026734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift"; sourceTree = "<group>"; };
+		00F961A626735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		7D23FA60266E448F00791CD4 /* WeGain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeGain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D23FA63266E448F00791CD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D23FA65266E448F00791CD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +134,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00F961922673484D005ECED9 /* DashboardView */ = {
+			isa = PBXGroup;
+			children = (
+				00931E052671F2A200AFD031 /* DashboardCell.swift */,
+				005457E42671158500CD9B06 /* PieChart.swift */,
+			);
+			path = DashboardView;
+			sourceTree = "<group>";
+		};
+		00F961932673486E005ECED9 /* MealPlanSummaryTableView */ = {
+			isa = PBXGroup;
+			children = (
+				00F9619A26734B65005ECED9 /* MealPlanTableViewCell.swift */,
+				00F9619B26734B65005ECED9 /* MealPlanTableViewCell.xib */,
+			);
+			path = MealPlanSummaryTableView;
+			sourceTree = "<group>";
+		};
 		7D23FA57266E448F00791CD4 = {
 			isa = PBXGroup;
 			children = (
@@ -350,9 +376,9 @@
 		7D4B870C266E6CDA006E9169 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00F961932673486E005ECED9 /* MealPlanSummaryTableView */,
+				00F961922673484D005ECED9 /* DashboardView */,
 				7D4B8708266E683F006E9169 /* MealPlanSummary.storyboard */,
-				005457E42671158500CD9B06 /* PieChart.swift */,
-				00931E052671F2A200AFD031 /* DashboardCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -361,6 +387,8 @@
 			isa = PBXGroup;
 			children = (
 				7D4B870E266E6CED006E9169 /* MealPlanSummaryViewController.swift */,
+				00F961A026734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift */,
+				00F961A626735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -617,6 +645,7 @@
 				AB6726F72670C05A007313B6 /* SwipeInfo.storyboard in Resources */,
 				7DFE39D2266E712800B8F66B /* AddMeal.storyboard in Resources */,
 				7D4B86E8266E56BF006E9169 /* MealPlanCell.xib in Resources */,
+				00F9619D26734B65005ECED9 /* MealPlanTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,12 +670,14 @@
 				7DEF0C86266FC734008A2566 /* Plan+UpdateMeal.swift in Sources */,
 				7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */,
 				AB6726E72670BD3F007313B6 /* OnboardingViewController.swift in Sources */,
+				00F961A726735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift in Sources */,
 				7D4B86F3266E584A006E9169 /* PlanDataStore.swift in Sources */,
 				AB6726F12670BE5F007313B6 /* OnboardingPageViewController.swift in Sources */,
 				BF55818D2670ECBB00F8DF9D /* CalendarCell.swift in Sources */,
 				7D23FA6E266E448F00791CD4 /* WeGain.xcdatamodeld in Sources */,
 				7D6A644726721F4400554DC1 /* HistoryDataStore.swift in Sources */,
 				005457E52671158500CD9B06 /* PieChart.swift in Sources */,
+				00F9619C26734B65005ECED9 /* MealPlanTableViewCell.swift in Sources */,
 				7D4B870F266E6CED006E9169 /* MealPlanSummaryViewController.swift in Sources */,
 				7D4B86DC266E4E5C006E9169 /* AppColor.swift in Sources */,
 				7D23FA66266E448F00791CD4 /* SceneDelegate.swift in Sources */,
@@ -656,6 +687,8 @@
 				7D4B86F8266E5B17006E9169 /* ProfileRepository.swift in Sources */,
 				7D4B86F1266E582C006E9169 /* PlanRepository.swift in Sources */,
 				7D4B86FA266E5B20006E9169 /* ProfileDataStore.swift in Sources */,
+				00F961A126734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift in Sources */,
+				7DEF0C80266FB39E008A2566 /* Meal+FoodTypeEnum.swift in Sources */,
 				7DEF0C80266FB39E008A2566 /* Plan+PlanType.swift in Sources */,
 				7D4B870B266E6A0A006E9169 /* UserProfileViewController.swift in Sources */,
 				7D4B871B266E6FAD006E9169 /* AddMealViewController.swift in Sources */,
