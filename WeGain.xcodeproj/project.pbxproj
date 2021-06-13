@@ -46,6 +46,8 @@
 		7DEF0C8E266FCE60008A2566 /* WeGainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF0C8D266FCE60008A2566 /* WeGainTests.swift */; };
 		7DFE39D2266E712800B8F66B /* AddMeal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE39D1266E712800B8F66B /* AddMeal.storyboard */; };
 		7DFE39D5266E71FA00B8F66B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE39D4266E71FA00B8F66B /* PersistenceManager.swift */; };
+		968CEA9B2672CAE8007071DB /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CEA9A2672CAE8007071DB /* MealModel.swift */; };
+		968CEAA12672CD2B007071DB /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CEAA02672CD2B007071DB /* Response.swift */; };
 		AB6726E72670BD3F007313B6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6726E62670BD3F007313B6 /* OnboardingViewController.swift */; };
 		AB6726ED2670BE3C007313B6 /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6726EC2670BE3C007313B6 /* OnboardingContentViewController.swift */; };
 		AB6726F12670BE5F007313B6 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6726F02670BE5F007313B6 /* OnboardingPageViewController.swift */; };
@@ -107,6 +109,8 @@
 		7DEF0C8F266FCE60008A2566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DFE39D1266E712800B8F66B /* AddMeal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMeal.storyboard; sourceTree = "<group>"; };
 		7DFE39D4266E71FA00B8F66B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		968CEA9A2672CAE8007071DB /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
+		968CEAA02672CD2B007071DB /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		AB6726E62670BD3F007313B6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AB6726EC2670BE3C007313B6 /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
 		AB6726F02670BE5F007313B6 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				7D4B86D7266E4BB2006E9169 /* Core Data */,
+				968CEA9A2672CAE8007071DB /* MealModel.swift */,
+				968CEAA02672CD2B007071DB /* Response.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -686,6 +692,7 @@
 				7D4B8715266E6D9F006E9169 /* MealListViewController.swift in Sources */,
 				7D4B86F8266E5B17006E9169 /* ProfileRepository.swift in Sources */,
 				7D4B86F1266E582C006E9169 /* PlanRepository.swift in Sources */,
+				968CEAA12672CD2B007071DB /* Response.swift in Sources */,
 				7D4B86FA266E5B20006E9169 /* ProfileDataStore.swift in Sources */,
 				00F961A126734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift in Sources */,
 				7DEF0C80266FB39E008A2566 /* Meal+FoodTypeEnum.swift in Sources */,
@@ -693,6 +700,7 @@
 				7D4B870B266E6A0A006E9169 /* UserProfileViewController.swift in Sources */,
 				7D4B871B266E6FAD006E9169 /* AddMealViewController.swift in Sources */,
 				7D6A644926721F7300554DC1 /* HistoryRepository.swift in Sources */,
+				968CEA9B2672CAE8007071DB /* MealModel.swift in Sources */,
 				7D4B86EB266E56CD006E9169 /* MealListCell.swift in Sources */,
 				7DEF0C7E266FB389008A2566 /* MealRepository.swift in Sources */,
 				7D4B86E7266E56BF006E9169 /* MealPlanCell.swift in Sources */,
