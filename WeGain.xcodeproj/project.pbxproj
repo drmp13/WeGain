@@ -42,6 +42,7 @@
 		AB6726ED2670BE3C007313B6 /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6726EC2670BE3C007313B6 /* OnboardingContentViewController.swift */; };
 		AB6726F12670BE5F007313B6 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6726F02670BE5F007313B6 /* OnboardingPageViewController.swift */; };
 		AB6726F72670C05A007313B6 /* SwipeInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6726F62670C05A007313B6 /* SwipeInfo.storyboard */; };
+		ABBA562E2677323B00C9990A /* WeightHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBA562D2677323B00C9990A /* WeightHistoryTableViewCell.swift */; };
 		BF55818D2670ECBB00F8DF9D /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF55818B2670ECBB00F8DF9D /* CalendarCell.swift */; };
 		BF55818E2670ECBB00F8DF9D /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF55818C2670ECBB00F8DF9D /* CalendarCell.xib */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		AB6726EC2670BE3C007313B6 /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
 		AB6726F02670BE5F007313B6 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		AB6726F62670C05A007313B6 /* SwipeInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SwipeInfo.storyboard; sourceTree = "<group>"; };
+		ABBA562D2677323B00C9990A /* WeightHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		BF55818B2670ECBB00F8DF9D /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		BF55818C2670ECBB00F8DF9D /* CalendarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -335,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				7D4B870A266E6A0A006E9169 /* UserProfileViewController.swift */,
+				ABBA562D2677323B00C9990A /* WeightHistoryTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */,
 				AB6726E72670BD3F007313B6 /* OnboardingViewController.swift in Sources */,
 				7D4B86F3266E584A006E9169 /* PlanDataStore.swift in Sources */,
+				ABBA562E2677323B00C9990A /* WeightHistoryTableViewCell.swift in Sources */,
 				AB6726F12670BE5F007313B6 /* OnboardingPageViewController.swift in Sources */,
 				BF55818D2670ECBB00F8DF9D /* CalendarCell.swift in Sources */,
 				7D23FA6E266E448F00791CD4 /* WeGain.xcdatamodeld in Sources */,
