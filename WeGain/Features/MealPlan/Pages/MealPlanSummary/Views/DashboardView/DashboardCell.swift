@@ -21,11 +21,16 @@ class DashboardCell: UIView {
         backgroundMask.path = UIBezierPath(roundedRect: rect, cornerRadius: 10).cgPath
         layer.mask = backgroundMask
         
-        CarboProgressView!.transform = CarboProgressView!.transform.scaledBy(x: 1, y: 3)
-        ProteinProgressView!.transform = ProteinProgressView!.transform.scaledBy(x: 1, y: 3)
-        FatProgressView!.transform = FatProgressView!.transform.scaledBy(x: 1, y: 3)
-        
-        CaloriesEatenLabel.text = "2000KCal"
-        CaloriesBurnedLabel.text = "2000KCal"
+//        CarboProgressView.transform = CGAffineTransform(scaleX: 1, y: 4)
+        self.CarboProgressView.layer.cornerRadius = 10
+        self.CarboProgressView.clipsToBounds = true
+
+//        ProteinProgressView.transform = CGAffineTransform(scaleX: 1, y: 4)
+        self.ProteinProgressView.layer.cornerRadius = 10
+        self.ProteinProgressView.clipsToBounds = true
+
+//        FatProgressView.transform = CGAffineTransform(scaleX: 1, y: 4)
+        self.FatProgressView.layer.cornerRadius = 10
+        self.FatProgressView.clipsToBounds = true
     }
 }

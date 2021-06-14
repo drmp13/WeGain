@@ -8,14 +8,61 @@
 import UIKit
 
 class AddMealViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
 
+    @IBOutlet weak var textFieldFoodName: UITextField!
+    @IBOutlet weak var textFieldEstCalorie: UITextField!
+    @IBOutlet weak var textFieldPortion: UITextField!
+    @IBOutlet weak var textFieldCarbohydrate: UITextField!
+    @IBOutlet weak var textFieldProtein: UITextField!
+    @IBOutlet weak var textFieldFat: UITextField!
+    @IBOutlet weak var barButtonSaveUI: UIBarButtonItem!
+    @IBOutlet weak var barButtonCloseUI: UIBarButtonItem!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        formatTextField_Default(textField: textFieldFoodName)
+        formatTextField_Default(textField: textFieldEstCalorie,isDecimalPad: true)
+        formatTextField_Default(textField: textFieldPortion,isDecimalPad: true)
+        formatTextField_Default(textField: textFieldCarbohydrate,isDecimalPad: true)
+        formatTextField_Default(textField: textFieldProtein,isDecimalPad: true)
+        formatTextField_Default(textField: textFieldFat,isDecimalPad: true)
+        
+        barButtonSaveUI.tintColor = UIColor(cgColor: getCGColorByHex(rgbValue: 0xC32F27))
+        barButtonCloseUI.tintColor = UIColor(cgColor: getCGColorByHex(rgbValue: 0xC32F27))
+    }
+    
+    func getCGColorByHex(rgbValue: Int) -> CGColor{
+        return CGColor(red: ((CGFloat)((rgbValue & 0xFF0000) >> 16))/255.0, green:((CGFloat)((rgbValue & 0xFF00) >> 8))/255.0, blue:((CGFloat)(rgbValue & 0xFF))/255.0, alpha:1.0)
+    }
+    
+    func formatTextField_Default(textField: UITextField, isDecimalPad: Bool = false){
+        textField.layer.borderColor = getCGColorByHex(rgbValue: 0xC32F27)
+        textField.layer.borderWidth = 2
+        textField.layer.cornerRadius = 10
+        
+        if(isDecimalPad){
+            textField.keyboardType = .decimalPad
+        }
+        
+    }
+    
+    @IBAction func barButtonSave(_ sender: UIBarButtonItem) {
+        let foodName = textFieldFoodName.text
+        let estCalorie = Double(textFieldEstCalorie.text ?? "0")
+        let portion = Double(textFieldPortion.text ?? "0")
+        let carbohydrate = Double(textFieldCarbohydrate.text ?? "0")
+        let protein = Double(textFieldProtein.text ?? "0")
+        let fat = Double(textFieldFat.text ?? "0")
+        
+        MealRepository.shared.add(name: foodName!, cal: estCalorie!, carb: carbohydrate!, protein: protein!, fat: fat!, portion: portion!,is_user:true)
+        
+        
+    }
+    
+    @IBAction func test(_ sender: Any) {
+        print(MealRepository.shared.fetch().count)
+    }
     /*
     // MARK: - Navigation
 
