@@ -31,6 +31,8 @@ class PieChart: UIView {
         caloriesLeft.textAlignment = .center
         caloriesLeft.frame = CGRect(x: self.frame.width / 4 - 4, y: self.frame.width / 2 - 24, width: self.frame.width / 2 + 16, height: self.frame.width / 8)
         caloriesLeft.text = "2567 KCal left"
+        caloriesLeft.minimumScaleFactor = 0.5
+        caloriesLeft.adjustsFontSizeToFitWidth = true
         caloriesLeft.numberOfLines = 0
         caloriesLeft.sizeToFit()
         addSubview(caloriesLeft)
