@@ -626,7 +626,6 @@
 				7DFE39D5266E71FA00B8F66B /* PersistenceManager.swift in Sources */,
 				7DEF0C7C266FB2F9008A2566 /* MealDataStore.swift in Sources */,
 				00931E062671F2A200AFD031 /* DashboardCell.swift in Sources */,
-				7DEF0C86266FC734008A2566 /* Plan+UpdateMeal.swift in Sources */,
 				7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */,
 				AB6726E72670BD3F007313B6 /* OnboardingViewController.swift in Sources */,
 				7D4B86F3266E584A006E9169 /* PlanDataStore.swift in Sources */,
