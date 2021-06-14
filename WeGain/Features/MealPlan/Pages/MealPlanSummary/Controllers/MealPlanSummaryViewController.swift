@@ -9,19 +9,17 @@ import UIKit
 
 class MealPlanSummaryViewController: UIViewController {
 
-    @IBOutlet weak var DashboardView: UIView!
-    @IBOutlet weak var CarboProgressBar: UIProgressView!
-    @IBOutlet weak var ProteinProgressBar: UIProgressView!
-    @IBOutlet weak var FatProgressBar: UIView!
-    @IBOutlet weak var PieChartCalories: UIView!
+    @IBOutlet weak var MealPlanTableView: UITableView!
+    @IBOutlet weak var WeeklyCalendarView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DashboardView.layer.cornerRadius = 10
-        CarboProgressBar.transform = CarboProgressBar.transform.scaledBy(x: 1, y: 3)
-        ProteinProgressBar.transform = ProteinProgressBar.transform.scaledBy(x: 1, y: 3)
-        FatProgressBar.transform = FatProgressBar.transform.scaledBy(x: 1, y: 3)
-        // Do any additional setup after loading the view.
+        
+        let nib = UINib(nibName: "\(MealPlanTableViewCell.self)", bundle: nil)
+        MealPlanTableView.register(nib, forCellReuseIdentifier: "mealPlanTypeCell")
+        
+        let nib_calendar = UINib(nibName: "\(CalendarCell.self)", bundle: nil)
+        WeeklyCalendarView.register(nib_calendar, forCellWithReuseIdentifier: "calendarCell")
     }
 
 }

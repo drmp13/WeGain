@@ -23,25 +23,36 @@ class MealRepository {
         return meals ?? []
     }
     
-    func add(name: String, desc: String, type: FoodType, cal: Int16, carb: Int16, protein: Int16, fat: Int16, portion: Int16) {
+    func add(name: String, cal: Double, carb: Double, protein: Double, fat: Double, portion: Double, is_user: Bool = false) {
         let context = PersistenceManager.shared.persistentContainer.viewContext
         
         let meal = Meal(context: context)
         meal.name = name
-        meal.desc = desc
-        meal.type = type.rawValue
         meal.calories = cal
         meal.carbohydrate = carb
         meal.protein = protein
         meal.fat = fat
-        meal.protein = protein
+        meal.portion = portion
+        meal.is_user = is_user
         
-        try? context.save()
+        do{
+          try context.save()
+          print("Success!")
+          //response = ModelResponseDefault(query_status: true, message: "OK", data: nil)
+        } catch {
+          //response = ModelResponseDefault(query_status: false, message: "Error: \(error)", data: nil)
+          print("Error: \(error)")
+        }
+        
+       
     }
     
     func delete(meal: Meal) {
         let context = PersistenceManager.shared.persistentContainer.viewContext
         
+
         context.delete(meal)
+        
+        
     }
 }
