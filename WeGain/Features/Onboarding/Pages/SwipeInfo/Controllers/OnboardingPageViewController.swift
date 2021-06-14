@@ -65,7 +65,7 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource, UIPageVi
         if index < 0 || index >= pageTitle.count {
             return nil
         }
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard(name: "SwipeInfo", bundle: nil)
         if let pageContentViewController = storyBoard.instantiateViewController(withIdentifier: "onboardingContentVC") as? OnboardingContentViewController {
             pageContentViewController.index = index
             pageContentViewController.image = pageImage[index]
