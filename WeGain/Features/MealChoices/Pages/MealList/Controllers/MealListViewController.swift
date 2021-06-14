@@ -21,6 +21,7 @@ class MealListViewController: UIViewController {
     var buttonDidTapped: [Bool] = [false,false]
     var selectedCell = -1
     
+    var type: PlanType?
     
     struct mealTest {
         var name: String
@@ -39,18 +40,27 @@ class MealListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         mealListChoiceTableView.delegate = self
         mealListChoiceTableView.dataSource = self
         
         let nib = UINib(nibName: "\(MealListCell.self)", bundle: nil)
         mealListChoiceTableView.register(nib, forCellReuseIdentifier: "mealListCell")
         
-        print("\(MealListCell.self)")
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.tintColor = AppColor.red
+        title = self.type?.rawValue
         
-        
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneTapped))
+        self.navigationItem.rightBarButtonItem = doneButton
     }
-
+    
+    @IBAction func AddMealTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "ToAddMeal", sender: nil)
+    }
+    
+    @objc func doneTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension MealListViewController: UITableViewDelegate{

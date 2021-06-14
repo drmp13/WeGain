@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wa5-fV-NCg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wa5-fV-NCg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -243,11 +243,22 @@
                     <connections>
                         <outlet property="MealPlanTableView" destination="j3U-V6-Ne2" id="CGe-7T-3Hy"/>
                         <outlet property="WeeklyCalendarView" destination="u3I-iM-Hcu" id="uQA-8p-b1E"/>
+                        <segue destination="Qu8-VE-Lv9" kind="show" identifier="ToMealChoices" id="XNf-m5-jNP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="902.89855072463774" y="87.723214285714278"/>
+        </scene>
+        <!--MealList-->
+        <scene sceneID="wtR-ve-Ucg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MealList" id="Qu8-VE-Lv9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="M2q-IJ-OJY"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRv-gM-FGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1680" y="88"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3aZ-Oj-KEm">

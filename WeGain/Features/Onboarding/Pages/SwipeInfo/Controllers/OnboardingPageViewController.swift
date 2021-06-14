@@ -62,10 +62,14 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource, UIPageVi
     }
     
     func contentViewController(at index: Int) -> OnboardingContentViewController? {
-        if index < 0 || index >= pageTitle.count {
+        if index == pageTitle.count {
+            performSegue(withIdentifier: "ToFillUserDetail", sender: nil)
             return nil
         }
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        if index < 0 {
+            return nil
+        }
+        let storyBoard = UIStoryboard(name: "SwipeInfo", bundle: nil)
         if let pageContentViewController = storyBoard.instantiateViewController(withIdentifier: "onboardingContentVC") as? OnboardingContentViewController {
             pageContentViewController.index = index
             pageContentViewController.image = pageImage[index]
