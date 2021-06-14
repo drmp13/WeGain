@@ -11,7 +11,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="qXk-w4-LCE">
             <objects>
-                <viewController id="cjr-GM-kcw" customClass="OnboardingViewController" customModule="WeGain" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingVC" id="cjr-GM-kcw" customClass="OnboardingViewController" customModule="WeGain" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BNy-1d-01e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,10 +47,24 @@
             </objects>
             <point key="canvasLocation" x="-609" y="-265"/>
         </scene>
+        <!--FillDetails-->
+        <scene sceneID="nmm-OF-0do">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FillDetails" id="Aec-Ip-E7k" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Drk-bG-BGa"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gk2-qh-cWU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="683" y="-702"/>
+        </scene>
         <!--Onboarding Page View Controller-->
         <scene sceneID="2xn-Xa-And">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="YCp-a2-c0t" customClass="OnboardingPageViewController" customModule="WeGain" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="YCp-a2-c0t" customClass="OnboardingPageViewController" customModule="WeGain" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="Aec-Ip-E7k" kind="presentation" identifier="ToFillUserDetail" modalPresentationStyle="fullScreen" id="oxs-0w-4sy"/>
+                    </connections>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gML-Sr-KLC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="145" y="-265"/>
