@@ -32,6 +32,15 @@ class AddMealViewController: UIViewController {
         barButtonCloseUI.tintColor = UIColor(cgColor: getCGColorByHex(rgbValue: 0xC32F27))
     }
     
+
+    @objc func textFieldDidChange() {
+        textFieldEstCalorie.text = textFieldEstCalorie.text?.separateDecimal(separator:" ")
+        textFieldPortion.text = textFieldPortion.text?.separateDecimal(separator:" ")
+        textFieldCarbohydrate.text = textFieldCarbohydrate.text?.separateDecimal(separator:" ")
+        textFieldProtein.text = textFieldProtein.text?.separateDecimal(separator:" ")
+        textFieldFat.text = textFieldFat.text?.separateDecimal(separator:" ")
+    }
+    
     func getCGColorByHex(rgbValue: Int) -> CGColor{
         return CGColor(red: ((CGFloat)((rgbValue & 0xFF0000) >> 16))/255.0, green:((CGFloat)((rgbValue & 0xFF00) >> 8))/255.0, blue:((CGFloat)(rgbValue & 0xFF))/255.0, alpha:1.0)
     }
@@ -43,19 +52,25 @@ class AddMealViewController: UIViewController {
         
         if(isDecimalPad){
             textField.keyboardType = .decimalPad
+            textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         }
         
     }
     
     @IBAction func barButtonSave(_ sender: UIBarButtonItem) {
         let foodName = textFieldFoodName.text
-        let estCalorie = Double(textFieldEstCalorie.text ?? "0")
-        let portion = Double(textFieldPortion.text ?? "0")
-        let carbohydrate = Double(textFieldCarbohydrate.text ?? "0")
-        let protein = Double(textFieldProtein.text ?? "0")
-        let fat = Double(textFieldFat.text ?? "0")
+        let estCalorie = Double(textFieldEstCalorie.text?.deseparateDecimal(separator:" ") ?? "0")
+        let portion = Double(textFieldPortion.text?.deseparateDecimal(separator:" ") ?? "0")
+        let carbohydrate = Double(textFieldCarbohydrate.text?.deseparateDecimal(separator:" ") ?? "0")
+        let protein = Double(textFieldProtein.text?.deseparateDecimal(separator:" ") ?? "0")
+        let fat = Double(textFieldFat.text?.deseparateDecimal(separator:" ") ?? "0")
         
-        MealRepository.shared.add(name: foodName!, cal: estCalorie!, carb: carbohydrate!, protein: protein!, fat: fat!, portion: portion!,is_user:true)
+        if foodName == nil || estCalorie == nil || portion == nil || carbohydrate == nil || protein == nil || fat == nil {
+          self.present(createDefaultAlert(alertMessage: "Field cannot be empty!"), animated: true, completion: nil)
+        }else{
+            MealRepository.shared.add(name: foodName!, cal: estCalorie!, carb: carbohydrate!, protein: protein!, fat: fat!, portion: portion!,is_user:true)
+        }
+        
         
         
     }
@@ -73,4 +88,17 @@ class AddMealViewController: UIViewController {
     }
     */
 
+}
+
+extension Formatter {
+    static let withSeparator: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.groupingSeparator = " "
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+}
+
+extension String {
+    var formattedWithSeparator: String { Formatter.withSeparator.string(for: self) ?? "" }
 }
