@@ -56,7 +56,9 @@ class FillDetailsViewController: UIViewController{
         let activity_level = activityTextField.text!.prefix(3)
         
         profile_repo.add(gender: genderTextField.text!, height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activity_level)!)
-        
+
+        ViewRouter.shared.firstLaunched = true
+        performSegue(withIdentifier: "ToMainScreen", sender: nil)
     }
     
 }

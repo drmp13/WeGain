@@ -14,22 +14,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-      let launchedBefore = UserDefaults.standard.bool(forKey: "hasLaunched")
-      let launchStoryboard = UIStoryboard(name: "Main", bundle: nil) //nanti ganti
-      let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-      var vc: UIViewController
-      if launchedBefore
-      {
-        vc = mainStoryboard.instantiateInitialViewController()!
-      }
-      else
-      {
-        MealModel().initDefaultMeals()
-        vc = launchStoryboard.instantiateInitialViewController()!
-      }
-      UserDefaults.standard.set(true, forKey: "hasLaunched")
-      self.window?.rootViewController = vc
-      guard let _ = (scene as? UIWindowScene) else { return }
+        if let windowScene = scene as? UIWindowScene {
+            if !ViewRouter.shared.firstLaunched {
+                let storyboard = UIStoryboard(name: "SwipeInfo", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "OnboardingVC")
+                
+                let window = UIWindow(windowScene: windowScene)
+                window.rootViewController = vc
+                self.window = window
+                window.makeKeyAndVisible()
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

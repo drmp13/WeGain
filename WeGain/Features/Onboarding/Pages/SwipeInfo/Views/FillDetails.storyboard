@@ -72,6 +72,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ8-2y-cXB">
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ8-2y-cXB">
                                 <rect key="frame" x="147" y="686" width="120" height="30"/>
                                 <color key="backgroundColor" name="WGRed"/>
@@ -121,6 +122,7 @@
                             <constraint firstItem="3hM-t2-fZU" firstAttribute="top" secondItem="dFm-q0-aUz" secondAttribute="bottom" constant="31" id="iG3-cB-N9c"/>
                             <constraint firstItem="FCo-7d-hR2" firstAttribute="top" secondItem="jLk-61-dg4" secondAttribute="bottom" constant="18" id="mB0-32-tjP"/>
                             <constraint firstItem="3hM-t2-fZU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="65" id="oP4-jK-lpu"/>
+                            <constraint firstItem="dJ8-2y-cXB" firstAttribute="top" secondItem="3hM-t2-fZU" secondAttribute="bottom" constant="27" id="vPd-YB-f2A"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FNd-iQ-lrN" secondAttribute="trailing" constant="120" id="xOE-I2-u7W"/>
                             <constraint firstItem="9GI-wJ-Jsd" firstAttribute="centerX" secondItem="jLk-61-dg4" secondAttribute="centerX" id="yfO-W2-z6h"/>
                         </constraints>
@@ -131,11 +133,20 @@
                         <outlet property="heightTextField" destination="FCo-7d-hR2" id="hOO-zf-q5Q"/>
                         <outlet property="startButton" destination="dJ8-2y-cXB" id="k7q-Qn-E7L"/>
                         <outlet property="weightTextField" destination="CA2-oU-so1" id="CPW-Qu-5yN"/>
+                        <segue destination="wXW-tm-z4m" kind="presentation" identifier="ToMainScreen" modalPresentationStyle="fullScreen" id="hW3-bQ-LKk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="Spg-BG-FiR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="wXW-tm-z4m" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RSu-fz-X19" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="754" y="134"/>
         </scene>
     </scenes>
     <resources>
