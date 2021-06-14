@@ -18,7 +18,7 @@ class FillDetailsViewController: UIViewController{
     let gender = ["Female", "Male", "Prefer not to say"]
     let height = Array(120...220).map(String.init)
     let weight = Array(20...100).map(String.init)
-    let activity = ["1.1","1.2"]
+    let activity = ["1.2 - bed/chair bound", "1.4 - sedentary work", "1.6 - mostly sedentary", "1.8 - mostly standing/walking", "2.0 - heavy activity", "2.2 - significantly heavy activity"]
     
     var genderPickerView = UIPickerView()
     var heightPickerView = UIPickerView()
@@ -50,7 +50,15 @@ class FillDetailsViewController: UIViewController{
         
         startButton.layer.cornerRadius = 10
     }
-
+    @IBAction func getStarted(_ sender: Any) {
+        let profile_repo = ProfileRepository.shared
+        
+        let activity_level = activityTextField.text!.prefix(3)
+        
+        profile_repo.add(gender: genderTextField.text!, height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activity_level)!)
+        
+    }
+    
 }
 
 extension FillDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSource{
