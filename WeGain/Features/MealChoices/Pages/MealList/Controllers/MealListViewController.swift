@@ -21,25 +21,11 @@ class MealListViewController: UIViewController {
     var selectedCell = -1
     var selectedMeals = [Meal]()
     
-    
-    struct mealTest {
-        var name: String
-        var kcal: String
-        var karbo: String
-        var protein: String
-        var fat: String
-    }
-    
-    let testaja = [
-        mealTest(name: "Bubur Ayam (300g)", kcal: "150KCal", karbo: "150g", protein: "50g", fat: "40g"),
-        mealTest(name: "Sate Ayam (45g)", kcal: "50KCal", karbo: "10g", protein: "10g", fat: "30g")
-    ]
-    
+    var type: PlanType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         mealListChoiceTableView.delegate = self
         mealListChoiceTableView.dataSource = self
         
@@ -52,16 +38,28 @@ class MealListViewController: UIViewController {
         self.filteredMeals = self.meals
         
         buttonDidTapped = [Bool](repeating: false, count: meals.count)
+      
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.tintColor = AppColor.red
+        title = self.type?.rawValue
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneTapped))
+        self.navigationItem.rightBarButtonItem = doneButton
     }
     
-    @objc func doneButton(){
+    @IBAction func AddMealTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "ToAddMeal", sender: nil)
+    }
+    
+    @objc func doneTapped(_ sender: UIButton) {
         let today = Calendar.current.startOfDay(for: Date())
         
         for meal in selectedMeals{
-            PlanRepository.shared.addPlan(for: today, meal: meal, type: .breakfast)
+            PlanRepository.shared.addPlan(for: today, meal: meal, type: self.type.rawValue)
         }
+      
+        self.navigationController?.popViewController(animated: true)
     }
-
 }
 
 extension MealListViewController: UITableViewDelegate{

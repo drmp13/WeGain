@@ -33,6 +33,23 @@ extension MealPlanSummaryViewController: UITableViewDataSource {
 
 extension MealPlanSummaryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.section) \(indexPath.row)")
+        if indexPath.row == 0 {
+            switch indexPath.section {
+                case 0:
+                    navigateToMealChoices(withType: .breakfast)
+                case 1:
+                    navigateToMealChoices(withType: .lunch)
+                default:
+                    navigateToMealChoices(withType: .dinner)
+            }
+        }
+    }
+    
+    private func navigateToMealChoices(withType type: PlanType) {
+        let storyboard = UIStoryboard(name: "MealList", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MealListVC") as! MealListViewController
+        vc.type = type
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
