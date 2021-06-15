@@ -71,12 +71,14 @@ class AddMealViewController: UIViewController {
             MealRepository.shared.add(name: foodName!, cal: estCalorie!, carb: carbohydrate!, protein: protein!, fat: fat!, portion: portion!,is_user:true)
         }
         
+        self.dismiss(animated: true, completion: nil)
         
         
     }
     
     @IBAction func test(_ sender: Any) {
-        print(MealRepository.shared.fetch().count)
+        //print(MealRepository.shared.fetch().count)
+        self.dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
