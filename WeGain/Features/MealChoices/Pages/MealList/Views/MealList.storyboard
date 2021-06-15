@@ -17,18 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="MOJ-3U-OXD" userLabel="searchMeal">
-                                <rect key="frame" x="0.0" y="104" width="390" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Choices 0/900 KCal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC3-Jp-CY3" userLabel="mealChoiceKCalLabel">
-                                <rect key="frame" x="24" y="171" width="231" height="24"/>
+                                <rect key="frame" x="24" y="104" width="231" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" name="WGDark"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXl-6V-lLD" userLabel="addNewMealButton">
-                                <rect key="frame" x="340" y="171" width="26" height="29.333333333333343"/>
+                                <rect key="frame" x="340" y="101.33333333333333" width="26" height="29.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="tintColor" name="WGRed"/>
                                 <state key="normal" image="plus.circle.fill" catalog="system">
@@ -39,24 +35,21 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ptd-pL-7BX" userLabel="mealListChoiceTableView">
-                                <rect key="frame" x="24" y="211" width="342" height="599"/>
+                                <rect key="frame" x="24" y="144" width="342" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="MOJ-3U-OXD" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="3VE-Ws-BDe"/>
-                            <constraint firstItem="MOJ-3U-OXD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="BTl-ec-Jap"/>
-                            <constraint firstItem="jXl-6V-lLD" firstAttribute="top" secondItem="MOJ-3U-OXD" secondAttribute="bottom" constant="16" id="GaL-uh-QPy"/>
-                            <constraint firstItem="gC3-Jp-CY3" firstAttribute="top" secondItem="MOJ-3U-OXD" secondAttribute="bottom" constant="16" id="S9I-UN-5nb"/>
+                            <constraint firstItem="gC3-Jp-CY3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="MRl-Ae-BRt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jXl-6V-lLD" secondAttribute="trailing" constant="24" id="URj-Jx-DAS"/>
                             <constraint firstItem="gC3-Jp-CY3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="VhR-7S-7BR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ptd-pL-7BX" secondAttribute="bottom" id="WEe-Vf-QYf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ptd-pL-7BX" secondAttribute="trailing" constant="24" id="eJI-CK-9po"/>
+                            <constraint firstItem="jXl-6V-lLD" firstAttribute="centerY" secondItem="gC3-Jp-CY3" secondAttribute="centerY" id="iHO-7F-Lm1"/>
                             <constraint firstItem="ptd-pL-7BX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="kEw-wJ-LmQ"/>
                             <constraint firstItem="ptd-pL-7BX" firstAttribute="top" secondItem="gC3-Jp-CY3" secondAttribute="bottom" constant="16" id="rwy-p4-jLS"/>
-                            <constraint firstItem="MOJ-3U-OXD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="zET-Ra-177"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="8iH-4c-n2k"/>
@@ -64,18 +57,15 @@
                         <outlet property="addNewMealButton" destination="jXl-6V-lLD" id="cAh-Pk-L0D"/>
                         <outlet property="mealChoiceKCalLabel" destination="gC3-Jp-CY3" id="J6P-xV-ir2"/>
                         <outlet property="mealListChoiceTableView" destination="ptd-pL-7BX" id="9sb-eL-zZc"/>
-                        <outlet property="searchMeal" destination="MOJ-3U-OXD" id="6Kz-6i-EIb"/>
-                        <segue destination="gVt-dL-ZP8" kind="presentation" identifier="ToAddMeal" id="cUM-CW-jfF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="921.53846153846155" y="87.440758293838854"/>
         </scene>
-        <!--AddMeal-->
+        <!--Navigation Controller-->
         <scene sceneID="0kj-YM-eQI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hkr-cn-cl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KgR-u6-dUr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HQ1-tN-eWv">
@@ -87,6 +77,7 @@
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Q4J-SE-4mU"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkr-cn-cl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1555" y="-80"/>
         </scene>
