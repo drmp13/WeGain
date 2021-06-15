@@ -13,6 +13,8 @@
 		00F9619D26734B65005ECED9 /* MealPlanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F9619B26734B65005ECED9 /* MealPlanTableViewCell.xib */; };
 		00F961A126734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F961A026734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift */; };
 		00F961A726735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F961A626735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift */; };
+		6F835E7E2670F87400D3ECF5 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F835E7D2670F87400D3ECF5 /* Charts.swift */; };
+		6FE048D526711296005AA93E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE048D426711296005AA93E /* SwiftUICharts */; };
 		6F19475626751B6500AF6001 /* FillDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F19475526751B6400AF6001 /* FillDetails.storyboard */; };
 		6F19475A26751C5700AF6001 /* FillDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F19475926751C5700AF6001 /* FillDetailsViewController.swift */; };
 		6F835E7E2670F87400D3ECF5 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F835E7D2670F87400D3ECF5 /* Charts.swift */; };
@@ -80,6 +82,7 @@
 		00F9619B26734B65005ECED9 /* MealPlanTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealPlanTableViewCell.xib; sourceTree = "<group>"; };
 		00F961A026734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift"; sourceTree = "<group>"; };
 		00F961A626735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		6F835E7D2670F87400D3ECF5 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 		6F19475526751B6400AF6001 /* FillDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FillDetails.storyboard; sourceTree = "<group>"; };
 		6F19475926751C5700AF6001 /* FillDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillDetailsViewController.swift; sourceTree = "<group>"; };
 		6F835E7D2670F87400D3ECF5 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
@@ -728,11 +731,8 @@
 				9654B6E326776842003C4079 /* Alert.swift in Sources */,
 				7D4B86FA266E5B20006E9169 /* ProfileDataStore.swift in Sources */,
 				6F19475A26751C5700AF6001 /* FillDetailsViewController.swift in Sources */,
-				00F961A126734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift in Sources */,
 				9654B6E026776537003C4079 /* StringHelper.swift in Sources */,
-				7DEF0C80266FB39E008A2566 /* Plan+PlanType.swift in Sources */,
 				00F961A126734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift in Sources */,
-				7DEF0C80266FB39E008A2566 /* Plan+PlanType.swift in Sources */,
 				7DEF0C80266FB39E008A2566 /* Plan+PlanType.swift in Sources */,
 				7D4B870B266E6A0A006E9169 /* UserProfileViewController.swift in Sources */,
 				7D4B871B266E6FAD006E9169 /* AddMealViewController.swift in Sources */,

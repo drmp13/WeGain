@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="342" height="72"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150KCal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mof-p6-SAr" userLabel="mealListCellKCalLabel">
-                                        <rect key="frame" x="226.99999999999997" y="25" width="71.666666666666657" height="21.666666666666671"/>
+                                        <rect key="frame" x="226.99999999999997" y="25" width="71.666666666666657" height="22"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -40,8 +40,8 @@
                                             <action selector="didTapButtonWithSender:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zb1-m6-VDP"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bubur Ayam (300g)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9m-8V-Dh0" userLabel="mealListCellNameLabel">
-                                        <rect key="frame" x="16" y="25" width="161.66666666666666" height="21.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bubur Ayam (300g)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9m-8V-Dh0" userLabel="mealListCellNameLabel">
+                                        <rect key="frame" x="16" y="25" width="161.66666666666666" height="22"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -50,10 +50,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="EDF-J7-jaP" firstAttribute="leading" secondItem="Mof-p6-SAr" secondAttribute="trailing" constant="4" id="Lk7-uH-lk0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mof-p6-SAr" secondAttribute="bottom" constant="25" id="Q11-hz-Hfz"/>
                                     <constraint firstAttribute="trailing" secondItem="EDF-J7-jaP" secondAttribute="trailing" constant="16" id="Zge-QI-iYE"/>
+                                    <constraint firstAttribute="bottom" secondItem="R9m-8V-Dh0" secondAttribute="bottom" constant="25" id="cbQ-Qt-kN4"/>
                                     <constraint firstItem="R9m-8V-Dh0" firstAttribute="top" secondItem="4Ln-LU-dfl" secondAttribute="top" constant="25" id="cjo-zr-IzJ"/>
                                     <constraint firstItem="R9m-8V-Dh0" firstAttribute="leading" secondItem="4Ln-LU-dfl" secondAttribute="leading" constant="16" id="iYm-LB-Hds"/>
+                                    <constraint firstItem="Mof-p6-SAr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R9m-8V-Dh0" secondAttribute="trailing" id="kgb-98-rKD"/>
                                     <constraint firstItem="EDF-J7-jaP" firstAttribute="top" secondItem="4Ln-LU-dfl" secondAttribute="top" constant="25" id="mVS-5C-Eeq"/>
+                                    <constraint firstAttribute="bottom" secondItem="EDF-J7-jaP" secondAttribute="bottom" constant="25" id="pHS-Qd-NKg"/>
                                     <constraint firstItem="Mof-p6-SAr" firstAttribute="top" secondItem="4Ln-LU-dfl" secondAttribute="top" constant="25" id="wpZ-3R-Reu"/>
                                 </constraints>
                             </view>
@@ -79,7 +83,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLI-we-qnT" userLabel="detailProteinWeightLabel">
-                                        <rect key="frame" x="294" y="53.666666666666657" width="32" height="21.666666666666664"/>
+                                        <rect key="frame" x="294" y="53.666666666666664" width="32" height="21.666666666666664"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -144,6 +148,7 @@
                 <outlet property="mealListCellDetailView" destination="o7o-Bj-hop" id="yTU-XT-CYF"/>
                 <outlet property="mealListCellKCalLabel" destination="Mof-p6-SAr" id="6IT-pQ-VL1"/>
                 <outlet property="mealListCellNameLabel" destination="R9m-8V-Dh0" id="zqw-UW-ew8"/>
+                <outlet property="mealListCellStackView" destination="Jtk-pe-yrd" id="9wO-dw-SpP"/>
                 <outlet property="mealListCellView" destination="4Ln-LU-dfl" id="Hst-X7-Red"/>
             </connections>
             <point key="canvasLocation" x="26.153846153846153" y="117.65402843601895"/>
