@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol MyCellDelegate: AnyObject{
-    func didTapButtonInCell(_ cell: MealListCell)
-}
+//protocol MyCellDelegate: AnyObject{
+//    func didTapButtonInCell(_ cell: MealListCell)
+//}
 
 class MealListCell: UITableViewCell {
     
@@ -28,6 +28,19 @@ class MealListCell: UITableViewCell {
         actionBlock?()
     }
     
+    @IBOutlet weak var mealListCellStackView: UIStackView!
+    
+    
+//    var mealList: Meal? {
+//        didSet{
+//            setupView()
+//        }
+//    }
+//    
+//    private func setupView(){
+//
+//    }
+    
     //BottomView
     @IBOutlet weak var mealListCellDetailView: UIView!
     @IBOutlet weak var detailCarbohydrateLabel: UILabel!
@@ -37,4 +50,10 @@ class MealListCell: UITableViewCell {
     @IBOutlet weak var detailProteinWeightLabel: UILabel!
     @IBOutlet weak var detailFatWeightLabel: UILabel!
     
+    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        let bottomSpace: CGFloat = 8.0 // Let's assume the space you want is 10
+//        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: bottomSpace, right: 0))
+//    }
 }

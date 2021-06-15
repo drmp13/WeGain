@@ -18,17 +18,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="MOJ-3U-OXD" userLabel="searchMeal">
-                                <rect key="frame" x="0.0" y="148" width="390" height="51"/>
+                                <rect key="frame" x="0.0" y="104" width="390" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Choices 0/900 KCal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC3-Jp-CY3" userLabel="mealChoiceKCalLabel">
-                                <rect key="frame" x="24" y="215" width="231" height="24"/>
+                                <rect key="frame" x="24" y="171" width="231" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" name="WGDark"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXl-6V-lLD" userLabel="addNewMealButton">
-                                <rect key="frame" x="340" y="215" width="26" height="29.333333333333343"/>
+                                <rect key="frame" x="340" y="171" width="26" height="29.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="tintColor" name="WGRed"/>
                                 <state key="normal" image="plus.circle.fill" catalog="system">
@@ -36,7 +36,7 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ptd-pL-7BX" userLabel="mealListChoiceTableView">
-                                <rect key="frame" x="24" y="255" width="342" height="555"/>
+                                <rect key="frame" x="24" y="211" width="342" height="599"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -44,7 +44,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MOJ-3U-OXD" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="3VE-Ws-BDe"/>
-                            <constraint firstItem="MOJ-3U-OXD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="60" id="BTl-ec-Jap"/>
+                            <constraint firstItem="MOJ-3U-OXD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="BTl-ec-Jap"/>
                             <constraint firstItem="jXl-6V-lLD" firstAttribute="top" secondItem="MOJ-3U-OXD" secondAttribute="bottom" constant="16" id="GaL-uh-QPy"/>
                             <constraint firstItem="gC3-Jp-CY3" firstAttribute="top" secondItem="MOJ-3U-OXD" secondAttribute="bottom" constant="16" id="S9I-UN-5nb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jXl-6V-lLD" secondAttribute="trailing" constant="24" id="URj-Jx-DAS"/>
@@ -71,6 +71,7 @@
         <!--Navigation Controller-->
         <scene sceneID="kKc-J2-FSR">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkr-cn-cl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KgR-u6-dUr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HQ1-tN-eWv">
@@ -82,7 +83,6 @@
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Q4J-SE-4mU"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hkr-cn-cl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7.6923076923076916" y="87.440758293838854"/>
         </scene>

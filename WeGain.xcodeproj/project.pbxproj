@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F835E7E2670F87400D3ECF5 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F835E7D2670F87400D3ECF5 /* Charts.swift */; };
-		6FE048D526711296005AA93E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE048D426711296005AA93E /* SwiftUICharts */; };
 		005457E52671158500CD9B06 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005457E42671158500CD9B06 /* PieChart.swift */; };
 		00931E062671F2A200AFD031 /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00931E052671F2A200AFD031 /* DashboardCell.swift */; };
 		00F9619C26734B65005ECED9 /* MealPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F9619A26734B65005ECED9 /* MealPlanTableViewCell.swift */; };
 		00F9619D26734B65005ECED9 /* MealPlanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F9619B26734B65005ECED9 /* MealPlanTableViewCell.xib */; };
 		00F961A126734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F961A026734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift */; };
 		00F961A726735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F961A626735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift */; };
+		6F835E7E2670F87400D3ECF5 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F835E7D2670F87400D3ECF5 /* Charts.swift */; };
+		6FE048D526711296005AA93E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE048D426711296005AA93E /* SwiftUICharts */; };
 		7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FA63266E448F00791CD4 /* AppDelegate.swift */; };
 		7D23FA66266E448F00791CD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FA65266E448F00791CD4 /* SceneDelegate.swift */; };
 		7D23FA6B266E448F00791CD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D23FA69266E448F00791CD4 /* Main.storyboard */; };
@@ -67,13 +67,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6F835E7D2670F87400D3ECF5 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 		005457E42671158500CD9B06 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		00931E052671F2A200AFD031 /* DashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
 		00F9619A26734B65005ECED9 /* MealPlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanTableViewCell.swift; sourceTree = "<group>"; };
 		00F9619B26734B65005ECED9 /* MealPlanTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealPlanTableViewCell.xib; sourceTree = "<group>"; };
 		00F961A026734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift"; sourceTree = "<group>"; };
 		00F961A626735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		6F835E7D2670F87400D3ECF5 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 		7D23FA60266E448F00791CD4 /* WeGain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeGain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D23FA63266E448F00791CD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D23FA65266E448F00791CD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -694,7 +694,6 @@
 				968CEAA12672CD2B007071DB /* Response.swift in Sources */,
 				7D4B86FA266E5B20006E9169 /* ProfileDataStore.swift in Sources */,
 				00F961A126734CF1005ECED9 /* MealPlanSummaryViewController+TableViewDataSource+TableViewDelegate.swift in Sources */,
-				7DEF0C80266FB39E008A2566 /* Meal+FoodTypeEnum.swift in Sources */,
 				7DEF0C80266FB39E008A2566 /* Plan+PlanType.swift in Sources */,
 				7D4B870B266E6A0A006E9169 /* UserProfileViewController.swift in Sources */,
 				7D4B871B266E6FAD006E9169 /* AddMealViewController.swift in Sources */,
