@@ -9,25 +9,17 @@ import UIKit
 import SwiftUI
 
 class UserProfileViewController: UIViewController {
-    @IBSegueAction func chartSwiftUISegueHost(_ coder: NSCoder) -> UIViewController? {
-        return UIHostingController(coder: coder, rootView: Charts())
-    }
+    
     @IBOutlet weak var chartSwiftUI: UIView!
     
     @IBOutlet weak var syncSwitch: UISwitch!
-    @IBAction func syncSwitchDidChange(_ sender: UISwitch){
-        if sender.isOn {
-            let alert = UIAlertController(title: "Allow Access to Burned Calorie Data", message: "In order to connect with Health App you must allow WeGain to collect and use burned calorie data. We do not share this data without your consent.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Go to Settings", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            self.present(alert, animated: true)
-        }
-        else {
-            
-        }
-    }
-    
+
+    @IBOutlet weak var updateButton: UIButton!
+
     @IBOutlet weak var weightHistoryTableView: UITableView!
+    
+    var dateHistoryArray = [History]()
+    var weightHistoryArray = [History]()
     
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
@@ -37,77 +29,93 @@ class UserProfileViewController: UIViewController {
     let heightArray = Array(120...220).map(String.init)
     let activityArray = ["1.2 - bed/chair bound", "1.4 - sedentary work", "1.6 - mostly sedentary", "1.8 - mostly standing/walking", "2.0 - heavy activity", "2.2 - significantly heavy activity" ]
     
-    let dateHistoryArray = ["11 Oct 21", "12 Sep 21", "13 Aug 21", "12 Jul 21", "11 Jun 21", "10 May 21"]
-    let weightHistoryArray = ["60 kg", "57 kg", "53 kg", "50 kg", "52 kg", "50 kg"]
-    
     var weightPickerView = UIPickerView()
     var heightPickerView = UIPickerView()
     var activityPickerview = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        profilePickerView()
         
-        func getCGColorByHex(rgbValue: Int) -> CGColor{
-            return CGColor(red: ((CGFloat)((rgbValue & 0xFF0000) >> 16))/255.0, green:((CGFloat)((rgbValue & 0xFF00) >> 8))/255.0, blue:((CGFloat)(rgbValue & 0xFF))/255.0, alpha:1.0)
-        }
+        weightTextField.placeholder = "45"
+        heightTextField.placeholder = "175"
+        activityTextField.placeholder = "1.8 - mostly standing/walking"
         
-        func formatTextField_Default(textField: UITextField, isDecimalPad: Bool = false){
-            textField.layer.borderColor = getCGColorByHex(rgbValue: 0xC32F27)
+        weightHistoryTableView.delegate = self
+        weightHistoryTableView.dataSource = self
+    }
+    
+    func profilePickerView(){
+        let pickers = [weightPickerView, heightPickerView, activityPickerview]
+        let textFields = [weightTextField, heightTextField, activityTextField]
+        
+        let toolbar = UIToolbar()
+        toolbar.barStyle = UIBarStyle.default
+        toolbar.sizeToFit()
+        
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelButtonTapped))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneButtonTapped))
+        
+        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        
+        func formatTextField_Default(textField: UITextField){
+            textField.layer.borderColor = AppColor.red?.cgColor
             textField.layer.borderWidth = 2
             textField.layer.cornerRadius = 10
         }
         
-        formatTextField_Default(textField: weightTextField)
-        formatTextField_Default(textField: heightTextField)
-        formatTextField_Default(textField: activityTextField)
-            
+        for picker in pickers{
+            picker.delegate = self
+            picker.dataSource = self
+        }
+        
+        for textField in textFields{
+            textField?.inputAccessoryView = toolbar
+            textField?.textAlignment = .center
+            formatTextField_Default(textField: textField ?? weightTextField)
+        }
+        
         weightTextField.inputView = weightPickerView
         heightTextField.inputView = heightPickerView
         activityTextField.inputView = activityPickerview
         
-        weightTextField.placeholder = "60"
-        heightTextField.placeholder = "175"
-        activityTextField.placeholder = "1.6 - mostly sedentary"
-        
-        weightTextField.textAlignment = .center
-        heightTextField.textAlignment = .center
-        activityTextField.textAlignment = .center
-        
-        weightTextField.layer.borderColor = UIColor.red.cgColor
-        
-        weightPickerView.delegate = self
-        weightPickerView.dataSource = self
-        
-        heightPickerView.delegate = self
-        heightPickerView.dataSource = self
-        
-        activityPickerview.delegate = self
-        activityPickerview.dataSource = self
-        
-        weightHistoryTableView.delegate = self
-        weightHistoryTableView.dataSource = self
-        
         weightPickerView.tag = 1
         heightPickerView.tag = 2
         activityPickerview.tag = 3
-        
-        let toolbar = UIToolbar()
-        toolbar.barStyle = .default
-        toolbar.sizeToFit()
-        
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneButtonTapped))
-        toolbar.setItems([spaceButton, doneButton], animated: false)
-        
-        weightTextField.inputAccessoryView = toolbar
-        heightTextField.inputAccessoryView = toolbar
-        activityTextField.inputAccessoryView = toolbar
     }
     
     @objc func doneButtonTapped(){
         weightTextField.resignFirstResponder()
         heightTextField.resignFirstResponder()
         activityTextField.resignFirstResponder()
+    }
+    
+    @objc func cancelButtonTapped() {
+        weightTextField.resignFirstResponder()
+        heightTextField.resignFirstResponder()
+        activityTextField.resignFirstResponder()
+    }
+    
+    @IBSegueAction func chartSwiftUISegueHost(_ coder: NSCoder) -> UIViewController? {
+        return UIHostingController(coder: coder, rootView: Charts())
+    }
+    
+    @IBAction func syncSwitchDidChange(_ sender: UISwitch){
+        if sender.isOn {
+            self.present(createHealthAppAlert(alertMessage: "In order to connect with Health App you must allow WeGain to collect and use burned calorie data. We don't share this data without your consent."), animated: true, completion: nil)
+        }
+        else {
+        }
+    }
+    
+    @IBAction func updateButtonDidTapped(_ sender: Any) {
+        let profile_repo = ProfileRepository.shared
+        
+        let activity_level = activityTextField.text!.prefix(3)
+        
+        profile_repo.add(gender: "", height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activity_level)!)
     }
 }
 
@@ -126,7 +134,7 @@ extension UserProfileViewController: UIPickerViewDataSource, UIPickerViewDelegat
         case 3:
             return activityArray.count
         default:
-            return 2
+            return 1
         }
     }
     
@@ -147,13 +155,10 @@ extension UserProfileViewController: UIPickerViewDataSource, UIPickerViewDelegat
         switch pickerView.tag {
         case 1:
             weightTextField.text = weightArray[row]
-            //weightTextField.resignFirstResponder()
         case 2:
             heightTextField.text = heightArray[row]
-            //heightTextField.resignFirstResponder()
         case 3:
             activityTextField.text = activityArray[row]
-            //activityTextField.resignFirstResponder()
         default:
             return
         }
@@ -167,11 +172,9 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weightHistoryTableView.dequeueReusableCell(withIdentifier: "historyWeightCell") as! WeightHistoryTableViewCell
-        let dateHistory = dateHistoryArray[indexPath.row]
-        let weightHistory = weightHistoryArray[indexPath.row]
         
-        cell.dateHistoryWeightLabel.text = dateHistory
-        cell.weightHistoryLabel.text = weightHistory
+        cell.dateHistoryWeightLabel.text = String(format: " ", dateHistoryArray[indexPath.section].date! as CVarArg)
+        cell.weightHistoryLabel.text = String(format: "%.0fkg", weightHistoryArray[indexPath.section].weight)
         
         return cell
     }
