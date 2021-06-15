@@ -20,6 +20,13 @@ class MealPlanSummaryViewController: UIViewController {
         
         let nib_calendar = UINib(nibName: "\(CalendarCell.self)", bundle: nil)
         WeeklyCalendarView.register(nib_calendar, forCellWithReuseIdentifier: "calendarCell")
+        
+        let profile = ProfileRepository.shared.fetch()
+        
+        print(profile.activity)
+        print(profile.height)
+        print(profile.weight)
+        print(profile.gender)
     }
 
 }
