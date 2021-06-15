@@ -55,7 +55,7 @@ class MealListViewController: UIViewController {
         let today = Calendar.current.startOfDay(for: Date())
         
         for meal in selectedMeals{
-            PlanRepository.shared.addPlan(for: today, meal: meal, type: self.type.rawValue)
+            PlanRepository.shared.addPlan(for: today, meal: meal, type: self.type!)
         }
       
         self.navigationController?.popViewController(animated: true)
