@@ -9,7 +9,7 @@ import UIKit
 
 class MealListViewController: UIViewController {
 
-    @IBOutlet weak var searchMeal: UISearchBar!
+//    @IBOutlet weak var searchMeal: UISearchBar!
     @IBOutlet weak var mealChoiceKCalLabel: UILabel!
     @IBOutlet weak var addNewMealButton: UIButton!
     @IBOutlet weak var mealListChoiceTableView: UITableView!
@@ -29,7 +29,7 @@ class MealListViewController: UIViewController {
         mealListChoiceTableView.delegate = self
         mealListChoiceTableView.dataSource = self
         
-        searchMeal.delegate = self
+//        searchMeal.delegate = self
         
         let nib = UINib(nibName: "\(MealListCell.self)", bundle: nil)
         mealListChoiceTableView.register(nib, forCellReuseIdentifier: "mealListCell")
@@ -45,6 +45,13 @@ class MealListViewController: UIViewController {
         
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneTapped))
         self.navigationItem.rightBarButtonItem = doneButton
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
     }
     
     @IBAction func AddMealTapped(_ sender: UIButton) {
@@ -184,7 +191,7 @@ extension MealListViewController: UITableViewDataSource{
     }
 }
 
-extension MealListViewController: UISearchBarDelegate{
+extension MealListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             self.filteredMeals = self.meals
@@ -193,6 +200,12 @@ extension MealListViewController: UISearchBarDelegate{
                 (meals.name?.contains(searchText))!
             }
         }
+        mealListChoiceTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.filteredMeals = self.meals
+        
         mealListChoiceTableView.reloadData()
     }
 }
