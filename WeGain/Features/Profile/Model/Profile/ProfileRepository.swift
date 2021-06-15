@@ -24,20 +24,12 @@ class ProfileRepository {
     }
     
     func add(gender: String, height: Double, weight: Double, activity: Double) {
-        let context = PersistenceManager.shared.persistentContainer.viewContext
+        let profile = Profile(activity: activity, gender: gender, height: height, weight: weight)
         
-        let profile = Profile(context: context)
-        profile.gender = gender
-        profile.height = height
-        profile.weight = weight
-        profile.activity = activity
-        
-        try? context.save()
+        self.dataStore?.save(profile)
     }
     
     func edit(profile: Profile) {
-        let context = PersistenceManager.shared.persistentContainer.viewContext
-        
-        try? context.save()
+        self.dataStore?.save(profile)
     }
 }
