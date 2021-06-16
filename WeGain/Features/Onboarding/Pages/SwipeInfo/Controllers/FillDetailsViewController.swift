@@ -10,17 +10,20 @@ import UIKit
 class FillDetailsViewController: UIViewController{
     
     @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var activityTextField: UITextField!
     @IBOutlet weak var startButton: UIButton!
     
-    let gender = ["Female", "Male", "Prefer not to say"]
+    let gender = ["Female", "Male"]
     let height = Array(120...220).map(String.init)
     let weight = Array(20...100).map(String.init)
+    let age = Array(1...100).map(String.init)
     let activity = ["1.2 - bed/chair bound", "1.4 - sedentary work", "1.6 - mostly sedentary", "1.8 - mostly standing/walking", "2.0 - heavy activity", "2.2 - significantly heavy activity"]
     
     var genderPickerView = UIPickerView()
+    var agePickerView = UIPickerView()
     var heightPickerView = UIPickerView()
     var weightPickerView = UIPickerView()
     var activityPickerView = UIPickerView()
@@ -31,7 +34,7 @@ class FillDetailsViewController: UIViewController{
     }
     
     func setUpPickerView(){
-        let pickers = [genderPickerView,heightPickerView,weightPickerView,activityPickerView]
+        let pickers = [genderPickerView,agePickerView, heightPickerView,weightPickerView,activityPickerView]
         
         for picker in pickers{
             picker.delegate = self
@@ -39,6 +42,7 @@ class FillDetailsViewController: UIViewController{
         }
         
         genderTextField.inputView = genderPickerView
+        ageTextField.inputView = agePickerView
         heightTextField.inputView = heightPickerView
         weightTextField.inputView = weightPickerView
         activityTextField.inputView = activityPickerView
@@ -47,20 +51,39 @@ class FillDetailsViewController: UIViewController{
         heightPickerView.tag = 2
         weightPickerView.tag = 3
         activityPickerView.tag = 4
+        agePickerView.tag = 5
         
         startButton.layer.cornerRadius = 10
     }
     @IBAction func getStarted(_ sender: Any) {
         let profile_repo = ProfileRepository.shared
         
-        let activity_level = activityTextField.text!.prefix(3)
+        let gender = genderTextField.text!
+        let age = Int(ageTextField.text!)!
+        let height = Double(heightTextField.text!)!
+        let weight = Double(weightTextField.text!)!
+        let activity_level = Double(activityTextField.text!.prefix(3))!
         
-        profile_repo.add(gender: genderTextField.text!, height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activity_level)!)
-
+        profile_repo.add(gender: gender, age: age, height: height, weight: weight, activity: activity_level)
+        
+        let bmi = self.getBMI(gender: gender, weight: weight, height: height, age: age)
+        CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * activity_level, for: Calendar.current.startOfDay(for: Date()))
+        
         ViewRouter.shared.firstLaunched = true
         performSegue(withIdentifier: "ToMainScreen", sender: nil)
     }
     
+    func getBMI(gender: String, weight: Double, height: Double, age: Int) -> Double {
+        var bmi: Double = 0
+        
+        if gender == "Male" {
+            bmi = 66 + (13.7 * weight) + (5 * height) + (6.8 * Double(age))
+        } else {
+            bmi = 66.5 + (9.6 * weight) + (1.7 * height) + (4.7 * Double(age))
+        }
+        
+        return bmi
+    }
 }
 
 extension FillDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -78,6 +101,8 @@ extension FillDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSourc
             return weight.count
         case 4:
             return activity.count
+        case 5:
+            return age.count
         default:
             return 1
         }
@@ -93,6 +118,8 @@ extension FillDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSourc
             return weight[row]
         case 4:
             return activity[row]
+        case 5:
+            return age[row]
         default:
             return "Data not found"
         }
@@ -112,6 +139,9 @@ extension FillDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         case 4:
             activityTextField.text = activity[row]
             activityTextField.resignFirstResponder()
+        case 5:
+            ageTextField.text = age[row]
+            ageTextField.resignFirstResponder()
         default:
             return
         }
