@@ -44,6 +44,9 @@ class UserProfileViewController: UIViewController {
         
         weightHistoryTableView.delegate = self
         weightHistoryTableView.dataSource = self
+        
+        updateButton.layer.cornerRadius = 10
+        
     }
     
     func profilePickerView(){
@@ -111,11 +114,7 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBAction func updateButtonDidTapped(_ sender: Any) {
-        let profile_repo = ProfileRepository.shared
-        
-        let activity_level = activityTextField.text!.prefix(3)
-        
-        profile_repo.add(gender: "", height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activity_level)!)
+        ProfileRepository.shared.add(gender: "", height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activityTextField.text!.prefix(3))!)
     }
 }
 
