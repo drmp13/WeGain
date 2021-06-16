@@ -11,27 +11,33 @@ class CalorieHistoryRepository {
     static let shared = CalorieHistoryRepository(dataStore: CalorieHistoryDataStore())
     
     var dataStore: CalorieHistoryDataStore?
-    var calorieHistories: [CalorieHistory]?
     
     private init(dataStore: CalorieHistoryDataStore) {
         self.dataStore = dataStore
     }
     
-    func fetch() -> [CalorieHistory] {
-        self.calorieHistories = self.dataStore?.fetch()
-        
-        return self.calorieHistories ?? []
-    }
-    
     func getCalorieHistory(for date: Date) -> Double {
-        let history = self.calorieHistories?.first(where: {
-            $0.date == date
-        })
+        let history = self.dataStore?.fetchByDate(date: date)
         
         if let foundHistory = history {
             return foundHistory.max_calorie
         } else {
-            return -1
+            return 0
         }
+    }
+    
+    func addCalorieHistory(maxCalorie: Double, for date: Date) {
+        let context = PersistenceManager.shared.persistentContainer.viewContext
+        
+        let history = self.dataStore?.fetchByDate(date: date)
+        if history == nil {
+            history?.max_calorie = maxCalorie
+        } else {
+            let calorieHistory = CalorieHistory(context: context)
+            calorieHistory.max_calorie = maxCalorie
+            calorieHistory.date = date
+        }
+        
+        try? context.save()
     }
 }

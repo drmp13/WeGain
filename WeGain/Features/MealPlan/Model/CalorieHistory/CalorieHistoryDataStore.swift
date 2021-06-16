@@ -8,8 +8,10 @@
 import CoreData
 
 struct CalorieHistoryDataStore {
-    func fetch() -> [CalorieHistory] {
+    func fetchByDate(date: Date) -> CalorieHistory? {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CalorieHistory")
+        let predicate = NSPredicate(format: "date == %@", date as CVarArg)
+        request.predicate = predicate
         
         let context = PersistenceManager.shared.persistentContainer.viewContext
         
@@ -19,7 +21,7 @@ struct CalorieHistoryDataStore {
         } catch {
             print("Could not fetch plan data")
         }
-        
-        return fetchedResult
+
+        return fetchedResult.count == 0 ? nil : fetchedResult[0]
     }
 }
