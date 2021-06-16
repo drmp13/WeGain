@@ -66,23 +66,22 @@ class FillDetailsViewController: UIViewController{
         
         profile_repo.add(gender: gender, age: age, height: height, weight: weight, activity: activity_level)
         
-        let bmi = self.getBMI(gender: gender, weight: weight, height: height, age: age)
+        var bmi: Double {
+            var bmi: Double = 0
+            
+            if gender == "Male" {
+                bmi = 66 + (13.7 * weight) + (5 * height) + (6.8 * Double(age))
+            } else {
+                bmi = 66.5 + (9.6 * weight) + (1.7 * height) + (4.7 * Double(age))
+            }
+            
+            return bmi
+        }
+        
         CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * activity_level, for: Calendar.current.startOfDay(for: Date()))
         
         ViewRouter.shared.firstLaunched = true
         performSegue(withIdentifier: "ToMainScreen", sender: nil)
-    }
-    
-    func getBMI(gender: String, weight: Double, height: Double, age: Int) -> Double {
-        var bmi: Double = 0
-        
-        if gender == "Male" {
-            bmi = 66 + (13.7 * weight) + (5 * height) + (6.8 * Double(age))
-        } else {
-            bmi = 66.5 + (9.6 * weight) + (1.7 * height) + (4.7 * Double(age))
-        }
-        
-        return bmi
     }
 }
 
