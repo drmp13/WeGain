@@ -15,6 +15,10 @@ class DashboardCell: UIView {
     @IBOutlet weak var CaloriesEatenLabel: UILabel!
     @IBOutlet weak var CaloriesBurnedLabel: UILabel!
     
+    @IBOutlet weak var carboProgressLabel: UILabel!
+    @IBOutlet weak var proteinProgressLabel: UILabel!
+    @IBOutlet weak var fatProgressLabel: UILabel!
+    
     private var backgroundMask = CAShapeLayer()
     
     override func draw(_ rect: CGRect) {
