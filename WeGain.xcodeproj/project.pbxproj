@@ -52,6 +52,7 @@
 		7DEF0C8E266FCE60008A2566 /* WeGainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF0C8D266FCE60008A2566 /* WeGainTests.swift */; };
 		7DFE39D2266E712800B8F66B /* AddMeal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE39D1266E712800B8F66B /* AddMeal.storyboard */; };
 		7DFE39D5266E71FA00B8F66B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE39D4266E71FA00B8F66B /* PersistenceManager.swift */; };
+		9626CFA2267897C9003C96E7 /* DateTimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626CFA1267897C9003C96E7 /* DateTimeHelper.swift */; };
 		9654B6E026776537003C4079 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654B6DF26776537003C4079 /* StringHelper.swift */; };
 		9654B6E326776842003C4079 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654B6E226776842003C4079 /* Alert.swift */; };
 		968CEA9B2672CAE8007071DB /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CEA9A2672CAE8007071DB /* MealModel.swift */; };
@@ -123,6 +124,7 @@
 		7DEF0C8F266FCE60008A2566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DFE39D1266E712800B8F66B /* AddMeal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMeal.storyboard; sourceTree = "<group>"; };
 		7DFE39D4266E71FA00B8F66B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		9626CFA1267897C9003C96E7 /* DateTimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeHelper.swift; sourceTree = "<group>"; };
 		9654B6DF26776537003C4079 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		9654B6E226776842003C4079 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		968CEA9A2672CAE8007071DB /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				7DFE39D4266E71FA00B8F66B /* PersistenceManager.swift */,
 				9654B6DF26776537003C4079 /* StringHelper.swift */,
 				7D1D6C4626775BAB006A054F /* ViewRouter.swift */,
+				9626CFA1267897C9003C96E7 /* DateTimeHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				7D4B870F266E6CED006E9169 /* MealPlanSummaryViewController.swift in Sources */,
 				7D4B86DC266E4E5C006E9169 /* AppColor.swift in Sources */,
 				7D23FA66266E448F00791CD4 /* SceneDelegate.swift in Sources */,
+				9626CFA2267897C9003C96E7 /* DateTimeHelper.swift in Sources */,
 				7DEF0C82266FB59B008A2566 /* Profile+GenderType.swift in Sources */,
 				AB6726ED2670BE3C007313B6 /* OnboardingContentViewController.swift in Sources */,
 				7D4B8715266E6D9F006E9169 /* MealListViewController.swift in Sources */,
