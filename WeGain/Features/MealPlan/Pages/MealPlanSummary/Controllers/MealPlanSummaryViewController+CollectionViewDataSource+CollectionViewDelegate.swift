@@ -64,8 +64,9 @@ extension MealPlanSummaryViewController: UICollectionViewDelegate {
         refreshMealPlan(tableView: mealPlanBreakfast)
         refreshMealPlan(tableView: mealPlanLunch)
         refreshMealPlan(tableView: mealPlanDinner)
-
         selectedItem = indexPath.row
         collectionView.reloadData()
+
+        refreshConstraint()
     }
 }

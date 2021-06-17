@@ -17,7 +17,7 @@ class MealPlanSummaryViewController: UIViewController {
     @IBOutlet weak var viewBreakfast: UIView!
     @IBOutlet weak var viewLunch: UIView!
     @IBOutlet weak var viewDinner: UIView!
-    
+    @IBOutlet weak var viewMain: UIView!
 
 
 
@@ -26,7 +26,8 @@ class MealPlanSummaryViewController: UIViewController {
     var planLunch = [Plan]()
     var planDinner = [Plan]()
     var selected_date = helper_getCurrentDate(format: "yyyy-MM-dd")
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +37,7 @@ class MealPlanSummaryViewController: UIViewController {
       planLunch = fetchDailyPlan(plan_type: .lunch, selected_date: selected_date)
       planDinner = fetchDailyPlan(plan_type: .dinner, selected_date: selected_date)
 
-      
+
         
         
         let nib = UINib(nibName: "\(MealPlanCell.self)", bundle: nil)
@@ -69,9 +70,13 @@ class MealPlanSummaryViewController: UIViewController {
         viewDinner.isUserInteractionEnabled = true
 
         //mealPlanBreakfast.tableFooterView = UIView(frame: .zero)
-    
-
+        refreshConstraint()
   }
+
+  override func viewDidAppear(_ animated: Bool) {
+    //refreshConstraint()
+  }
+
 
   @objc func setCategoryIndexCG1(tapGestureRecognizer: UITapGestureRecognizer){
     navigateToMealChoices(withType: .breakfast)
@@ -86,6 +91,32 @@ class MealPlanSummaryViewController: UIViewController {
   func fetchDailyPlan(plan_type: PlanType, selected_date: String) -> [Plan]{
     return PlanRepository.shared.fetchByDate(date: helper_createDate(date: selected_date+" 00:00:00 +7"), type: plan_type)
   }
+
+  func refreshConstraint(){
+    let heightConstraintBreakfast = mealPlanBreakfast.heightAnchor.constraint(equalToConstant: CGFloat(78*planBreakfast.count))
+    mealPlanBreakfast.removeConstraints(mealPlanBreakfast.constraints)
+    mealPlanBreakfast.translatesAutoresizingMaskIntoConstraints = false
+    mealPlanBreakfast.addConstraints([heightConstraintBreakfast])
+
+    let heightConstraintLunch = mealPlanLunch.heightAnchor.constraint(equalToConstant: CGFloat(78*planLunch.count))
+    mealPlanLunch.removeConstraints(mealPlanLunch.constraints)
+    mealPlanLunch.translatesAutoresizingMaskIntoConstraints = false
+    mealPlanLunch.addConstraints([heightConstraintLunch])
+
+    let heightConstraintDinner = mealPlanDinner.heightAnchor.constraint(equalToConstant: CGFloat(78*planDinner.count))
+    mealPlanDinner.removeConstraints(mealPlanDinner.constraints)
+    mealPlanDinner.translatesAutoresizingMaskIntoConstraints = false
+    mealPlanDinner.addConstraints([heightConstraintDinner])
+
+    print("CONSTRN BRKFS: \(mealPlanBreakfast.constraints)")
+    print("CONSTRN LUNCH: \(mealPlanLunch.constraints)")
+    print("CONSTRN DINNER: \(mealPlanDinner.constraints)")
+
+  }
+
+
+
+
  
     
     private func navigateToMealChoices(withType type: PlanType) {
