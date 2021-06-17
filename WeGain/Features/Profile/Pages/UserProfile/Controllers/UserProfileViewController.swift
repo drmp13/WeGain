@@ -28,6 +28,7 @@ class UserProfileViewController: UIViewController {
     let weightArray = Array(20...100).map(String.init)
     let heightArray = Array(120...220).map(String.init)
     let activityArray = ["1.2 - bed/chair bound", "1.4 - sedentary work", "1.6 - mostly sedentary", "1.8 - mostly standing/walking", "2.0 - heavy activity", "2.2 - significantly heavy activity" ]
+    var historyArray: [History] = []
     
     var weightPickerView = UIPickerView()
     var heightPickerView = UIPickerView()
@@ -124,6 +125,15 @@ class UserProfileViewController: UIViewController {
     
     @IBAction func updateButtonDidTapped(_ sender: Any) {
         ProfileRepository.shared.add(gender: "", height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activityTextField.text!.prefix(3))!)
+
+    func getHistoryData(){
+        let history_repo = HistoryRepository.shared
+        let histories = history_repo.fetch()
+        
+        for hist in histories{
+            historyArray.append(hist)
+        }
+        
     }
 }
 
@@ -175,14 +185,21 @@ extension UserProfileViewController: UIPickerViewDataSource, UIPickerViewDelegat
 
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dateHistoryArray.count
+        return historyArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weightHistoryTableView.dequeueReusableCell(withIdentifier: "historyWeightCell") as! WeightHistoryTableViewCell
+      
+        let dateHistory = historyArray[indexPath.row].date
+        let weightHistory = historyArray[indexPath.row].weight
         
-        cell.dateHistoryWeightLabel.text = String(format: " ", dateHistoryArray[indexPath.section].date! as CVarArg)
-        cell.weightHistoryLabel.text = String(format: "%.0fkg", weightHistoryArray[indexPath.section].weight)
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "YY/MM/dd"
+        
+        cell.dateHistoryWeightLabel.text = dateFormatter.string(from: dateHistory!)
+        cell.weightHistoryLabel.text = String(weightHistory)
         
         return cell
     }
