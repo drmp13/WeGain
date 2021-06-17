@@ -43,10 +43,10 @@ class FillDetailsViewController: UIViewController{
         weightTextField.inputView = weightPickerView
         activityTextField.inputView = activityPickerView
         
-        genderTextField.tag = 1
-        heightTextField.tag = 2
-        weightTextField.tag = 3
-        activityTextField.tag = 4
+        genderPickerView.tag = 1
+        heightPickerView.tag = 2
+        weightPickerView.tag = 3
+        activityPickerView.tag = 4
         
         startButton.layer.cornerRadius = 10
     }

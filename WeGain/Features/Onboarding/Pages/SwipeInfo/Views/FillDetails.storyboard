@@ -72,7 +72,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ8-2y-cXB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ8-2y-cXB">
                                 <rect key="frame" x="147" y="686" width="120" height="30"/>
                                 <color key="backgroundColor" name="WGRed"/>
                                 <constraints>
@@ -111,13 +111,17 @@
                             <constraint firstItem="atL-lX-IKQ" firstAttribute="top" secondItem="FNd-iQ-lrN" secondAttribute="bottom" constant="50" id="MXc-HI-tiv"/>
                             <constraint firstItem="9GI-wJ-Jsd" firstAttribute="top" secondItem="CA2-oU-so1" secondAttribute="bottom" constant="18" id="OVL-LY-Qe8"/>
                             <constraint firstItem="o4b-bU-7EM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="RYH-1M-33U"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CA2-oU-so1" secondAttribute="trailing" constant="20" id="Rbt-Op-1fu"/>
                             <constraint firstItem="dFm-q0-aUz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="65" id="SVA-4O-CKe"/>
                             <constraint firstItem="dFm-q0-aUz" firstAttribute="top" secondItem="Aw3-SG-glq" secondAttribute="bottom" constant="31" id="Sod-yj-LQp"/>
                             <constraint firstItem="Aw3-SG-glq" firstAttribute="top" secondItem="atL-lX-IKQ" secondAttribute="bottom" constant="31" id="T9M-bE-do6"/>
                             <constraint firstItem="jLk-61-dg4" firstAttribute="leading" secondItem="atL-lX-IKQ" secondAttribute="trailing" constant="78" id="Uit-nr-AP0"/>
                             <constraint firstItem="9GI-wJ-Jsd" firstAttribute="leading" secondItem="3hM-t2-fZU" secondAttribute="trailing" constant="35" id="Wmq-xj-lBg"/>
                             <constraint firstItem="dJ8-2y-cXB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="XPC-xd-jkk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jLk-61-dg4" secondAttribute="trailing" constant="20" id="Xf0-dl-ClP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FCo-7d-hR2" secondAttribute="trailing" constant="20" id="a09-px-MH7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="o4b-bU-7EM" secondAttribute="trailing" constant="20" id="ebZ-RE-NvP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9GI-wJ-Jsd" secondAttribute="trailing" constant="20" id="fKt-Z2-dcD"/>
                             <constraint firstItem="3hM-t2-fZU" firstAttribute="top" secondItem="dFm-q0-aUz" secondAttribute="bottom" constant="31" id="iG3-cB-N9c"/>
                             <constraint firstItem="FCo-7d-hR2" firstAttribute="top" secondItem="jLk-61-dg4" secondAttribute="bottom" constant="18" id="mB0-32-tjP"/>
                             <constraint firstItem="3hM-t2-fZU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="65" id="oP4-jK-lpu"/>
@@ -149,7 +153,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WGOnboarding4" width="331" height="303"/>
+        <image name="WGOnboarding4" width="165.5" height="151.5"/>
         <namedColor name="WGDark">
             <color red="0.22400000691413879" green="0.22400000691413879" blue="0.22699999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

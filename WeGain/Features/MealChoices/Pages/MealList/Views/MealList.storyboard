@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Choices 0/900 KCal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC3-Jp-CY3" userLabel="mealChoiceKCalLabel">
-                                <rect key="frame" x="24" y="104" width="231" height="24"/>
+                                <rect key="frame" x="24" y="60" width="231" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" name="WGDark"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXl-6V-lLD" userLabel="addNewMealButton">
-                                <rect key="frame" x="340" y="101.33333333333333" width="26" height="29.333333333333329"/>
+                                <rect key="frame" x="340" y="57.333333333333336" width="26" height="29.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="tintColor" name="WGRed"/>
                                 <state key="normal" image="plus.circle.fill" catalog="system">
@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ptd-pL-7BX" userLabel="mealListChoiceTableView">
-                                <rect key="frame" x="24" y="144" width="342" height="666"/>
+                                <rect key="frame" x="24" y="100" width="342" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -57,29 +57,20 @@
                         <outlet property="addNewMealButton" destination="jXl-6V-lLD" id="cAh-Pk-L0D"/>
                         <outlet property="mealChoiceKCalLabel" destination="gC3-Jp-CY3" id="J6P-xV-ir2"/>
                         <outlet property="mealListChoiceTableView" destination="ptd-pL-7BX" id="9sb-eL-zZc"/>
+                        <segue destination="bKF-cj-pZy" kind="presentation" identifier="ToAddMeal" id="CLm-Eu-6ea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="921.53846153846155" y="87.440758293838854"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0kj-YM-eQI">
+        <!--AddMeal-->
+        <scene sceneID="JA1-di-zo0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KgR-u6-dUr" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HQ1-tN-eWv">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Q4J-SE-4mU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hkr-cn-cl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="AddMeal" id="bKF-cj-pZy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XOc-XO-DLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="-80"/>
+            <point key="canvasLocation" x="1602" y="-28"/>
         </scene>
     </scenes>
     <resources>

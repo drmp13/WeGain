@@ -11,11 +11,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
-    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             if !ViewRouter.shared.firstLaunched {
+                MealModel().initDefaultMeals()
                 let storyboard = UIStoryboard(name: "SwipeInfo", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "OnboardingVC")
                 

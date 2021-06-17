@@ -15,7 +15,7 @@ enum Gender: String {
 extension Profile {
     var genderType: Gender {
         get {
-            return Gender(rawValue: self.gender!)!
+            return Gender(rawValue: self.gender)!
         }
         set {
             self.gender = newValue.rawValue
