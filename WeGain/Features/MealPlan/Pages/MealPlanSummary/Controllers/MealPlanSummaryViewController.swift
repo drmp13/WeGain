@@ -21,18 +21,15 @@ class MealPlanSummaryViewController: UIViewController {
     @IBOutlet weak var viewMain: UIView!
     @IBOutlet weak var dashboardView: DashboardCell!
     
-    
     var planBreakfast = [Plan]()
     var planLunch = [Plan]()
     var planDinner = [Plan]()
     var selected_date = helper_getCurrentDate(format: "yyyy-MM-dd")
-    var planSummary = PlanSummary(for: Calendar.current.startOfDay(for: Date()))
+    var planSummary = PlanSummary()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(helper_getCurrentDate(format: "yyyy-MM-dd"))
         
         planBreakfast = fetchDailyPlan(plan_type: .breakfast, selected_date: selected_date)
         planLunch = fetchDailyPlan(plan_type: .lunch, selected_date: selected_date)
@@ -72,11 +69,10 @@ class MealPlanSummaryViewController: UIViewController {
         
         self.setupPlanSummary()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         //refreshConstraint()
     }
-    
     
     @objc func setCategoryIndexCG1(tapGestureRecognizer: UITapGestureRecognizer){
         navigateToMealChoices(withType: .breakfast)
@@ -126,7 +122,7 @@ class MealPlanSummaryViewController: UIViewController {
     
     
     @IBSegueAction func circleProgressBarView(_ coder: NSCoder) -> UIViewController? {
-        let rootView = CircleProgressBar(value: 500, maxValue: 500).environmentObject(self.planSummary)
+        let rootView = CircleProgressBar().environmentObject(self.planSummary)
         let controller = UIHostingController(coder: coder, rootView: rootView)
         controller?.view.backgroundColor = .clear
         

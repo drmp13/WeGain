@@ -14,15 +14,20 @@ class PlanSummary: ObservableObject {
     var protein: (Double, Double) = (0.0, 0.0)
     var fat: (Double, Double) = (0.0, 0.0)
     
-    init(for date: Date) {
-        self.getSummary(for: date)
+    private func resetSummary() {
+        eatenCals = (0.0, 0.0)
+        carb = (0.0, 0.0)
+        protein = (0.0, 0.0)
+        fat = (0.0, 0.0)
     }
     
     func getSummary(for date: Date) {
-        var plans = [Plan]()
-        for type in PlanType.allCases {
-            plans += PlanRepository.shared.getPlan(for: date, type: type)
-        }
+        self.resetSummary()
+        let breakfastPlan = PlanRepository.shared.fetchByDate(date: date, type: .breakfast)
+        let lunchPlan = PlanRepository.shared.fetchByDate(date: date, type: .lunch)
+        let dinnerPlan = PlanRepository.shared.fetchByDate(date: date, type: .dinner)
+        
+        let plans = breakfastPlan + lunchPlan + dinnerPlan
         
         for plan in plans {
             carb.1 += plan.meal!.carbohydrate

@@ -17,37 +17,10 @@ class PlanRepository {
         self.dataStore = dataStore
     }
     
-    func fetch() -> [Plan] {
-        plans = self.dataStore?.fetch()
-        
-        return self.plans ?? []
-    }
-    
     func fetchByDate(date: Date, type: PlanType) -> [Plan] {
         plans = self.dataStore?.fetchByDate(date: date, type: type)
         
         return self.plans ?? []
-    }
-    
-    private func addNewPlan(for date: Date) -> Plan {
-        let context = PersistenceManager.shared.persistentContainer.viewContext
-        let plan = Plan(context: context)
-        plan.date = date
-        
-        self.plans?.append(plan)
-        
-        try? context.save()
-        
-        return plan
-    }
-    
-   
-    func getPlan(for date: Date, type: PlanType) -> [Plan] {
-        let plans = self.plans?.filter {
-            $0.date == date && $0.type == type.rawValue
-        }
-        
-        return plans ?? []
     }
     
     func addPlan(for date: Date, meal: Meal, type: PlanType) {

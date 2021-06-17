@@ -78,7 +78,7 @@ class FillDetailsViewController: UIViewController{
             return bmi
         }
         
-        CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * activity_level, for: Calendar.current.startOfDay(for: Date()))
+        CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * activity_level, for: helper_getStartOfDay())
         
         ViewRouter.shared.firstLaunched = true
         performSegue(withIdentifier: "ToMainScreen", sender: nil)

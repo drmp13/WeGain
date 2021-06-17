@@ -58,7 +58,6 @@ extension MealPlanSummaryViewController: UICollectionViewDataSource {
 extension MealPlanSummaryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       let selectedDate = helper_formatDate(date: getDateByCurrentIndex(idx: indexPath.row) ?? helper_createDate(date: helper_getCurrentDate(format: "yyyy-MM-dd"),inputDateFormat: "yyyy-MM-dd"))
-        print(selectedDate)
 
         selected_date = selectedDate
         refreshMealPlan(tableView: mealPlanBreakfast)
@@ -67,8 +66,8 @@ extension MealPlanSummaryViewController: UICollectionViewDelegate {
         selectedItem = indexPath.row
         collectionView.reloadData()
         
-        self.planSummary.getSummary(for: helper_createDate(date: selected_date + " 00:00:00 +7"))
-
+        self.setupPlanSummary()
+        
         refreshConstraint()
     }
 }

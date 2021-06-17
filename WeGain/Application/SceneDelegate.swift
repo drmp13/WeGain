@@ -22,6 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window.rootViewController = vc
                 self.window = window
                 window.makeKeyAndVisible()
+                
+                HealthKitManager.shared.requestPermission()
             }
         }
     }
@@ -56,7 +58,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 return bmi
             }
 
-            CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * profile.activity, for: Calendar.current.startOfDay(for: Date()))
+            CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * profile.activity, for: helper_getStartOfDay())
         }
     }
 
