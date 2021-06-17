@@ -23,6 +23,12 @@ class MealListViewController: UIViewController {
     
     var type: PlanType?
     
+    var caloriesIntake: Double = 0
+    var limitCalories: Double = 900
+    
+    var alertMoreThan: Bool?
+    var alreadyNotifyUserMoreThan = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,6 +58,8 @@ class MealListViewController: UIViewController {
         
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
+        
+        alertMoreThan = false
     }
     
     @IBAction func AddMealTapped(_ sender: UIButton) {
@@ -61,9 +69,20 @@ class MealListViewController: UIViewController {
     @objc func doneTapped(_ sender: UIButton) {
         let today = Calendar.current.startOfDay(for: Date())
         
-        for meal in selectedMeals{
-            PlanRepository.shared.addPlan(for: today, meal: meal, type: self.type!)
+        if caloriesIntake < limitCalories - 100 {
+            let alert = UIAlertController(title: "Calories Intake", message: "Your calories intake less than the limit, it's recommended to plan according to your calorie recommendation. Do you want to continue?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                for meal in self.selectedMeals{
+                    PlanRepository.shared.addPlan(for: today, meal: meal, type: self.type!)
+                }
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
         }
+        
+        print(today)
       
         self.navigationController?.popViewController(animated: true)
     }
@@ -75,6 +94,8 @@ extension MealListViewController: UITableViewDelegate{
         
         if selectedMeals.contains(self.filteredMeals[indexPath.section]) {
             let index = selectedMeals.firstIndex(of: self.filteredMeals[indexPath.section])
+            caloriesIntake -= filteredMeals[indexPath.section].calories
+            mealChoiceKCalLabel.text = String(format: "Meal Choices %.0f/900KCal", abs(caloriesIntake))
             selectedMeals.remove(at: index!)
             tableView.reloadSections(indexSet, with: .automatic)
             return
@@ -82,7 +103,23 @@ extension MealListViewController: UITableViewDelegate{
         
         selectedMeals.append(self.filteredMeals[indexPath.section])
         tableView.reloadSections(indexSet, with: .automatic)
+        
+        caloriesIntake += self.filteredMeals[indexPath.section].calories
+        mealChoiceKCalLabel.text = String(format: "Meal Choices %.0f/900KCal", caloriesIntake)
+        
+        if caloriesIntake > limitCalories + 100 {
+            alertMoreThan = true
+        }
+        
+        if alertMoreThan == true && alreadyNotifyUserMoreThan == false{
+            let alert = UIAlertController(title: "Calories Intake", message: "Your calories intake exceeds the limit, it's recommended to plan according to your calorie recommendation.", preferredStyle: .alert)
 
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+            
+            alreadyNotifyUserMoreThan = true
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -116,16 +153,27 @@ extension MealListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mealListCell") as! MealListCell
         
-        cell.mealListCellNameLabel.text = filteredMeals[indexPath.section].name
+        let mealName = filteredMeals[indexPath.section].name
+        let mealPortion = filteredMeals[indexPath.section].portion
+        
+        cell.mealListCellNameLabel.text = mealName! + String(format: " (%.0fg)", mealPortion)
         cell.mealListCellKCalLabel.text = String(format: "%.0fKCal", filteredMeals[indexPath.section].calories)
         cell.detailCarbohydrateWeightLabel.text = String(format: "%.0fg", filteredMeals[indexPath.section].carbohydrate)
         cell.detailProteinWeightLabel.text = String(format: "%.0fg", filteredMeals[indexPath.section].protein)
         cell.detailFatWeightLabel.text = String(format: "%.0fg", filteredMeals[indexPath.section].fat)
         
-        
         cell.mealListCellStackView.layer.cornerRadius = 16
         cell.mealListCellStackView.layer.borderWidth = 2
         cell.mealListCellStackView.layer.borderColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
+        
+        let bottomBorder = CAShapeLayer()
+        let bottomPath = UIBezierPath()
+        bottomPath.move(to: CGPoint(x: 0, y: cell.mealListCellView.frame.height))
+        bottomPath.addLine(to: CGPoint(x: cell.mealListCellView.frame.width, y: cell.mealListCellView.frame.height))
+        bottomBorder.path = bottomPath.cgPath
+        bottomBorder.strokeColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
+        bottomBorder.lineWidth = 3.0
+        bottomBorder.fillColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
 
     
         cell.actionBlock = {
@@ -133,8 +181,10 @@ extension MealListViewController: UITableViewDataSource{
             
             if self.buttonDidTapped[indexPath.section] == false {
                 self.buttonDidTapped[indexPath.section] = true
+                cell.mealListCellView.layer.addSublayer(bottomBorder)
             }else{
                 self.buttonDidTapped[indexPath.section] = false
+                bottomBorder.removeFromSuperlayer()
             }
             self.selectedCell = cell.mealListCellChevronButton.tag
             
@@ -168,6 +218,11 @@ extension MealListViewController: UITableViewDataSource{
             cell.mealListCellStackView.layer.borderWidth = 2
             cell.mealListCellStackView.layer.cornerRadius = 16
             
+            bottomBorder.strokeColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            bottomBorder.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            cell.mealListCellView.layer.addSublayer(bottomBorder)
+
+            
         }else{
             cell.mealListCellDetailView.backgroundColor = .white
             cell.mealListCellView.backgroundColor = .white
@@ -185,6 +240,11 @@ extension MealListViewController: UITableViewDataSource{
             cell.mealListCellStackView.layer.borderColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
             cell.mealListCellStackView.layer.borderWidth = 2
             cell.mealListCellStackView.layer.cornerRadius = 16
+            
+            bottomBorder.strokeColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
+            bottomBorder.fillColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
+            bottomBorder.removeFromSuperlayer()
+
             
         }
         return cell
