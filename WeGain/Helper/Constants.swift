@@ -9,4 +9,5 @@ import Foundation
 
 struct Constants {
     static let PROFILE_SAVE_KEY = "UserProfile"
+    static let CALORIE_SYNC_TIME_KEY = "CalorieSyncTime"
 }

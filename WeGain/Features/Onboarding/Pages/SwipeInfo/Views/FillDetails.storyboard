@@ -25,59 +25,17 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fill in your details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNd-iQ-lrN">
-                                <rect key="frame" x="120" y="406" width="174" height="26"/>
+                                <rect key="frame" x="122" y="386" width="170" height="25.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="textColor" name="WGDark"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atL-lX-IKQ">
-                                <rect key="frame" x="68" y="482" width="58" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" name="WGDark"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height (cm)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw3-SG-glq">
-                                <rect key="frame" x="65" y="534" width="93" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" name="WGDark"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight (kg)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFm-q0-aUz">
-                                <rect key="frame" x="65" y="586" width="91" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" name="WGDark"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hM-t2-fZU">
-                                <rect key="frame" x="65" y="638" width="104" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" name="WGDark"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Female" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLk-61-dg4">
-                                <rect key="frame" x="204" y="475" width="190" height="34"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="170" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCo-7d-hR2">
-                                <rect key="frame" x="204" y="527" width="190" height="34"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="40" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CA2-oU-so1">
-                                <rect key="frame" x="204" y="579" width="190" height="34"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ8-2y-cXB">
-                                <rect key="frame" x="147" y="686" width="120" height="30"/>
+                                <rect key="frame" x="132" y="726" width="150" height="40"/>
                                 <color key="backgroundColor" name="WGRed"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="6TO-eu-HYz"/>
-                                    <constraint firstAttribute="height" constant="30" id="AFI-vs-uyQ"/>
+                                    <constraint firstAttribute="width" constant="150" id="6TO-eu-HYz"/>
+                                    <constraint firstAttribute="height" constant="40" id="AFI-vs-uyQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Get Started">
@@ -87,51 +45,128 @@
                                     <action selector="getStarted:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Scf-M2-U6y"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.2 - bed/chair bound" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9GI-wJ-Jsd">
-                                <rect key="frame" x="204" y="631" width="190" height="34"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="o1k-Wi-h7E" userLabel="Form">
+                                <rect key="frame" x="33.5" y="437" width="347" height="230"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="89" translatesAutoresizingMaskIntoConstraints="NO" id="UDk-HJ-E1M" userLabel="Gender">
+                                        <rect key="frame" x="0.0" y="0.0" width="347" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atL-lX-IKQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" name="WGDark"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Female" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLk-61-dg4">
+                                                <rect key="frame" x="147" y="0.0" width="200" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="TYY-Su-Ony"/>
+                                                </constraints>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="116" translatesAutoresizingMaskIntoConstraints="NO" id="M32-nz-OdD" userLabel="Age">
+                                        <rect key="frame" x="0.0" y="49" width="347" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gas-c3-HHE">
+                                                <rect key="frame" x="0.0" y="0.0" width="31" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" name="WGDark"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Upm-VL-x32">
+                                                <rect key="frame" x="147" y="0.0" width="200" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="eaP-ee-mGr"/>
+                                                </constraints>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="lqn-Xp-ebK" userLabel="Height">
+                                        <rect key="frame" x="0.0" y="98" width="347" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height (cm)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw3-SG-glq">
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" name="WGDark"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="170" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCo-7d-hR2">
+                                                <rect key="frame" x="147" y="0.0" width="200" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="pXA-VE-WSW"/>
+                                                </constraints>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="Q4z-8l-wct" userLabel="Weight">
+                                        <rect key="frame" x="0.0" y="147" width="347" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight (kg)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFm-q0-aUz">
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" name="WGDark"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="40" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CA2-oU-so1">
+                                                <rect key="frame" x="147" y="0.0" width="200" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="sTD-yF-cKi"/>
+                                                </constraints>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="UcO-DO-rC6" userLabel="ActivityLevel">
+                                        <rect key="frame" x="0.0" y="196" width="347" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hM-t2-fZU">
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" name="WGDark"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.2 - bed/chair bound" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9GI-wJ-Jsd">
+                                                <rect key="frame" x="147" y="0.0" width="200" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="cAi-lv-SF3"/>
+                                                </constraints>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="o4b-bU-7EM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="82" id="0Jb-VZ-LeV"/>
-                            <constraint firstItem="CA2-oU-so1" firstAttribute="top" secondItem="FCo-7d-hR2" secondAttribute="bottom" constant="18" id="0pl-OI-gYV"/>
-                            <constraint firstItem="FNd-iQ-lrN" firstAttribute="top" secondItem="o4b-bU-7EM" secondAttribute="bottom" constant="20" id="2lV-cw-PBB"/>
-                            <constraint firstItem="CA2-oU-so1" firstAttribute="centerX" secondItem="jLk-61-dg4" secondAttribute="centerX" id="7xI-kj-YsA"/>
-                            <constraint firstItem="jLk-61-dg4" firstAttribute="top" secondItem="FNd-iQ-lrN" secondAttribute="bottom" constant="43" id="9Oe-ty-cqh"/>
-                            <constraint firstItem="FNd-iQ-lrN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="120" id="CSL-3m-bih"/>
-                            <constraint firstItem="Aw3-SG-glq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="65" id="HAB-Yh-Emh"/>
-                            <constraint firstItem="CA2-oU-so1" firstAttribute="leading" secondItem="dFm-q0-aUz" secondAttribute="trailing" constant="48" id="HBN-sM-24D"/>
-                            <constraint firstItem="FCo-7d-hR2" firstAttribute="centerX" secondItem="jLk-61-dg4" secondAttribute="centerX" id="HUo-MF-rwG"/>
-                            <constraint firstItem="atL-lX-IKQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="68" id="Jdj-4O-dYH"/>
-                            <constraint firstItem="FCo-7d-hR2" firstAttribute="leading" secondItem="Aw3-SG-glq" secondAttribute="trailing" constant="46" id="M5r-45-cLs"/>
-                            <constraint firstItem="atL-lX-IKQ" firstAttribute="top" secondItem="FNd-iQ-lrN" secondAttribute="bottom" constant="50" id="MXc-HI-tiv"/>
-                            <constraint firstItem="9GI-wJ-Jsd" firstAttribute="top" secondItem="CA2-oU-so1" secondAttribute="bottom" constant="18" id="OVL-LY-Qe8"/>
-                            <constraint firstItem="o4b-bU-7EM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="RYH-1M-33U"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CA2-oU-so1" secondAttribute="trailing" constant="20" id="Rbt-Op-1fu"/>
-                            <constraint firstItem="dFm-q0-aUz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="65" id="SVA-4O-CKe"/>
-                            <constraint firstItem="dFm-q0-aUz" firstAttribute="top" secondItem="Aw3-SG-glq" secondAttribute="bottom" constant="31" id="Sod-yj-LQp"/>
-                            <constraint firstItem="Aw3-SG-glq" firstAttribute="top" secondItem="atL-lX-IKQ" secondAttribute="bottom" constant="31" id="T9M-bE-do6"/>
-                            <constraint firstItem="jLk-61-dg4" firstAttribute="leading" secondItem="atL-lX-IKQ" secondAttribute="trailing" constant="78" id="Uit-nr-AP0"/>
-                            <constraint firstItem="9GI-wJ-Jsd" firstAttribute="leading" secondItem="3hM-t2-fZU" secondAttribute="trailing" constant="35" id="Wmq-xj-lBg"/>
-                            <constraint firstItem="dJ8-2y-cXB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="XPC-xd-jkk"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jLk-61-dg4" secondAttribute="trailing" constant="20" id="Xf0-dl-ClP"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FCo-7d-hR2" secondAttribute="trailing" constant="20" id="a09-px-MH7"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="o4b-bU-7EM" secondAttribute="trailing" constant="20" id="ebZ-RE-NvP"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9GI-wJ-Jsd" secondAttribute="trailing" constant="20" id="fKt-Z2-dcD"/>
-                            <constraint firstItem="3hM-t2-fZU" firstAttribute="top" secondItem="dFm-q0-aUz" secondAttribute="bottom" constant="31" id="iG3-cB-N9c"/>
-                            <constraint firstItem="FCo-7d-hR2" firstAttribute="top" secondItem="jLk-61-dg4" secondAttribute="bottom" constant="18" id="mB0-32-tjP"/>
-                            <constraint firstItem="3hM-t2-fZU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="65" id="oP4-jK-lpu"/>
-                            <constraint firstItem="dJ8-2y-cXB" firstAttribute="top" secondItem="3hM-t2-fZU" secondAttribute="bottom" constant="27" id="vPd-YB-f2A"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FNd-iQ-lrN" secondAttribute="trailing" constant="120" id="xOE-I2-u7W"/>
-                            <constraint firstItem="9GI-wJ-Jsd" firstAttribute="centerX" secondItem="jLk-61-dg4" secondAttribute="centerX" id="yfO-W2-z6h"/>
+                            <constraint firstItem="FNd-iQ-lrN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4Da-1W-n6l"/>
+                            <constraint firstItem="FNd-iQ-lrN" firstAttribute="top" secondItem="o4b-bU-7EM" secondAttribute="bottom" id="PcR-Kx-54S"/>
+                            <constraint firstItem="o4b-bU-7EM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="82" id="VS7-Qf-UZ1"/>
+                            <constraint firstItem="o1k-Wi-h7E" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="bSa-tv-BA8"/>
+                            <constraint firstItem="o4b-bU-7EM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hbh-Cz-AFn"/>
+                            <constraint firstItem="dJ8-2y-cXB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="lEY-aN-vjp"/>
+                            <constraint firstItem="dJ8-2y-cXB" firstAttribute="top" secondItem="9GI-wJ-Jsd" secondAttribute="bottom" constant="59" id="lQp-KY-VLy"/>
+                            <constraint firstItem="o1k-Wi-h7E" firstAttribute="top" secondItem="FNd-iQ-lrN" secondAttribute="bottom" constant="25.5" id="rib-Sy-rkH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityTextField" destination="9GI-wJ-Jsd" id="IVa-9p-Bl9"/>
+                        <outlet property="ageTextField" destination="Upm-VL-x32" id="bhj-jz-0rg"/>
                         <outlet property="genderTextField" destination="jLk-61-dg4" id="3Ss-fT-OdV"/>
                         <outlet property="heightTextField" destination="FCo-7d-hR2" id="hOO-zf-q5Q"/>
                         <outlet property="startButton" destination="dJ8-2y-cXB" id="k7q-Qn-E7L"/>

@@ -66,6 +66,8 @@ extension MealPlanSummaryViewController: UICollectionViewDelegate {
         refreshMealPlan(tableView: mealPlanDinner)
         selectedItem = indexPath.row
         collectionView.reloadData()
+        
+        self.planSummary.getSummary(for: helper_createDate(date: selected_date + " 00:00:00 +7"))
 
         refreshConstraint()
     }

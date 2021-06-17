@@ -124,7 +124,7 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBAction func updateButtonDidTapped(_ sender: Any) {
-        ProfileRepository.shared.add(gender: "", height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activityTextField.text!.prefix(3))!)
+//        ProfileRepository.shared.add(gender: "", height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activityTextField.text!.prefix(3))!)
     }
 
     func getHistoryData(){

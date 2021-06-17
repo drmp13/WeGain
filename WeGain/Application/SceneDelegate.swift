@@ -34,8 +34,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        let profile = ProfileRepository.shared.fetch()
+        let date = UserDefaults.standard.object(forKey: Constants.CALORIE_SYNC_TIME_KEY) as? Date
+        
+        guard !profile.gender.isEmpty else {
+            return
+        }
+        
+        if date == nil || Calendar.current.isDateInYesterday(date!) {
+            UserDefaults.standard.setValue(Date(), forKey: Constants.CALORIE_SYNC_TIME_KEY)
+            
+            var bmi: Double {
+                var bmi: Double = 0
+                
+                if profile.gender == "Male" {
+                    bmi = 66 + (13.7 * profile.weight) + (5 * profile.height) + (6.8 * Double(profile.age))
+                } else {
+                    bmi = 66.5 + (9.6 * profile.weight) + (1.7 * profile.height) + (4.7 * Double(profile.age))
+                }
+                
+                return bmi
+            }
+
+            CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * profile.activity, for: Calendar.current.startOfDay(for: Date()))
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -56,7 +78,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         PersistenceManager.shared.saveContext()
     }
-
-
 }
 

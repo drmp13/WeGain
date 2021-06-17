@@ -16,7 +16,7 @@ struct ProfileDataStore {
             }
         }
         
-        return Profile(activity: 0.0, gender: "", height: 0.0, weight: 0.0)
+        return Profile(activity: 0.0, gender: "", age: 0, height: 0.0, weight: 0.0)
     }
     
     func save(_ profile: Profile) {
