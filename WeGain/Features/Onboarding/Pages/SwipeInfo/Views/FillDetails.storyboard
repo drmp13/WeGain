@@ -45,11 +45,31 @@
                                     <action selector="getStarted:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Scf-M2-U6y"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="o1k-Wi-h7E" userLabel="Form">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="o1k-Wi-h7E" userLabel="Form">
                                 <rect key="frame" x="33.5" y="437" width="347" height="230"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="89" translatesAutoresizingMaskIntoConstraints="NO" id="UDk-HJ-E1M" userLabel="Gender">
-                                        <rect key="frame" x="0.0" y="0.0" width="347" height="34"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="78" translatesAutoresizingMaskIntoConstraints="NO" id="Exj-IJ-shx" userLabel="Birthday">
+                                        <rect key="frame" x="1.5" y="0.0" width="344" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgv-7g-OWh">
+                                                <rect key="frame" x="0.0" y="0.0" width="66" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" name="WGDark"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2000/01/01" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yd7-FX-5uP">
+                                                <rect key="frame" x="144" y="0.0" width="200" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="dgk-IA-NKN"/>
+                                                </constraints>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="86" translatesAutoresizingMaskIntoConstraints="NO" id="UDk-HJ-E1M" userLabel="Gender">
+                                        <rect key="frame" x="1.5" y="49" width="344" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atL-lX-IKQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="58" height="34"/>
@@ -58,31 +78,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Female" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLk-61-dg4">
-                                                <rect key="frame" x="147" y="0.0" width="200" height="34"/>
+                                                <rect key="frame" x="144" y="0.0" width="200" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="TYY-Su-Ony"/>
                                                 </constraints>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="116" translatesAutoresizingMaskIntoConstraints="NO" id="M32-nz-OdD" userLabel="Age">
-                                        <rect key="frame" x="0.0" y="49" width="347" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gas-c3-HHE">
-                                                <rect key="frame" x="0.0" y="0.0" width="31" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <color key="textColor" name="WGDark"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Upm-VL-x32">
-                                                <rect key="frame" x="147" y="0.0" width="200" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="eaP-ee-mGr"/>
-                                                </constraints>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -129,16 +129,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="UcO-DO-rC6" userLabel="ActivityLevel">
-                                        <rect key="frame" x="0.0" y="196" width="347" height="34"/>
+                                        <rect key="frame" x="0.5" y="196" width="346.5" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hM-t2-fZU">
-                                                <rect key="frame" x="0.0" y="0.0" width="104" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="textColor" name="WGDark"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.2 - bed/chair bound" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9GI-wJ-Jsd">
-                                                <rect key="frame" x="147" y="0.0" width="200" height="34"/>
+                                                <rect key="frame" x="146.5" y="0.0" width="200" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="cAi-lv-SF3"/>
                                                 </constraints>
@@ -166,7 +166,7 @@
                     </view>
                     <connections>
                         <outlet property="activityTextField" destination="9GI-wJ-Jsd" id="IVa-9p-Bl9"/>
-                        <outlet property="ageTextField" destination="Upm-VL-x32" id="bhj-jz-0rg"/>
+                        <outlet property="birthdayTextField" destination="yd7-FX-5uP" id="NKw-xq-yH2"/>
                         <outlet property="genderTextField" destination="jLk-61-dg4" id="3Ss-fT-OdV"/>
                         <outlet property="heightTextField" destination="FCo-7d-hR2" id="hOO-zf-q5Q"/>
                         <outlet property="startButton" destination="dJ8-2y-cXB" id="k7q-Qn-E7L"/>

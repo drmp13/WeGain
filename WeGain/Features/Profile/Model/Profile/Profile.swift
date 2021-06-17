@@ -10,7 +10,7 @@ import Foundation
 struct Profile: Codable {
     var activity: Double
     var gender: String
-    var age: Int
+    var birthday: Date
     var height: Double
     var weight: Double
 }

@@ -49,10 +49,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             var bmi: Double {
                 var bmi: Double = 0
                 
+                let age = Calendar.current.dateComponents([.year], from: profile.birthday, to: Date()).year
+                
                 if profile.gender == "Male" {
-                    bmi = 66 + (13.7 * profile.weight) + (5 * profile.height) + (6.8 * Double(profile.age))
+                    bmi = 66 + (13.7 * profile.weight) + (5 * profile.height) + (6.8 * Double(age!))
                 } else {
-                    bmi = 66.5 + (9.6 * profile.weight) + (1.7 * profile.height) + (4.7 * Double(profile.age))
+                    bmi = 66.5 + (9.6 * profile.weight) + (1.7 * profile.height) + (4.7 * Double(age!))
                 }
                 
                 return bmi
