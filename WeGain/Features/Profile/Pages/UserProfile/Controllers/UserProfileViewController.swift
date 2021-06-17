@@ -46,6 +46,8 @@ class UserProfileViewController: UIViewController {
         weightHistoryTableView.dataSource = self
         
         updateButton.layer.cornerRadius = 10
+        updateButton.isEnabled = false
+        updateButton.alpha = 0.5
         
     }
     
@@ -100,6 +102,12 @@ class UserProfileViewController: UIViewController {
         heightTextField.resignFirstResponder()
         activityTextField.resignFirstResponder()
     }
+
+    @IBAction func textFieldChange(_ sender: Any) {
+        updateButton.isEnabled = true
+        updateButton.alpha = 1.0
+    }
+    
     
     @IBSegueAction func chartSwiftUISegueHost(_ coder: NSCoder) -> UIViewController? {
         return UIHostingController(coder: coder, rootView: Charts())
@@ -110,6 +118,7 @@ class UserProfileViewController: UIViewController {
             self.present(createHealthAppAlert(alertMessage: "In order to connect with Health App you must allow WeGain to collect and use burned calorie data. We don't share this data without your consent."), animated: true, completion: nil)
         }
         else {
+            syncSwitch.setOn(false, animated: false)
         }
     }
     
