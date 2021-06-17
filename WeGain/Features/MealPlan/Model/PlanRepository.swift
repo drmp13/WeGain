@@ -23,6 +23,12 @@ class PlanRepository {
         return self.plans ?? []
     }
     
+    func fetchByDate(date: Date, type: PlanType) -> [Plan] {
+        plans = self.dataStore?.fetchByDate(date: date, type: type)
+        
+        return self.plans ?? []
+    }
+    
     private func addNewPlan(for date: Date) -> Plan {
         let context = PersistenceManager.shared.persistentContainer.viewContext
         let plan = Plan(context: context)
@@ -35,6 +41,7 @@ class PlanRepository {
         return plan
     }
     
+   
     func getPlan(for date: Date, type: PlanType) -> [Plan] {
         let plans = self.plans?.filter {
             $0.date == date && $0.type == type.rawValue
@@ -46,10 +53,12 @@ class PlanRepository {
     func addPlan(for date: Date, meal: Meal, type: PlanType) {
         let context = PersistenceManager.shared.persistentContainer.viewContext
         let plan = Plan(context: context)
+        
         plan.date = date
         plan.meal = meal
         plan.type = type.rawValue
         
+        print(plan)
         try? context.save()
         
         self.plans = self.dataStore?.fetch()
@@ -60,6 +69,17 @@ class PlanRepository {
         plan.eaten.toggle()
         
         try? context.save()
+    }
+    
+    func deletePlan(item: Plan) {
+        let context = PersistenceManager.shared.persistentContainer.viewContext
+        context.delete(item)
+          do{
+            try context.save()
+            //response = ModelResponseDefault(query_status: true, message: "OK", data: nil)
+          } catch {
+            //response = ModelResponseDefault(query_status: false, message: "Error: \(error)", data: nil)
+          }
     }
 }
 
