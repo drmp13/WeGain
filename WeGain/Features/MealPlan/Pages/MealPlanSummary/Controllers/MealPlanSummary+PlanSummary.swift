@@ -29,14 +29,16 @@ extension MealPlanSummaryViewController {
     }
     
     func updateActivityCalorie() {
+        let currentDate = Calendar.current.startOfDay(for: Date())
+        
         var dateComponents = DateComponents()
         dateComponents.day = 1
         dateComponents.second = -1
         
-        let nextDate = Calendar.current.date(byAdding: dateComponents, to: currentDate!)
+        let nextDate = Calendar.current.date(byAdding: dateComponents, to: currentDate)
         
         var totalEnergy: Double = 0.0
-        HealthKitManager.shared.getTotalBurnedEnergy(from: currentDate!, until: nextDate!) { burnedEnergy in
+        HealthKitManager.shared.getTotalBurnedEnergy(from: currentDate, until: nextDate!) { burnedEnergy in
             totalEnergy += burnedEnergy
             
             DispatchQueue.main.async {

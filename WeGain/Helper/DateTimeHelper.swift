@@ -23,6 +23,7 @@ func helper_createDate(date: String, inputDateFormat: String = "yyyy-MM-dd HH:mm
   if(datex == nil){
       // 12 format
       formatter.dateFormat = "yyyy-MM-dd h:mm:ss a Z"
+    print("Converting \(date)")
       return formatter.date(from: date)!
     }else{
       return datex!
