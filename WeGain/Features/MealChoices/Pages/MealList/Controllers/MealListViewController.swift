@@ -276,7 +276,7 @@ extension MealListViewController: UISearchBarDelegate {
         if searchText.isEmpty {
             self.filteredMeals = self.meals
         }else{
-            self.filteredMeals = self.filteredMeals.filter { meals in
+            self.filteredMeals = self.meals.filter { meals in
 //                (meals.name?.contains(searchText))!
                 meals.name?.range(of: "\(searchText)", options: .caseInsensitive) != nil
             }
