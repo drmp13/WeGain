@@ -17,13 +17,14 @@ class OnboardingPageViewController: UIPageViewController {
     weak var pageViewControllerDelagate: onboardingPageViewControllerDelegate?
     
     var currentIndex = 0
-    var pageTitle = ["Nutrients", "Underweight", "WeGain"]
+    var pageTitle = ["Nutrients", "Underweight", "WeGain", ""]
     var pageImage: [UIImage] = [
         UIImage(named: "WGOnboarding1")!,
         UIImage(named: "WGOnboarding2")!,
-        UIImage(named: "WGOnboarding3")!
+        UIImage(named: "WGOnboarding3")!,
+        UIImage()
     ]
-    var pageDescriptionText = ["Nutrients in foods are essential to life and health, providing us with energy, the building blocks for repair and growth. Three major nutrients are Carbohydrates, Fats, and Proteins.", "If you're underweight, it's likely that you're not eating a healthy, balanced diet, which can lead to you lacking nutrients that your body needs to work properly.", "WeGain will help you plan your daily meal for the day and make sure your nutrients intakes met with your body needs to gain weight."]
+    var pageDescriptionText = ["Nutrients in foods are essential to life and health, providing us with energy, the building blocks for repair and growth. Three major nutrients are Carbohydrates, Fats, and Proteins.", "If you're underweight, it's likely that you're not eating a healthy, balanced diet, which can lead to you lacking nutrients that your body needs to work properly.", "WeGain will help you plan your daily meal for the day and make sure your nutrients intakes met with your body needs to gain weight.", ""]
 
     override func viewDidLoad() {
         super.viewDidLoad()

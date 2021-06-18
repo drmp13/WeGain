@@ -9,6 +9,7 @@ import UIKit
 
 class FillDetailsViewController: UIViewController{
     
+    @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
