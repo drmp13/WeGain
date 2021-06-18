@@ -111,7 +111,10 @@ class UserProfileViewController: UIViewController {
     
     
     @IBSegueAction func chartSwiftUISegueHost(_ coder: NSCoder) -> UIViewController? {
-        return UIHostingController(coder: coder, rootView: Charts())
+        getHistoryData()
+        let charts = Charts(histories: self.historyArray)
+        
+        return UIHostingController(coder: coder, rootView: charts)
     }
     
     @IBAction func syncSwitchDidChange(_ sender: UISwitch){
@@ -134,7 +137,6 @@ class UserProfileViewController: UIViewController {
         for hist in histories{
             historyArray.append(hist)
         }
-        
     }
 }
 
