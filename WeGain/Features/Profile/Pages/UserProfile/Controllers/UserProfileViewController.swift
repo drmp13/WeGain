@@ -21,8 +21,9 @@ class UserProfileViewController: UIViewController {
     var dateHistoryArray = [History]()
     var weightHistoryArray = [History]()
     
-    let profile = ProfileRepository.shared.fetch()
+    var profile = ProfileRepository.shared.fetch()
     
+    @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var activityTextField: UITextField!
@@ -32,6 +33,7 @@ class UserProfileViewController: UIViewController {
     let activityArray = ["1.2 - bed/chair bound", "1.4 - sedentary work", "1.6 - mostly sedentary", "1.8 - mostly standing/walking", "2.0 - heavy activity", "2.2 - significantly heavy activity" ]
     var historyArray: [History] = []
     
+    var birthdayDatePicker = UIDatePicker()
     var weightPickerView = UIPickerView()
     var heightPickerView = UIPickerView()
     var activityPickerview = UIPickerView()
@@ -41,9 +43,15 @@ class UserProfileViewController: UIViewController {
         
         profilePickerView()
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        birthdayTextField.text = "\(formatter.string(from: profile.birthday))"
+        
         weightTextField.text = String(format: "%.0f", profile.weight)
         heightTextField.text = String(format: "%.0f", profile.height)
-        activityTextField.text = String(format: "%.0f", profile.activity)
+        activityTextField.text = profile.activityDescription
+        
         
         weightHistoryTableView.delegate = self
         weightHistoryTableView.dataSource = self
@@ -52,12 +60,36 @@ class UserProfileViewController: UIViewController {
         updateButton.layer.cornerRadius = 10
         updateButton.isEnabled = false
         
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = AppColor.red
+        toolBar.sizeToFit()
         
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneBirthdayPicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.cancelBirthdayPicker))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        birthdayDatePicker.date = profile.birthday
+        birthdayDatePicker.maximumDate = Date()
+        birthdayDatePicker.datePickerMode = .date
+        birthdayDatePicker.preferredDatePickerStyle = .wheels
+        birthdayTextField.inputView = birthdayDatePicker
+        birthdayTextField.inputAccessoryView = toolBar
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        heightPickerView.selectRow(heightArray.firstIndex(of: heightTextField.text!)!, inComponent: 0, animated: false)
+        weightPickerView.selectRow(weightArray.firstIndex(of: weightTextField.text!)!, inComponent: 0, animated: false)
+        activityPickerview.selectRow(activityArray.firstIndex(of: profile.activityDescription)!, inComponent: 0, animated: false)
     }
     
     func profilePickerView(){
         let pickers = [weightPickerView, heightPickerView, activityPickerview]
-        let textFields = [weightTextField, heightTextField, activityTextField]
+        let textFields = [weightTextField, heightTextField, activityTextField, birthdayTextField]
         
         let toolbar = UIToolbar()
         toolbar.barStyle = UIBarStyle.default
@@ -95,13 +127,28 @@ class UserProfileViewController: UIViewController {
         activityPickerview.tag = 3
     }
     
+    @objc func cancelBirthdayPicker() {
+        birthdayTextField.resignFirstResponder()
+    }
+    
+    @objc func doneBirthdayPicker() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+
+        birthdayTextField.text = "\(formatter.string(from: birthdayDatePicker.date))"
+
+        birthdayTextField.resignFirstResponder()
+    }
+    
     @objc func doneButtonTapped(){
+        birthdayTextField.resignFirstResponder()
         weightTextField.resignFirstResponder()
         heightTextField.resignFirstResponder()
         activityTextField.resignFirstResponder()
     }
     
     @objc func cancelButtonTapped() {
+        birthdayTextField.resignFirstResponder()
         weightTextField.resignFirstResponder()
         heightTextField.resignFirstResponder()
         activityTextField.resignFirstResponder()
@@ -129,7 +176,20 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBAction func updateButtonDidTapped(_ sender: Any) {
-//        ProfileRepository.shared.add(gender: profile.gender, age: profile.age, height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activityTextField.text!.prefix(3))!)
+        let height = Double(heightTextField.text!)!
+        let weight = Double(weightTextField.text!)!
+        let activity_level = Double(activityTextField.text!.prefix(3))!
+        
+        
+        profile.birthday = birthdayDatePicker.date
+        profile.height = height
+        profile.weight = weight
+        profile.activity = activity_level
+        
+        ProfileRepository.shared.edit(profile: self.profile)
+        
+        updateButton.isEnabled = false
+        updateButton.alpha = 0.5
     }
     
     func getHistoryData(){
