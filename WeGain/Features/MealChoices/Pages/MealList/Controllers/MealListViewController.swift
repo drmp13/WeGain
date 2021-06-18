@@ -7,12 +7,23 @@
 
 import UIKit
 
-class MealListViewController: UIViewController {
+protocol AddNewMealDelegate {
+    func add_new_meal()
+}
+
+class MealListViewController: UIViewController, AddNewMealDelegate {
+    func add_new_meal() {
+        self.meals = MealRepository.shared.fetch()
+        self.filteredMeals = self.meals
+        mealListChoiceTableView.reloadData()
+    }
 
 //    @IBOutlet weak var searchMeal: UISearchBar!
     @IBOutlet weak var mealChoiceKCalLabel: UILabel!
     @IBOutlet weak var addNewMealButton: UIButton!
     @IBOutlet weak var mealListChoiceTableView: UITableView!
+    
+    var delegate: AddNewMealDelegate?
     
     var meals = [Meal]()
     var filteredMeals = [Meal]()
@@ -60,6 +71,14 @@ class MealListViewController: UIViewController {
         navigationItem.searchController = searchController
         
         alertMoreThan = false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToAddMeal" {
+            if let vc = segue.destination as? AddMealViewController {
+                vc.delegate = self
+            }
+        }
     }
     
     @IBAction func AddMealTapped(_ sender: UIButton) {
@@ -123,6 +142,7 @@ extension MealListViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        buttonDidTapped = Array(repeating: false, count: meals.count)
         if buttonDidTapped[indexPath.section] == true{
             return 201
         }else {
@@ -257,7 +277,8 @@ extension MealListViewController: UISearchBarDelegate {
             self.filteredMeals = self.meals
         }else{
             self.filteredMeals = self.filteredMeals.filter { meals in
-                (meals.name?.contains(searchText))!
+//                (meals.name?.contains(searchText))!
+                meals.name?.range(of: "\(searchText)", options: .caseInsensitive) != nil
             }
         }
         mealListChoiceTableView.reloadData()
