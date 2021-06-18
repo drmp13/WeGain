@@ -86,7 +86,7 @@ class MealListViewController: UIViewController, AddNewMealDelegate {
     }
     
     @objc func doneTapped(_ sender: UIButton) {
-        let today = Calendar.current.startOfDay(for: Date())
+        let today = helper_getStartOfDay()
         
         if caloriesIntake < limitCalories - 100 {
             let alert = UIAlertController(title: "Calories Intake", message: "Your calories intake less than the limit, it's recommended to plan according to your calorie recommendation. Do you want to continue?", preferredStyle: .alert)

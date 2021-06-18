@@ -9,27 +9,29 @@ import UIKit
 
 extension MealPlanSummaryViewController {
     func setupPlanSummary() {
+        planSummary.getSummary(for: helper_createDate(date: selected_date + " 00:00:00 +7"))
         let eatenCals: (Double, Double) = self.planSummary.eatenCals
         let carb: (Double, Double) = self.planSummary.carb
         let protein: (Double, Double) = self.planSummary.protein
         let fat: (Double, Double) = self.planSummary.fat
         
-        self.dashboardView.CaloriesEatenLabel.text = "\(eatenCals.0) KCal"
+        self.dashboardView.CaloriesEatenLabel.text = String(format: "%.2f KCal", eatenCals.0)
         
-        self.dashboardView.CarboProgressView.progress = Float(carb.0 / carb.1)
-        self.dashboardView.carboProgressLabel.text = "\(carb.0)/\(carb.1) gr"
+        self.dashboardView.CarboProgressView.setProgress(Float(carb.0 / carb.1), animated: true)
+        self.dashboardView.carboProgressLabel.text = String(format: "%.2f/%.2f gr", carb.0, carb.1)
         
-        self.dashboardView.ProteinProgressView.progress = Float(protein.0 / protein.1)
-        self.dashboardView.proteinProgressLabel.text = "\(protein.0)/\(protein.1) gr"
+        self.dashboardView.ProteinProgressView.setProgress(Float(protein.0 / protein.1), animated: true)
+        self.dashboardView.proteinProgressLabel.text = String(format: "%.2f/%.2f gr", protein.0, protein.1)
         
-        self.dashboardView.FatProgressView.progress = Float(fat.0 / fat.1)
-        self.dashboardView.fatProgressLabel.text = "\(fat.0)/\(fat.1) gr"
+        self.dashboardView.FatProgressView.setProgress(Float(fat.0 / fat.1), animated: true)
+        self.dashboardView.fatProgressLabel.text = String(format: "%.2f/%.2f gr", protein.0, protein.1)
         
         self.updateActivityCalorie()
     }
     
     func updateActivityCalorie() {
-        let currentDate = Calendar.current.startOfDay(for: Date())
+        self.dashboardView.CaloriesBurnedLabel.text = "0.0 KCal"
+        let currentDate = helper_createDate(date: selected_date + " 00:00:00 +7")
         
         var dateComponents = DateComponents()
         dateComponents.day = 1
