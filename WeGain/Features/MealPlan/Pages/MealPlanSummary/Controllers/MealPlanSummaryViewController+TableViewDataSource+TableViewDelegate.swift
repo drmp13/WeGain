@@ -58,7 +58,9 @@ extension MealPlanSummaryViewController: UITableViewDataSource {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cell_id, for: indexPath) as! MealPlanCell
-        cell.mealPlanCellNameLabel.text = node[indexPath.first!].meal?.name
+
+      let mealName = (node[indexPath.first!].meal?.name!.count)!>30 ? (node[indexPath.first!].meal?.name?.prefix(27))!+"..." : node[indexPath.first!].meal?.name
+        cell.mealPlanCellNameLabel.text = mealName
         
         cell.mealPlanCellView.layer.borderWidth = 3
         cell.mealPlanCellView.layer.cornerRadius = 10

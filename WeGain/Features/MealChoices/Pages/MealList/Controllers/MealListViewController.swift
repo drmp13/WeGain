@@ -258,8 +258,8 @@ extension MealListViewController: UITableViewDataSource{
 //                cell.mealListCellChevronButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
 //            }
 
-            tableView.beginUpdates()
-            tableView.endUpdates()
+            //tableView.beginUpdates()
+            //tableView.endUpdates()
             tableView.deselectRow(at: indexPath, animated: true)
             
         }

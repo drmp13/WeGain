@@ -99,7 +99,18 @@ class MealPlanSummaryViewController: UIViewController {
         navigateToMealChoices(withType: .dinner)
     }
     
-    func fetchDailyPlan(plan_type: PlanType, selected_date: String) -> [Plan]{
+  @IBAction func btnBreakfastClicked(_ sender: UIButton) {
+    navigateToMealChoices(withType: .breakfast)
+  }
+
+  @IBAction func btnLunchClicked(_ sender: UIButton) {
+    navigateToMealChoices(withType: .lunch)
+  }
+
+  @IBAction func btnDinnerClicked(_ sender: UIButton) {
+    navigateToMealChoices(withType: .dinner)
+  }
+  func fetchDailyPlan(plan_type: PlanType, selected_date: String) -> [Plan]{
         return PlanRepository.shared.fetchByDate(date: helper_createDate(date: selected_date+" 00:00:00 +7"), type: plan_type)
     }
     
