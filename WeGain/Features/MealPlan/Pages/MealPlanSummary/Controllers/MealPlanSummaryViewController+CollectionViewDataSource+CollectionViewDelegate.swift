@@ -13,15 +13,22 @@ extension MealPlanSummaryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 28
     }
+
+    func getDateByCurrentIndex(idx: Int) -> Date? {
+      var dateComponents = DateComponents()
+      dateComponents.day = idx - 3
+
+      let calendar = Calendar.current
+      let date = calendar.date(byAdding: dateComponents, to: Date())
+
+      return date
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
-        
-        var dateComponents = DateComponents()
-        dateComponents.day = indexPath.row - 3
         let calendar = Calendar.current
-        let date = calendar.date(byAdding: dateComponents, to: Date())
-        
+
+        let date = getDateByCurrentIndex(idx: indexPath.row)
         let day = calendar.component(.day, from: date!)
         
         let dateFormatter = DateFormatter()
@@ -50,8 +57,17 @@ extension MealPlanSummaryViewController: UICollectionViewDataSource {
 
 extension MealPlanSummaryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(indexPath.row)")
+      let selectedDate = helper_formatDate(date: getDateByCurrentIndex(idx: indexPath.row) ?? helper_createDate(date: helper_getCurrentDate(format: "yyyy-MM-dd"),inputDateFormat: "yyyy-MM-dd"))
+
+        selected_date = selectedDate
+        refreshMealPlan(tableView: mealPlanBreakfast)
+        refreshMealPlan(tableView: mealPlanLunch)
+        refreshMealPlan(tableView: mealPlanDinner)
         selectedItem = indexPath.row
         collectionView.reloadData()
+        
+        self.setupPlanSummary()
+        
+        refreshConstraint()
     }
 }
