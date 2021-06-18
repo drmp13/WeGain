@@ -8,7 +8,7 @@
 import UIKit
 
 class AddMealViewController: UIViewController {
-    
+    var delegate: AddNewMealDelegate?
 
     @IBOutlet weak var textFieldFoodName: UITextField!
     @IBOutlet weak var textFieldEstCalorie: UITextField!
@@ -69,11 +69,10 @@ class AddMealViewController: UIViewController {
           self.present(createDefaultAlert(alertMessage: "Field cannot be empty!"), animated: true, completion: nil)
         }else{
             MealRepository.shared.add(name: foodName!, cal: estCalorie!, carb: carbohydrate!, protein: protein!, fat: fat!, portion: portion!,is_user:true)
+            self.delegate?.add_new_meal()
         }
         
         self.dismiss(animated: true, completion: nil)
-        
-        
     }
     
     @IBAction func test(_ sender: Any) {
