@@ -20,6 +20,9 @@ class MealPlanSummaryViewController: UIViewController {
     @IBOutlet weak var viewDinner: UIView!
     @IBOutlet weak var viewMain: UIView!
     @IBOutlet weak var dashboardView: DashboardCell!
+  @IBOutlet weak var mainViewHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var stackViewMealPlan: UIStackView!
+
     
     var planBreakfast = [Plan]()
     var planLunch = [Plan]()
@@ -30,10 +33,11 @@ class MealPlanSummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(helper_getCurrentDate(format: "yyyy-MM-dd"))
         
-        planBreakfast = fetchDailyPlan(plan_type: .breakfast, selected_date: selected_date)
-        planLunch = fetchDailyPlan(plan_type: .lunch, selected_date: selected_date)
-        planDinner = fetchDailyPlan(plan_type: .dinner, selected_date: selected_date)
+        //planBreakfast = fetchDailyPlan(plan_type: .breakfast, selected_date: selected_date)
+        //planLunch = fetchDailyPlan(plan_type: .lunch, selected_date: selected_date)
+        //planDinner = fetchDailyPlan(plan_type: .dinner, selected_date: selected_date)
         
         let nib = UINib(nibName: "\(MealPlanCell.self)", bundle: nil)
         
@@ -65,13 +69,24 @@ class MealPlanSummaryViewController: UIViewController {
         viewDinner.isUserInteractionEnabled = true
         
         //mealPlanBreakfast.tableFooterView = UIView(frame: .zero)
-        refreshConstraint()
+
+      //print("VWCNSTRN \(viewMain.constraints)")
+      //print("VWCNSTRN \(mainViewHeightConstraint)")
+      print(stackViewMealPlan.frame.height)
+
+
+      //print("VWCNSTRN \(viewMain.constraints)")
         
         self.setupPlanSummary()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         //refreshConstraint()
+      print("as")
+      refreshMealPlan(tableView: mealPlanBreakfast)
+      refreshMealPlan(tableView: mealPlanLunch)
+      refreshMealPlan(tableView: mealPlanDinner)
+      refreshConstraint()
     }
     
     @objc func setCategoryIndexCG1(tapGestureRecognizer: UITapGestureRecognizer){
@@ -103,7 +118,16 @@ class MealPlanSummaryViewController: UIViewController {
         mealPlanDinner.removeConstraints(mealPlanDinner.constraints)
         mealPlanDinner.translatesAutoresizingMaskIntoConstraints = false
         mealPlanDinner.addConstraints([heightConstraintDinner])
-        
+
+      //let heightConstraintMainView = viewMain.heightAnchor.constraint(equalToConstant: stackViewMealPlan.frame.height+35)
+      //viewMain.constraints.
+
+      //mainViewHeightConstraint.constant = stackViewMealPlan.frame.height+35
+
+      //let totalData = planBreakfast.count+planLunch.count+planDinner.count
+      //print((Int(stackViewMealPlan.frame.height)+35)-(78*totalData))
+      //viewMain.removeConstraint(mainViewHeightConstraint)
+      //viewMain.addConstraints([heightConstraintMainView])
         print("CONSTRN BRKFS: \(mealPlanBreakfast.constraints)")
         print("CONSTRN LUNCH: \(mealPlanLunch.constraints)")
         print("CONSTRN DINNER: \(mealPlanDinner.constraints)")
@@ -114,6 +138,7 @@ class MealPlanSummaryViewController: UIViewController {
         let storyboard = UIStoryboard(name: "MealList", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "MealListVC") as! MealListViewController
         vc.type = type
+        vc.selected_date = selected_date
         
         navigationController?.pushViewController(vc, animated: true)
         
