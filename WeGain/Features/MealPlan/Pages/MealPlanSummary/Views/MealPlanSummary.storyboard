@@ -25,11 +25,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hA-zy-qsx">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hA-zy-qsx">
                                 <rect key="frame" x="0.0" y="104" width="414" height="1096"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="By5-1r-8kU">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="By5-1r-8kU">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-CK-yM5" customClass="DashboardCell" customModule="WeGain" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="72" width="398" height="256"/>
@@ -240,21 +240,32 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5du-4R-N23">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="42"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc3-sK-hT5">
-                                                                <rect key="frame" x="15" y="11" width="84" height="22"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc3-sK-hT5">
+                                                                <rect key="frame" x="0.0" y="10" width="83.5" height="21.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhw-PG-pT3">
+                                                                <rect key="frame" x="333" y="10" width="33" height="22"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                <color key="tintColor" name="WGRed"/>
+                                                                <state key="normal" image="chevron.right" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="btnBreakfastClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nss-aI-A00"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="CHK-wm-8gI"/>
+                                                            <constraint firstItem="Zhw-PG-pT3" firstAttribute="top" secondItem="5du-4R-N23" secondAttribute="top" constant="9" id="0Va-Hf-qEM"/>
+                                                            <constraint firstItem="yc3-sK-hT5" firstAttribute="top" secondItem="5du-4R-N23" secondAttribute="top" constant="10" id="0hJ-o7-ypE"/>
+                                                            <constraint firstItem="yc3-sK-hT5" firstAttribute="leading" secondItem="5du-4R-N23" secondAttribute="leading" id="4Rc-h5-vdy"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Zhw-PG-pT3" secondAttribute="trailing" id="OcZ-cX-5TD"/>
                                                             <constraint firstAttribute="height" constant="42" id="tgA-Be-YvL"/>
                                                         </constraints>
                                                     </view>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j3U-V6-Ne2">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j3U-V6-Ne2">
                                                         <rect key="frame" x="0.0" y="42" width="366" height="400"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
@@ -268,16 +279,28 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqD-KT-FAB">
                                                         <rect key="frame" x="0.0" y="442" width="366" height="42"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvt-b1-Rtl">
-                                                                <rect key="frame" x="19" y="10" width="53" height="22"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvt-b1-Rtl">
+                                                                <rect key="frame" x="0.0" y="10" width="53" height="21.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UM-SL-6aN">
+                                                                <rect key="frame" x="353.5" y="10" width="12.5" height="22"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                <color key="tintColor" name="WGRed"/>
+                                                                <state key="normal" image="chevron.right" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="btnLunchClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="euI-nb-4Zc"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
+                                                            <constraint firstItem="Bvt-b1-Rtl" firstAttribute="top" secondItem="CqD-KT-FAB" secondAttribute="top" constant="10" id="34J-Fv-NYV"/>
+                                                            <constraint firstAttribute="trailing" secondItem="7UM-SL-6aN" secondAttribute="trailing" id="Qtw-Bx-x3Z"/>
+                                                            <constraint firstItem="Bvt-b1-Rtl" firstAttribute="leading" secondItem="CqD-KT-FAB" secondAttribute="leading" id="gE2-t9-YrR"/>
+                                                            <constraint firstItem="7UM-SL-6aN" firstAttribute="top" secondItem="CqD-KT-FAB" secondAttribute="top" constant="10" id="njb-JA-Reb"/>
                                                             <constraint firstAttribute="height" constant="42" id="pUN-FX-fyk"/>
                                                         </constraints>
                                                     </view>
@@ -296,16 +319,28 @@
                                                         <rect key="frame" x="0.0" y="534" width="366" height="42"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gN-yx-FcV">
-                                                                <rect key="frame" x="18" y="10" width="57" height="21.5"/>
+                                                                <rect key="frame" x="0.0" y="11" width="57" height="21.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBT-Hh-Zsq">
+                                                                <rect key="frame" x="353.5" y="10" width="12.5" height="22"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                <color key="tintColor" name="WGRed"/>
+                                                                <state key="normal" image="chevron.right" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="btnDinnerClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="clh-7g-uc3"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="42" id="LYg-qx-6CE"/>
-                                                            <constraint firstItem="1gN-yx-FcV" firstAttribute="leading" secondItem="Gi9-BG-AjD" secondAttribute="leading" constant="18" id="bIu-t3-cJf"/>
+                                                            <constraint firstItem="cBT-Hh-Zsq" firstAttribute="top" secondItem="Gi9-BG-AjD" secondAttribute="top" constant="10" id="W0G-cY-7m9"/>
+                                                            <constraint firstAttribute="trailing" secondItem="cBT-Hh-Zsq" secondAttribute="trailing" id="fqB-LA-Hay"/>
+                                                            <constraint firstItem="1gN-yx-FcV" firstAttribute="top" secondItem="Gi9-BG-AjD" secondAttribute="top" constant="11" id="hIX-Hq-B26"/>
+                                                            <constraint firstItem="1gN-yx-FcV" firstAttribute="leading" secondItem="Gi9-BG-AjD" secondAttribute="leading" id="qJI-cg-B15"/>
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-nm-l8n">
@@ -377,9 +412,9 @@
                         <outlet property="mealPlanDinner" destination="bBn-nm-l8n" id="cXo-lI-Ifq"/>
                         <outlet property="mealPlanLunch" destination="rFQ-Fz-asB" id="qzl-Bm-Qdy"/>
                         <outlet property="stackViewMealPlan" destination="sDy-OT-ejg" id="f8b-ba-T8I"/>
-                        <outlet property="viewBreakfast" destination="5du-4R-N23" id="16a-ex-u2O"/>
-                        <outlet property="viewDinner" destination="Gi9-BG-AjD" id="ikx-Ws-kE5"/>
-                        <outlet property="viewLunch" destination="CqD-KT-FAB" id="2p7-DD-Gx2"/>
+                        <outlet property="viewBreakfast" destination="5du-4R-N23" id="rdA-if-ttT"/>
+                        <outlet property="viewDinner" destination="Gi9-BG-AjD" id="ybE-rr-Knw"/>
+                        <outlet property="viewLunch" destination="CqD-KT-FAB" id="wLR-jM-aLw"/>
                         <outlet property="viewMain" destination="By5-1r-8kU" id="7kZ-E2-Ynj"/>
                         <segue destination="Qu8-VE-Lv9" kind="show" identifier="ToMealChoices" id="XNf-m5-jNP"/>
                     </connections>
@@ -418,6 +453,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="doc.plaintext.fill" catalog="system" width="115" height="128"/>
         <namedColor name="WGRed">
             <color red="0.76499998569488525" green="0.18400000035762787" blue="0.15299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
