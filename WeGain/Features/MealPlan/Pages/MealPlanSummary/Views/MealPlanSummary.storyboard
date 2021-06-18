@@ -121,30 +121,30 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50/150 gr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGa-r1-JmC">
-                                                        <rect key="frame" x="158.5" y="45" width="80" height="17"/>
+                                                        <rect key="frame" x="158.5" y="45" width="120" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="FvB-X6-ZtS"/>
-                                                            <constraint firstAttribute="width" constant="80" id="siQ-p4-1Dj"/>
+                                                            <constraint firstAttribute="width" constant="120" id="siQ-p4-1Dj"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="WGWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50/150 gr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9A-hg-9hN">
-                                                        <rect key="frame" x="158.5" y="91" width="80" height="17"/>
+                                                        <rect key="frame" x="158.5" y="91" width="120" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="CNU-iu-Sv7"/>
-                                                            <constraint firstAttribute="width" constant="80" id="vwN-dz-5I0"/>
+                                                            <constraint firstAttribute="width" constant="120" id="vwN-dz-5I0"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="WGWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50/150 gr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuh-84-3uA">
-                                                        <rect key="frame" x="158.5" y="137" width="80" height="17"/>
+                                                        <rect key="frame" x="158.5" y="137" width="120" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="Aey-yc-gVm"/>
-                                                            <constraint firstAttribute="width" constant="80" id="OjT-oX-sEN"/>
+                                                            <constraint firstAttribute="width" constant="120" id="OjT-oX-sEN"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="WGWhite"/>

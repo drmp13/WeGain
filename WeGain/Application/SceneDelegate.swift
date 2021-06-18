@@ -43,7 +43,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        if date == nil || Calendar.current.isDateInYesterday(date!) {
+        guard let fetchedDate = date else {
+            return
+        }
+        
+        if Calendar.current.isDateInYesterday(fetchedDate) {
             UserDefaults.standard.setValue(Date(), forKey: Constants.CALORIE_SYNC_TIME_KEY)
             
             var bmi: Double {

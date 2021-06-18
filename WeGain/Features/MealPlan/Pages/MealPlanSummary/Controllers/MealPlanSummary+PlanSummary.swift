@@ -15,16 +15,16 @@ extension MealPlanSummaryViewController {
         let protein: (Double, Double) = self.planSummary.protein
         let fat: (Double, Double) = self.planSummary.fat
         
-        self.dashboardView.CaloriesEatenLabel.text = "\(eatenCals.0) KCal"
+        self.dashboardView.CaloriesEatenLabel.text = String(format: "%.2f KCal", eatenCals.0)
         
         self.dashboardView.CarboProgressView.setProgress(Float(carb.0 / carb.1), animated: true)
-        self.dashboardView.carboProgressLabel.text = "\(carb.0)/\(carb.1) gr"
+        self.dashboardView.carboProgressLabel.text = String(format: "%.2f/%.2f gr", carb.0, carb.1)
         
         self.dashboardView.ProteinProgressView.setProgress(Float(protein.0 / protein.1), animated: true)
-        self.dashboardView.proteinProgressLabel.text = "\(protein.0)/\(protein.1) gr"
+        self.dashboardView.proteinProgressLabel.text = String(format: "%.2f/%.2f gr", protein.0, protein.1)
         
         self.dashboardView.FatProgressView.setProgress(Float(fat.0 / fat.1), animated: true)
-        self.dashboardView.fatProgressLabel.text = "\(fat.0)/\(fat.1) gr"
+        self.dashboardView.fatProgressLabel.text = String(format: "%.2f/%.2f gr", protein.0, protein.1)
         
         self.updateActivityCalorie()
     }
