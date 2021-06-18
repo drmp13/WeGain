@@ -23,25 +23,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ln-LU-dfl" userLabel="mealListCellView">
                                 <rect key="frame" x="0.0" y="0.0" width="342" height="72"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150KCal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mof-p6-SAr" userLabel="mealListCellKCalLabel">
-                                        <rect key="frame" x="226.99999999999997" y="25" width="71.666666666666657" height="22"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDF-J7-jaP" userLabel="mealListCellChevronButton">
                                         <rect key="frame" x="302.66666666666669" y="25" width="23.333333333333314" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="tintColor" red="0.76470588240000004" green="0.1843137255" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="chevron.up" catalog="system">
+                                        <state key="normal" image="chevron.down" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                         </state>
                                         <connections>
                                             <action selector="didTapButtonWithSender:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zb1-m6-VDP"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bubur Ayam (300g)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9m-8V-Dh0" userLabel="mealListCellNameLabel">
-                                        <rect key="frame" x="16" y="25" width="161.66666666666666" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bubur Ayam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9m-8V-Dh0" userLabel="mealListCellNameLabel">
+                                        <rect key="frame" x="15.999999999999993" y="16" width="104.33333333333331" height="21.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150KCal / 300g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mof-p6-SAr" userLabel="mealListCellKCalLabel">
+                                        <rect key="frame" x="15.999999999999993" y="37.666666666666664" width="126.33333333333331" height="21.666666666666664"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -49,16 +49,15 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="EDF-J7-jaP" firstAttribute="leading" secondItem="Mof-p6-SAr" secondAttribute="trailing" constant="4" id="Lk7-uH-lk0"/>
-                                    <constraint firstAttribute="bottom" secondItem="Mof-p6-SAr" secondAttribute="bottom" constant="25" id="Q11-hz-Hfz"/>
+                                    <constraint firstItem="Mof-p6-SAr" firstAttribute="leading" secondItem="4Ln-LU-dfl" secondAttribute="leading" constant="16" id="Mf3-Bn-EL6"/>
                                     <constraint firstAttribute="trailing" secondItem="EDF-J7-jaP" secondAttribute="trailing" constant="16" id="Zge-QI-iYE"/>
-                                    <constraint firstAttribute="bottom" secondItem="R9m-8V-Dh0" secondAttribute="bottom" constant="25" id="cbQ-Qt-kN4"/>
-                                    <constraint firstItem="R9m-8V-Dh0" firstAttribute="top" secondItem="4Ln-LU-dfl" secondAttribute="top" constant="25" id="cjo-zr-IzJ"/>
+                                    <constraint firstItem="R9m-8V-Dh0" firstAttribute="top" secondItem="4Ln-LU-dfl" secondAttribute="top" constant="16" id="cjo-zr-IzJ"/>
+                                    <constraint firstItem="Mof-p6-SAr" firstAttribute="top" secondItem="R9m-8V-Dh0" secondAttribute="bottom" id="g7F-Cm-LDi"/>
                                     <constraint firstItem="R9m-8V-Dh0" firstAttribute="leading" secondItem="4Ln-LU-dfl" secondAttribute="leading" constant="16" id="iYm-LB-Hds"/>
-                                    <constraint firstItem="Mof-p6-SAr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R9m-8V-Dh0" secondAttribute="trailing" id="kgb-98-rKD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mof-p6-SAr" secondAttribute="bottom" constant="12.666666666666671" id="itm-py-YuA"/>
                                     <constraint firstItem="EDF-J7-jaP" firstAttribute="top" secondItem="4Ln-LU-dfl" secondAttribute="top" constant="25" id="mVS-5C-Eeq"/>
                                     <constraint firstAttribute="bottom" secondItem="EDF-J7-jaP" secondAttribute="bottom" constant="25" id="pHS-Qd-NKg"/>
-                                    <constraint firstItem="Mof-p6-SAr" firstAttribute="top" secondItem="4Ln-LU-dfl" secondAttribute="top" constant="25" id="wpZ-3R-Reu"/>
+                                    <constraint firstItem="EDF-J7-jaP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R9m-8V-Dh0" secondAttribute="trailing" constant="8" id="zpW-hp-BFV"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7o-Bj-hop" userLabel="mealListCellDetailView">
@@ -77,20 +76,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KB-U8-Wv0" userLabel="detailCarbohydrateWeightLabel">
-                                        <rect key="frame" x="294" y="16" width="32" height="21.666666666666671"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <rect key="frame" x="295.66666666666669" y="16" width="30.333333333333314" height="21.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLI-we-qnT" userLabel="detailProteinWeightLabel">
-                                        <rect key="frame" x="294" y="53.666666666666664" width="32" height="21.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <rect key="frame" x="295.66666666666669" y="53.666666666666664" width="30.333333333333314" height="21.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSQ-oZ-peQ" userLabel="detailFatWeightLabel">
-                                        <rect key="frame" x="291.33333333333331" y="91.333333333333343" width="34.666666666666686" height="21.666666666666671"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <rect key="frame" x="292.66666666666669" y="91.333333333333343" width="33.333333333333314" height="21.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -119,9 +118,9 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="4Ln-LU-dfl" secondAttribute="trailing" id="2UU-QX-r9b"/>
+                            <constraint firstItem="o7o-Bj-hop" firstAttribute="top" secondItem="4Ln-LU-dfl" secondAttribute="bottom" id="Ed5-wO-4na"/>
                             <constraint firstAttribute="trailing" secondItem="o7o-Bj-hop" secondAttribute="trailing" id="GZo-Fg-Ndw"/>
                             <constraint firstItem="4Ln-LU-dfl" firstAttribute="top" secondItem="Jtk-pe-yrd" secondAttribute="top" id="eQz-ll-D26"/>
-                            <constraint firstItem="o7o-Bj-hop" firstAttribute="top" secondItem="4Ln-LU-dfl" secondAttribute="top" constant="72" id="fPP-yE-afG"/>
                             <constraint firstItem="8KB-U8-Wv0" firstAttribute="top" secondItem="4Ln-LU-dfl" secondAttribute="bottom" constant="16" id="nsM-4F-iAc"/>
                             <constraint firstItem="4Ln-LU-dfl" firstAttribute="leading" secondItem="Jtk-pe-yrd" secondAttribute="leading" id="qPo-x3-oO4"/>
                             <constraint firstAttribute="bottom" secondItem="o7o-Bj-hop" secondAttribute="bottom" id="wdC-pS-0IB"/>
@@ -155,7 +154,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="chevron.up" catalog="system" width="128" height="72"/>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

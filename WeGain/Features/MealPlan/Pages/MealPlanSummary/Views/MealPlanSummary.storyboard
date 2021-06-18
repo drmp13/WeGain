@@ -222,10 +222,10 @@
                                                 </connections>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sDy-OT-ejg">
-                                                <rect key="frame" x="0.0" y="346" width="414" height="711"/>
+                                                <rect key="frame" x="24" y="346" width="366" height="711"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5du-4R-N23">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="42"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc3-sK-hT5">
                                                                 <rect key="frame" x="15" y="11" width="84" height="22"/>
@@ -242,7 +242,7 @@
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j3U-V6-Ne2">
-                                                        <rect key="frame" x="0.0" y="42" width="414" height="400"/>
+                                                        <rect key="frame" x="0.0" y="42" width="366" height="400"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="400" id="hib-CB-BHc"/>
@@ -253,7 +253,7 @@
                                                         </connections>
                                                     </tableView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqD-KT-FAB">
-                                                        <rect key="frame" x="0.0" y="442" width="414" height="42"/>
+                                                        <rect key="frame" x="0.0" y="442" width="366" height="42"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvt-b1-Rtl">
                                                                 <rect key="frame" x="19" y="10" width="53" height="22"/>
@@ -269,7 +269,7 @@
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rFQ-Fz-asB">
-                                                        <rect key="frame" x="0.0" y="484" width="414" height="50"/>
+                                                        <rect key="frame" x="0.0" y="484" width="366" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="fuV-6O-luh"/>
@@ -280,7 +280,7 @@
                                                         </connections>
                                                     </tableView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gi9-BG-AjD">
-                                                        <rect key="frame" x="0.0" y="534" width="414" height="42"/>
+                                                        <rect key="frame" x="0.0" y="534" width="366" height="42"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dinner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gN-yx-FcV">
                                                                 <rect key="frame" x="18" y="10" width="57" height="22"/>
@@ -296,7 +296,7 @@
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-nm-l8n">
-                                                        <rect key="frame" x="0.0" y="576" width="414" height="135"/>
+                                                        <rect key="frame" x="0.0" y="576" width="366" height="135"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <connections>
                                                             <outlet property="dataSource" destination="Y6W-OH-hqX" id="j2Y-RP-1cJ"/>
@@ -322,12 +322,12 @@
                                             <constraint firstItem="iPf-CK-yM5" firstAttribute="top" secondItem="u3I-iM-Hcu" secondAttribute="bottom" constant="8" id="K9i-B2-mTN"/>
                                             <constraint firstAttribute="height" constant="1200" id="NqE-Tl-ckT"/>
                                             <constraint firstItem="u3I-iM-Hcu" firstAttribute="top" secondItem="By5-1r-8kU" secondAttribute="top" id="Tig-Ic-qbU"/>
-                                            <constraint firstItem="sDy-OT-ejg" firstAttribute="leading" secondItem="By5-1r-8kU" secondAttribute="leading" id="VUu-NA-VBo"/>
                                             <constraint firstItem="u3I-iM-Hcu" firstAttribute="leading" secondItem="By5-1r-8kU" secondAttribute="leading" id="YET-N0-hrv"/>
                                             <constraint firstAttribute="trailing" secondItem="u3I-iM-Hcu" secondAttribute="trailing" id="ag6-RU-RM1"/>
+                                            <constraint firstItem="sDy-OT-ejg" firstAttribute="leading" secondItem="By5-1r-8kU" secondAttribute="leading" constant="24" id="lJ0-Eb-66J"/>
                                             <constraint firstAttribute="trailing" secondItem="iPf-CK-yM5" secondAttribute="trailing" constant="8" id="lJ2-y6-PzS"/>
+                                            <constraint firstAttribute="trailing" secondItem="sDy-OT-ejg" secondAttribute="trailing" constant="24" id="lKP-Af-AQo"/>
                                             <constraint firstAttribute="bottom" secondItem="sDy-OT-ejg" secondAttribute="bottom" constant="143" id="lOG-vI-hIO"/>
-                                            <constraint firstAttribute="trailing" secondItem="sDy-OT-ejg" secondAttribute="trailing" id="vbW-D4-FTQ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
