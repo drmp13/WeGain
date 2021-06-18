@@ -17,6 +17,7 @@
 		6F835E7E2670F87400D3ECF5 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F835E7D2670F87400D3ECF5 /* Charts.swift */; };
 		6FB1C02D2677128A001BB010 /* ToolbarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1C02C2677128A001BB010 /* ToolbarPickerView.swift */; };
 		6FE048D526711296005AA93E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE048D426711296005AA93E /* SwiftUICharts */; };
+		7D0A4049267D01EF00B9132F /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A4048267D01EF00B9132F /* HistoryList.swift */; };
 		7D1D6C4726775BAB006A054F /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D6C4626775BAB006A054F /* ViewRouter.swift */; };
 		7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FA63266E448F00791CD4 /* AppDelegate.swift */; };
 		7D23FA66266E448F00791CD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FA65266E448F00791CD4 /* SceneDelegate.swift */; };
@@ -92,6 +93,7 @@
 		6F19475926751C5700AF6001 /* FillDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillDetailsViewController.swift; sourceTree = "<group>"; };
 		6F835E7D2670F87400D3ECF5 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 		6FB1C02C2677128A001BB010 /* ToolbarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPickerView.swift; sourceTree = "<group>"; };
+		7D0A4048267D01EF00B9132F /* HistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryList.swift; sourceTree = "<group>"; };
 		7D1D6C4626775BAB006A054F /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		7D23FA60266E448F00791CD4 /* WeGain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeGain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D23FA63266E448F00791CD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 			children = (
 				7D6A644626721F4400554DC1 /* HistoryDataStore.swift */,
 				7D6A644826721F7300554DC1 /* HistoryRepository.swift */,
+				7D0A4048267D01EF00B9132F /* HistoryList.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				7D4B870B266E6A0A006E9169 /* UserProfileViewController.swift in Sources */,
 				7D4B871B266E6FAD006E9169 /* AddMealViewController.swift in Sources */,
 				7DCF0DC326790835000E0D9B /* CircleProgressBar.swift in Sources */,
+				7D0A4049267D01EF00B9132F /* HistoryList.swift in Sources */,
 				7D6A644926721F7300554DC1 /* HistoryRepository.swift in Sources */,
 				968CEA9B2672CAE8007071DB /* MealModel.swift in Sources */,
 				7D4B86EB266E56CD006E9169 /* MealListCell.swift in Sources */,
