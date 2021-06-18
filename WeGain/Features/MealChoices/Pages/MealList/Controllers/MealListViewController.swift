@@ -7,12 +7,23 @@
 
 import UIKit
 
-class MealListViewController: UIViewController {
+protocol AddNewMealDelegate {
+    func add_new_meal()
+}
+
+class MealListViewController: UIViewController, AddNewMealDelegate {
+    func add_new_meal() {
+        self.meals = MealRepository.shared.fetch()
+        self.filteredMeals = self.meals
+        mealListChoiceTableView.reloadData()
+    }
 
 //    @IBOutlet weak var searchMeal: UISearchBar!
     @IBOutlet weak var mealChoiceKCalLabel: UILabel!
     @IBOutlet weak var addNewMealButton: UIButton!
     @IBOutlet weak var mealListChoiceTableView: UITableView!
+    
+    var delegate: AddNewMealDelegate?
     
     var meals = [Meal]()
     var filteredMeals = [Meal]()
@@ -64,15 +75,20 @@ class MealListViewController: UIViewController {
         alertMoreThan = false
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToAddMeal" {
+            if let vc = segue.destination as? AddMealViewController {
+                vc.delegate = self
+            }
+        }
+    }
+    
     @IBAction func AddMealTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "ToAddMeal", sender: nil)
     }
     
     @objc func doneTapped(_ sender: UIButton) {
         let today = Calendar.current.startOfDay(for: Date())
-
-      //print(today)
-      //print(selected_date)
         
         if caloriesIntake < limitCalories - 100 {
             let alert = UIAlertController(title: "Calories Intake", message: "Your calories intake less than the limit, it's recommended to plan according to your calorie recommendation. Do you want to continue?", preferredStyle: .alert)
@@ -129,6 +145,7 @@ extension MealListViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        buttonDidTapped = Array(repeating: false, count: meals.count)
         if buttonDidTapped[indexPath.section] == true{
             return 201
         }else {
@@ -262,8 +279,8 @@ extension MealListViewController: UISearchBarDelegate {
         if searchText.isEmpty {
             self.filteredMeals = self.meals
         }else{
-            self.filteredMeals = self.filteredMeals.filter { meals in
-                (meals.name?.contains(searchText))!
+            self.filteredMeals = self.meals.filter { meals in
+                meals.name?.range(of: "\(searchText)", options: .caseInsensitive) != nil
             }
         }
         mealListChoiceTableView.reloadData()

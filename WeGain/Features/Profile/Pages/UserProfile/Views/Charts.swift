@@ -9,9 +9,10 @@ import SwiftUI
 import SwiftUICharts
 
 struct Charts: View {
-    let data : LineChartData = weekOfData()
+    let histories : [History]
     
     var body: some View {
+        let data : LineChartData = Charts.weekOfData(histories: histories)
         VStack {
             LineChart(chartData: data)
                 .pointMarkers(chartData: data)
@@ -29,15 +30,14 @@ struct Charts: View {
         .navigationTitle("Week of Data")
     }
     
-    static func weekOfData() -> LineChartData {
-        let data = LineDataSet(dataPoints: [
-            LineChartDataPoint(value: 50, xAxisLabel: "May"),
-            LineChartDataPoint(value: 52, xAxisLabel: "Jun"),
-            LineChartDataPoint(value: 50, xAxisLabel: "Jul"),
-            LineChartDataPoint(value: 53, xAxisLabel: "Aug"),
-            LineChartDataPoint(value: 57, xAxisLabel: "Sep"),
-            LineChartDataPoint(value: 60, xAxisLabel: "Oct")
-        ],
+    static func weekOfData(histories: [History]) -> LineChartData {
+        var dataPoints : [LineChartDataPoint] = []
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/YY"
+        for hist in histories {
+            dataPoints.append(LineChartDataPoint(value: hist.weight, xAxisLabel: dateFormatter.string(from: hist.date!)))
+        }
+        let data = LineDataSet(dataPoints: dataPoints,
         legendTitle: "Weight Progress",
         pointStyle: PointStyle(),
         style: LineStyle(lineColour: ColourStyle(colour: .red), lineType: .curvedLine))
@@ -77,8 +77,3 @@ struct Charts: View {
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        Charts()
-    }
-}

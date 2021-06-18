@@ -13,13 +13,15 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var chartSwiftUI: UIView!
     
     @IBOutlet weak var syncSwitch: UISwitch!
-
+    
     @IBOutlet weak var updateButton: UIButton!
-
+    
     @IBOutlet weak var weightHistoryTableView: UITableView!
     
     var dateHistoryArray = [History]()
     var weightHistoryArray = [History]()
+    
+    let profile = ProfileRepository.shared.fetch()
     
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
@@ -36,19 +38,20 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         profilePickerView()
         
-        weightTextField.placeholder = "45"
-        heightTextField.placeholder = "175"
-        activityTextField.placeholder = "1.8 - mostly standing/walking"
+        weightTextField.text = String(format: "%.0f", profile.weight)
+        heightTextField.text = String(format: "%.0f", profile.height)
+        activityTextField.text = String(format: "%.0f", profile.activity)
         
         weightHistoryTableView.delegate = self
         weightHistoryTableView.dataSource = self
         
+        updateButton.alpha = 0.5
         updateButton.layer.cornerRadius = 10
         updateButton.isEnabled = false
-        updateButton.alpha = 0.5
+        
         
     }
     
@@ -103,15 +106,17 @@ class UserProfileViewController: UIViewController {
         heightTextField.resignFirstResponder()
         activityTextField.resignFirstResponder()
     }
-
+    
     @IBAction func textFieldChange(_ sender: Any) {
         updateButton.isEnabled = true
         updateButton.alpha = 1.0
     }
     
-    
     @IBSegueAction func chartSwiftUISegueHost(_ coder: NSCoder) -> UIViewController? {
-        return UIHostingController(coder: coder, rootView: Charts())
+        getHistoryData()
+        let charts = Charts(histories: self.historyArray)
+        
+        return UIHostingController(coder: coder, rootView: charts)
     }
     
     @IBAction func syncSwitchDidChange(_ sender: UISwitch){
@@ -124,9 +129,9 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBAction func updateButtonDidTapped(_ sender: Any) {
-//        ProfileRepository.shared.add(gender: "", height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activityTextField.text!.prefix(3))!)
+        ProfileRepository.shared.add(gender: profile.gender, age: profile.age, height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activityTextField.text!.prefix(3))!)
     }
-
+    
     func getHistoryData(){
         let history_repo = HistoryRepository.shared
         let histories = history_repo.fetch()
@@ -134,7 +139,6 @@ class UserProfileViewController: UIViewController {
         for hist in histories{
             historyArray.append(hist)
         }
-        
     }
 }
 
@@ -191,7 +195,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weightHistoryTableView.dequeueReusableCell(withIdentifier: "historyWeightCell") as! WeightHistoryTableViewCell
-      
+        
         let dateHistory = historyArray[indexPath.row].date
         let weightHistory = historyArray[indexPath.row].weight
         

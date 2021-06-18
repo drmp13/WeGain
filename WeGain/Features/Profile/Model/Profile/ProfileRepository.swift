@@ -23,8 +23,8 @@ class ProfileRepository {
         return profile!
     }
     
-    func add(gender: String, age: Int, height: Double, weight: Double, activity: Double) {
-        let profile = Profile(activity: activity, gender: gender, age: age, height: height, weight: weight)
+    func add(gender: String, birthday: Date, height: Double, weight: Double, activity: Double) {
+        let profile = Profile(activity: activity, gender: gender, birthday: birthday, height: height, weight: weight)
         
         self.dataStore?.save(profile)
     }

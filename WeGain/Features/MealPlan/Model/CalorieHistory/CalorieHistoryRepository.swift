@@ -30,7 +30,7 @@ class CalorieHistoryRepository {
         let context = PersistenceManager.shared.persistentContainer.viewContext
         
         let history = self.dataStore?.fetchByDate(date: date)
-        if history == nil {
+        if history != nil {
             history?.max_calorie = maxCalorie
         } else {
             let calorieHistory = CalorieHistory(context: context)

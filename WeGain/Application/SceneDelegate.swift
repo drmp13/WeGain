@@ -22,6 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window.rootViewController = vc
                 self.window = window
                 window.makeKeyAndVisible()
+                
+                HealthKitManager.shared.requestPermission()
             }
         }
     }
@@ -41,22 +43,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        if date == nil || Calendar.current.isDateInYesterday(date!) {
+        guard let fetchedDate = date else {
+            return
+        }
+        
+        if Calendar.current.isDateInYesterday(fetchedDate) {
             UserDefaults.standard.setValue(Date(), forKey: Constants.CALORIE_SYNC_TIME_KEY)
             
             var bmi: Double {
                 var bmi: Double = 0
                 
+                let age = Calendar.current.dateComponents([.year], from: profile.birthday, to: Date()).year
+                
                 if profile.gender == "Male" {
-                    bmi = 66 + (13.7 * profile.weight) + (5 * profile.height) + (6.8 * Double(profile.age))
+                    bmi = 66 + (13.7 * profile.weight) + (5 * profile.height) + (6.8 * Double(age!))
                 } else {
-                    bmi = 66.5 + (9.6 * profile.weight) + (1.7 * profile.height) + (4.7 * Double(profile.age))
+                    bmi = 66.5 + (9.6 * profile.weight) + (1.7 * profile.height) + (4.7 * Double(age!))
                 }
                 
                 return bmi
             }
 
-            CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * profile.activity, for: Calendar.current.startOfDay(for: Date()))
+            CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * profile.activity, for: helper_getStartOfDay())
         }
     }
 
