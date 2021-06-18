@@ -25,6 +25,8 @@ class MealListViewController: UIViewController {
     
     var caloriesIntake: Double = 0
     var limitCalories: Double = 900
+
+    var selected_date = helper_getCurrentDate(format: "yyyy-MM-dd")
     
     var alertMoreThan: Bool?
     var alreadyNotifyUserMoreThan = false
@@ -68,13 +70,17 @@ class MealListViewController: UIViewController {
     
     @objc func doneTapped(_ sender: UIButton) {
         let today = Calendar.current.startOfDay(for: Date())
+
+      //print(today)
+      //print(selected_date)
         
         if caloriesIntake < limitCalories - 100 {
             let alert = UIAlertController(title: "Calories Intake", message: "Your calories intake less than the limit, it's recommended to plan according to your calorie recommendation. Do you want to continue?", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
                 for meal in self.selectedMeals{
-                    PlanRepository.shared.addPlan(for: today, meal: meal, type: self.type!)
+                  PlanRepository.shared.addPlan(for: helper_createDate(date: self.selected_date+" 00:00:00 +7"), meal: meal, type: self.type!)
+                  _ = self.navigationController?.popViewController(animated: true)
                 }
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
