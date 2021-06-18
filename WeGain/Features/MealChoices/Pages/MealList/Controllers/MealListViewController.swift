@@ -107,6 +107,10 @@ class MealListViewController: UIViewController, AddNewMealDelegate {
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
             
             self.present(alert, animated: true)
+        } else {
+            for meal in self.selectedMeals{
+                PlanRepository.shared.addPlan(for: helper_createDate(date: self.selected_date+" 00:00:00 +7"), meal: meal, type: self.type!)
+            }
         }
         
         print(today)

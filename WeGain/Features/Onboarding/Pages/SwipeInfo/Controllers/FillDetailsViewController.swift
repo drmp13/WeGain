@@ -41,6 +41,12 @@ class FillDetailsViewController: UIViewController{
             picker.dataSource = self
         }
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        birthdayTextField.text = "\(formatter.string(from: Date()))"
+        
+        
         genderTextField.inputView = genderPickerView
         heightTextField.inputView = heightPickerView
         weightTextField.inputView = weightPickerView
@@ -69,11 +75,15 @@ class FillDetailsViewController: UIViewController{
         birthdayDatePicker.datePickerMode = .date
         birthdayDatePicker.preferredDatePickerStyle = .wheels
         birthdayTextField.inputAccessoryView = toolBar
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        
-        birthdayTextField.text = "\(formatter.string(from: Date()))"
+        genderPickerView.selectRow(gender.firstIndex(of: genderTextField.text!)!, inComponent: 0, animated: false)
+        heightPickerView.selectRow(height.firstIndex(of: heightTextField.text!)!, inComponent: 0, animated: false)
+        weightPickerView.selectRow(weight.firstIndex(of: weightTextField.text!)!, inComponent: 0, animated: false)
+        activityPickerView.selectRow(activity.firstIndex(of: activityTextField.text!)!, inComponent: 0, animated: false)
     }
     
     @objc func cancelBirthdayPicker() {
