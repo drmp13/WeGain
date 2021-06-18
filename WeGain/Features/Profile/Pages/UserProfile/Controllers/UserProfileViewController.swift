@@ -22,6 +22,7 @@ class UserProfileViewController: UIViewController {
     var weightHistoryArray = [History]()
     
     var profile = ProfileRepository.shared.fetch()
+    var historyList = HistoryList()
     
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
@@ -160,8 +161,7 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBSegueAction func chartSwiftUISegueHost(_ coder: NSCoder) -> UIViewController? {
-        getHistoryData()
-        let charts = Charts(histories: self.historyArray)
+        let charts = Charts().environmentObject(historyList)
         
         return UIHostingController(coder: coder, rootView: charts)
     }
@@ -180,6 +180,11 @@ class UserProfileViewController: UIViewController {
         let weight = Double(weightTextField.text!)!
         let activity_level = Double(activityTextField.text!.prefix(3))!
         
+        if weight != profile.weight {
+            HistoryRepository.shared.addHistory(for: Calendar.current.startOfDay(for: Date()), weight: weight)
+            historyList.updateHistories()
+            weightHistoryTableView.reloadData()
+        }
         
         profile.birthday = birthdayDatePicker.date
         profile.height = height
@@ -190,15 +195,6 @@ class UserProfileViewController: UIViewController {
         
         updateButton.isEnabled = false
         updateButton.alpha = 0.5
-    }
-    
-    func getHistoryData(){
-        let history_repo = HistoryRepository.shared
-        let histories = history_repo.fetch()
-        
-        for hist in histories{
-            historyArray.append(hist)
-        }
     }
 }
 
@@ -250,21 +246,21 @@ extension UserProfileViewController: UIPickerViewDataSource, UIPickerViewDelegat
 
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return historyArray.count
+        return historyList.histories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weightHistoryTableView.dequeueReusableCell(withIdentifier: "historyWeightCell") as! WeightHistoryTableViewCell
         
-        let dateHistory = historyArray[indexPath.row].date
-        let weightHistory = historyArray[indexPath.row].weight
+        let dateHistory = historyList.histories[indexPath.row].date
+        let weightHistory = historyList.histories[indexPath.row].weight
         
         let dateFormatter = DateFormatter()
         
-        dateFormatter.dateFormat = "YY/MM/dd"
+        dateFormatter.dateFormat = "d MMM"
         
         cell.dateHistoryWeightLabel.text = dateFormatter.string(from: dateHistory!)
-        cell.weightHistoryLabel.text = String(weightHistory)
+        cell.weightHistoryLabel.text = "\(weightHistory) kg"
         
         return cell
     }

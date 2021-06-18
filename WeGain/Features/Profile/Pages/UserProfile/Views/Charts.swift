@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftUICharts
 
 struct Charts: View {
-    let histories : [History]
+    @EnvironmentObject var historyList: HistoryList
     
     var body: some View {
-        let data : LineChartData = Charts.weekOfData(histories: histories)
+        let data : LineChartData = Charts.weekOfData(histories: historyList.histories)
         VStack {
             LineChart(chartData: data)
                 .pointMarkers(chartData: data)
@@ -21,7 +21,7 @@ struct Charts: View {
                 .yAxisGrid(chartData: data)
                 .xAxisLabels(chartData: data)
                 .yAxisLabels(chartData: data)
-                //.infoBox(chartData: data)
+                .floatingInfoBox(chartData: data)
                 //.headerBox(chartData: data)
                 .legends(chartData: data, columns: [GridItem(.flexible()), GridItem(.flexible())])
                 .id(data.id)
@@ -31,7 +31,7 @@ struct Charts: View {
     }
     
     static func weekOfData(histories: [History]) -> LineChartData {
-        var dataPoints : [LineChartDataPoint] = []
+        var dataPoints = [LineChartDataPoint]()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/YY"
         for hist in histories {
@@ -50,9 +50,9 @@ struct Charts: View {
                                    dash         : [8],
                                    dashPhase    : 0)
         
-        let chartStyle = LineChartStyle(//infoBoxPlacement    : .infoBox(isStatic: false),
-                                        //infoBoxBorderColour : Color.primary,
-                                        //infoBoxBorderStyle  : StrokeStyle(lineWidth: 1),
+        let chartStyle = LineChartStyle(infoBoxPlacement    : .floating,
+                                        infoBoxBorderColour : Color.primary,
+                                        infoBoxBorderStyle  : StrokeStyle(lineWidth: 1),
                                         
                                         markerType          : .vertical(attachment: .line(dot: .style(DotStyle()))),
                                         
