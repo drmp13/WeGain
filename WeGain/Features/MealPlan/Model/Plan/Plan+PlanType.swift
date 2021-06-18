@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PlanType: String {
+enum PlanType: String, CaseIterable {
     case breakfast = "Breakfast"
     case lunch = "Lunch"
     case dinner = "Dinner"

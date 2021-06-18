@@ -9,13 +9,15 @@ import UIKit
 
 class FillDetailsViewController: UIViewController{
     
+    @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var activityTextField: UITextField!
     @IBOutlet weak var startButton: UIButton!
     
-    let gender = ["Female", "Male", "Prefer not to say"]
+    let gender = ["Female", "Male"]
     let height = Array(120...220).map(String.init)
     let weight = Array(20...100).map(String.init)
     let activity = ["1.2 - bed/chair bound", "1.4 - sedentary work", "1.6 - mostly sedentary", "1.8 - mostly standing/walking", "2.0 - heavy activity", "2.2 - significantly heavy activity"]
@@ -24,6 +26,7 @@ class FillDetailsViewController: UIViewController{
     var heightPickerView = UIPickerView()
     var weightPickerView = UIPickerView()
     var activityPickerView = UIPickerView()
+    var birthdayDatePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +34,7 @@ class FillDetailsViewController: UIViewController{
     }
     
     func setUpPickerView(){
-        let pickers = [genderPickerView,heightPickerView,weightPickerView,activityPickerView]
+        let pickers = [genderPickerView, heightPickerView,weightPickerView,activityPickerView]
         
         for picker in pickers{
             picker.delegate = self
@@ -42,6 +45,7 @@ class FillDetailsViewController: UIViewController{
         heightTextField.inputView = heightPickerView
         weightTextField.inputView = weightPickerView
         activityTextField.inputView = activityPickerView
+        birthdayTextField.inputView = birthdayDatePicker
         
         genderPickerView.tag = 1
         heightPickerView.tag = 2
@@ -49,18 +53,70 @@ class FillDetailsViewController: UIViewController{
         activityPickerView.tag = 4
         
         startButton.layer.cornerRadius = 10
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = AppColor.red
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneBirthdayPicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.cancelBirthdayPicker))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        birthdayDatePicker.maximumDate = Date()
+        birthdayDatePicker.datePickerMode = .date
+        birthdayDatePicker.preferredDatePickerStyle = .wheels
+        birthdayTextField.inputAccessoryView = toolBar
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        birthdayTextField.text = "\(formatter.string(from: Date()))"
     }
+    
+    @objc func cancelBirthdayPicker() {
+        birthdayTextField.resignFirstResponder()
+    }
+    
+    @objc func doneBirthdayPicker() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        birthdayTextField.text = "\(formatter.string(from: birthdayDatePicker.date))"
+        
+        birthdayTextField.resignFirstResponder()
+    }
+
     @IBAction func getStarted(_ sender: Any) {
         let profile_repo = ProfileRepository.shared
         
-        let activity_level = activityTextField.text!.prefix(3)
+        let gender = genderTextField.text!
+        let age = Calendar.current.dateComponents([.year], from: birthdayDatePicker.date, to: Date()).year
+        let height = Double(heightTextField.text!)!
+        let weight = Double(weightTextField.text!)!
+        let activity_level = Double(activityTextField.text!.prefix(3))!
         
-        profile_repo.add(gender: genderTextField.text!, height: Double(heightTextField.text!)!, weight: Double(weightTextField.text!)!, activity: Double(activity_level)!)
-
+        profile_repo.add(gender: gender, birthday: birthdayDatePicker.date, height: height, weight: weight, activity: activity_level)
+        
+        var bmi: Double {
+            var bmi: Double = 0
+            
+            if gender == "Male" {
+                bmi = 66 + (13.7 * weight) + (5 * height) + (6.8 * Double(age!))
+            } else {
+                bmi = 66.5 + (9.6 * weight) + (1.7 * height) + (4.7 * Double(age!))
+            }
+            
+            return bmi
+        }
+        
+        CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * activity_level, for: helper_getStartOfDay())
+        
         ViewRouter.shared.firstLaunched = true
         performSegue(withIdentifier: "ToMainScreen", sender: nil)
     }
-    
 }
 
 extension FillDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSource{
