@@ -42,10 +42,13 @@ class MealListViewController: UIViewController, AddNewMealDelegate {
     var alertMoreThan: Bool?
     var alreadyNotifyUserMoreThan = false
     
-    var characterMoreThan = false
+    var characterMoreThan = [Bool]()
     
     let bottomBorder = CAShapeLayer()
     let bottomPath = UIBezierPath()
+    
+    var cellsBorder = [CAShapeLayer]()
+    var cellsPath = [UIBezierPath]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +65,11 @@ class MealListViewController: UIViewController, AddNewMealDelegate {
         self.filteredMeals = self.meals
         
         buttonDidTapped = [Bool](repeating: false, count: meals.count)
+        characterMoreThan = [Bool](repeating: false, count: meals.count)
+        for _ in 0..<meals.count {
+            cellsPath.append(UIBezierPath())
+            cellsBorder.append(CAShapeLayer())
+        }
       
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.tintColor = AppColor.red
@@ -150,9 +158,8 @@ extension MealListViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        buttonDidTapped = Array(repeating: false, count: meals.count)
-        if buttonDidTapped[indexPath.section] == true{
-            if self.characterMoreThan == true {
+        if buttonDidTapped[indexPath.section] == true {
+            if characterMoreThan[indexPath.section] == true {
                 return 221
             }
             return 201
@@ -194,50 +201,36 @@ extension MealListViewController: UITableViewDataSource{
         cell.mealListCellStackView.layer.borderWidth = 2
         cell.mealListCellStackView.layer.borderColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
         
-        
-//        bottomPath.move(to: CGPoint(x: 0, y: cell.mealListCellView.frame.height))
-//        bottomPath.addLine(to: CGPoint(x: cell.mealListCellView.frame.width, y: cell.mealListCellView.frame.height))
-//        bottomBorder.path = bottomPath.cgPath
-        bottomBorder.strokeColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
-        bottomBorder.lineWidth = 3.0
-        bottomBorder.fillColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
+        cellsBorder[indexPath.section].strokeColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
+        cellsBorder[indexPath.section].lineWidth = 2.0
+        cellsBorder[indexPath.section].fillColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
         
         let lengthWord = cell.mealListCellNameLabel.text?.count
         
-        cell.actionBlock = {
+        cell.actionBlock = { [self] in
             //Do whatever you want to do when the button is tapped here
             
             if self.buttonDidTapped[indexPath.section] == false {
+                self.cellsBorder[indexPath.section].removeFromSuperlayer()
                 self.buttonDidTapped[indexPath.section] = true
                 
                 cell.mealListCellChevronButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
-                
+        
                 if lengthWord! > 30 {
                     cell.mealListCellNameLabel.numberOfLines = 0
                     
-                    self.bottomPath.move(to: CGPoint(x: 0, y: cell.mealListCellView.frame.height + 20))
-                    self.bottomPath.addLine(to: CGPoint(x: cell.mealListCellView.frame.width, y: cell.mealListCellView.frame.height + 20))
-                    self.bottomBorder.path = self.bottomPath.cgPath
-                    
-                    self.characterMoreThan = true
-                }else if lengthWord! < 30{
-                    self.bottomPath.move(to: CGPoint(x: 0, y: cell.mealListCellView.frame.height))
-                    self.bottomPath.addLine(to: CGPoint(x: cell.mealListCellView.frame.width, y: cell.mealListCellView.frame.height))
-                    self.bottomBorder.path = self.bottomPath.cgPath
-                    self.characterMoreThan = false
+                    self.cellsPath[indexPath.section].move(to: CGPoint(x: 0, y: cell.mealListCellView.frame.maxY + 20))
+                    self.cellsPath[indexPath.section].addLine(to: CGPoint(x: cell.mealListCellView.frame.width, y: cell.mealListCellView.frame.maxY + 20))
+                    self.cellsBorder[indexPath.section].path = self.cellsPath[indexPath.section].cgPath
+                 
+                    self.characterMoreThan[indexPath.section] = true
+                }else{
+                    self.cellsPath[indexPath.section].move(to: CGPoint(x: 0, y: cell.mealListCellView.frame.maxY))
+                    self.cellsPath[indexPath.section].addLine(to: CGPoint(x: cell.mealListCellView.frame.width, y: cell.mealListCellView.frame.maxY))
+                    self.cellsBorder[indexPath.section].path = self.cellsPath[indexPath.section].cgPath
                 }
                 
-//                if self.selectedMeals.contains(self.filteredMeals[indexPath.section]){
-//                    self.bottomBorder.strokeColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//                    self.bottomBorder.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//                }else{
-//                    self.bottomBorder.strokeColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
-//                    self.bottomBorder.fillColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
-//                }
-                
-                cell.mealListCellView.layer.addSublayer(self.bottomBorder)
-                
-//                cell.mealListCellStackView.layoutIfNeeded()
+                cell.layer.addSublayer(self.cellsBorder[indexPath.section])
                 
             }else{
                 cell.mealListCellChevronButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
@@ -245,18 +238,11 @@ extension MealListViewController: UITableViewDataSource{
                 self.buttonDidTapped[indexPath.section] = false
                 cell.mealListCellNameLabel.numberOfLines = 1
 
-                self.bottomBorder.removeFromSuperlayer()
-                
-//                cell.mealListCellStackView.layoutIfNeeded()
+                print("[DEBUG] Removing line on row \(indexPath.section)")
+                self.cellsBorder[indexPath.section].removeFromSuperlayer()
             }
             
             self.selectedCell = cell.mealListCellChevronButton.tag
-            
-//            if self.buttonDidTapped[indexPath.section] == true {
-//                cell.mealListCellChevronButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
-//            }else{
-//                cell.mealListCellChevronButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-//            }
 
             //tableView.beginUpdates()
             //tableView.endUpdates()
@@ -291,9 +277,10 @@ extension MealListViewController: UITableViewDataSource{
                 cell.mealListCellChevronButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
             }
             
-            bottomBorder.strokeColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            bottomBorder.fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            cell.mealListCellView.layer.addSublayer(self.bottomBorder)
+            cellsBorder[indexPath.section].strokeColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            cellsBorder[indexPath.section].fillColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            cellsBorder[indexPath.section].removeFromSuperlayer()
+            cell.mealListCellView.layer.addSublayer(self.cellsBorder[indexPath.section])
             
         }else{
             cell.mealListCellDetailView.backgroundColor = .white
@@ -322,9 +309,10 @@ extension MealListViewController: UITableViewDataSource{
                 cell.mealListCellChevronButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
             }
             
-            bottomBorder.strokeColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
-            bottomBorder.fillColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
-            cell.mealListCellView.layer.addSublayer(self.bottomBorder)
+            cellsBorder[indexPath.section].strokeColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
+            cellsBorder[indexPath.section].fillColor = #colorLiteral(red: 0.7647058824, green: 0.1843137255, blue: 0.1529411765, alpha: 1)
+            cellsBorder[indexPath.section].removeFromSuperlayer()
+            cell.mealListCellView.layer.addSublayer(self.cellsBorder[indexPath.section])
         }
         return cell
     }
