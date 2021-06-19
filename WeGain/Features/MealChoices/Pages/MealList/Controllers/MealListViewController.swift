@@ -248,8 +248,8 @@ extension MealListViewController: UITableViewDataSource{
             
             self.selectedCell = cell.mealListCellChevronButton.tag
 
-            //tableView.beginUpdates()
-            //tableView.endUpdates()
+            tableView.beginUpdates()
+            tableView.endUpdates()
             tableView.deselectRow(at: indexPath, animated: true)
             
         }

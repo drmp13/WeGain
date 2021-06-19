@@ -103,26 +103,14 @@ class FillDetailsViewController: UIViewController{
         let profile_repo = ProfileRepository.shared
         
         let gender = genderTextField.text!
-        let age = Calendar.current.dateComponents([.year], from: birthdayDatePicker.date, to: Date()).year
         let height = Double(heightTextField.text!)!
         let weight = Double(weightTextField.text!)!
         let activity_level = Double(activityTextField.text!.prefix(3))!
         
         profile_repo.add(gender: gender, birthday: birthdayDatePicker.date, height: height, weight: weight, activity: activity_level)
         
-        var bmi: Double {
-            var bmi: Double = 0
-            
-            if gender == "Male" {
-                bmi = 66 + (13.7 * weight) + (5 * height) + (6.8 * Double(age!))
-            } else {
-                bmi = 66.5 + (9.6 * weight) + (1.7 * height) + (4.7 * Double(age!))
-            }
-            
-            return bmi
-        }
-        
-        CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * activity_level, for: helper_getStartOfDay())
+        let profile = ProfileRepository.shared.fetch()
+        CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: profile.calorieIntake + 500, for: helper_getStartOfDay())
         
         ViewRouter.shared.firstLaunched = true
         performSegue(withIdentifier: "ToMainScreen", sender: nil)

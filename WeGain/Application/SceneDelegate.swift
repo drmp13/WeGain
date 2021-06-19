@@ -49,22 +49,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if Calendar.current.isDateInYesterday(fetchedDate) {
             UserDefaults.standard.setValue(Date(), forKey: Constants.CALORIE_SYNC_TIME_KEY)
-            
-            var bmi: Double {
-                var bmi: Double = 0
-                
-                let age = Calendar.current.dateComponents([.year], from: profile.birthday, to: Date()).year
-                
-                if profile.gender == "Male" {
-                    bmi = 66 + (13.7 * profile.weight) + (5 * profile.height) + (6.8 * Double(age!))
-                } else {
-                    bmi = 66.5 + (9.6 * profile.weight) + (1.7 * profile.height) + (4.7 * Double(age!))
-                }
-                
-                return bmi
-            }
 
-            CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: bmi * profile.activity, for: helper_getStartOfDay())
+            CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: profile.calorieIntake + 500, for: helper_getStartOfDay())
         }
     }
 

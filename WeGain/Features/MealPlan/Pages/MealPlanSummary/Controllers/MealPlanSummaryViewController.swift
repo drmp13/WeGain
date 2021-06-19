@@ -87,6 +87,8 @@ class MealPlanSummaryViewController: UIViewController {
       refreshMealPlan(tableView: mealPlanLunch)
       refreshMealPlan(tableView: mealPlanDinner)
       refreshConstraint()
+        
+        self.planSummary.getSummary(for: helper_createDate(date: selected_date + " 00:00:00 +7"))
     }
     
     @objc func setCategoryIndexCG1(tapGestureRecognizer: UITapGestureRecognizer){

@@ -192,6 +192,7 @@ class UserProfileViewController: UIViewController {
         profile.activity = activity_level
         
         ProfileRepository.shared.edit(profile: self.profile)
+        CalorieHistoryRepository.shared.addCalorieHistory(maxCalorie: profile.calorieIntake + 500, for: helper_getStartOfDay())
         
         updateButton.isEnabled = false
         updateButton.alpha = 0.5
