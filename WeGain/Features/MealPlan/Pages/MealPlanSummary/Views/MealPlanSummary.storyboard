@@ -255,6 +255,12 @@
                                                                     <action selector="btnBreakfastClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nss-aI-A00"/>
                                                                 </connections>
                                                             </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaW-qT-WpP">
+                                                                <rect key="frame" x="91" y="11" width="41.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
@@ -262,6 +268,8 @@
                                                             <constraint firstItem="yc3-sK-hT5" firstAttribute="top" secondItem="5du-4R-N23" secondAttribute="top" constant="10" id="0hJ-o7-ypE"/>
                                                             <constraint firstItem="yc3-sK-hT5" firstAttribute="leading" secondItem="5du-4R-N23" secondAttribute="leading" id="4Rc-h5-vdy"/>
                                                             <constraint firstAttribute="trailing" secondItem="Zhw-PG-pT3" secondAttribute="trailing" id="OcZ-cX-5TD"/>
+                                                            <constraint firstItem="BaW-qT-WpP" firstAttribute="leading" secondItem="yc3-sK-hT5" secondAttribute="trailing" constant="7.5" id="ZgR-MS-6a2"/>
+                                                            <constraint firstItem="BaW-qT-WpP" firstAttribute="top" secondItem="5du-4R-N23" secondAttribute="top" constant="11" id="g5E-r2-Sse"/>
                                                             <constraint firstAttribute="height" constant="42" id="tgA-Be-YvL"/>
                                                         </constraints>
                                                     </view>
@@ -294,14 +302,22 @@
                                                                     <action selector="btnLunchClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="euI-nb-4Zc"/>
                                                                 </connections>
                                                             </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn6-pH-zRf">
+                                                                <rect key="frame" x="61" y="10" width="41.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="Bvt-b1-Rtl" firstAttribute="top" secondItem="CqD-KT-FAB" secondAttribute="top" constant="10" id="34J-Fv-NYV"/>
                                                             <constraint firstAttribute="trailing" secondItem="7UM-SL-6aN" secondAttribute="trailing" id="Qtw-Bx-x3Z"/>
                                                             <constraint firstItem="Bvt-b1-Rtl" firstAttribute="leading" secondItem="CqD-KT-FAB" secondAttribute="leading" id="gE2-t9-YrR"/>
+                                                            <constraint firstItem="Wn6-pH-zRf" firstAttribute="leading" secondItem="Bvt-b1-Rtl" secondAttribute="trailing" constant="8" symbolic="YES" id="jAR-c9-BoX"/>
                                                             <constraint firstItem="7UM-SL-6aN" firstAttribute="top" secondItem="CqD-KT-FAB" secondAttribute="top" constant="10" id="njb-JA-Reb"/>
                                                             <constraint firstAttribute="height" constant="42" id="pUN-FX-fyk"/>
+                                                            <constraint firstItem="Wn6-pH-zRf" firstAttribute="top" secondItem="CqD-KT-FAB" secondAttribute="top" constant="10" id="z4N-eF-WWp"/>
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rFQ-Fz-asB">
@@ -333,6 +349,12 @@
                                                                     <action selector="btnDinnerClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="clh-7g-uc3"/>
                                                                 </connections>
                                                             </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kaa-Qv-R7a">
+                                                                <rect key="frame" x="65" y="11" width="41.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
@@ -340,7 +362,9 @@
                                                             <constraint firstItem="cBT-Hh-Zsq" firstAttribute="top" secondItem="Gi9-BG-AjD" secondAttribute="top" constant="10" id="W0G-cY-7m9"/>
                                                             <constraint firstAttribute="trailing" secondItem="cBT-Hh-Zsq" secondAttribute="trailing" id="fqB-LA-Hay"/>
                                                             <constraint firstItem="1gN-yx-FcV" firstAttribute="top" secondItem="Gi9-BG-AjD" secondAttribute="top" constant="11" id="hIX-Hq-B26"/>
+                                                            <constraint firstItem="Kaa-Qv-R7a" firstAttribute="leading" secondItem="1gN-yx-FcV" secondAttribute="trailing" constant="8" symbolic="YES" id="nit-iF-bD5"/>
                                                             <constraint firstItem="1gN-yx-FcV" firstAttribute="leading" secondItem="Gi9-BG-AjD" secondAttribute="leading" id="qJI-cg-B15"/>
+                                                            <constraint firstItem="Kaa-Qv-R7a" firstAttribute="top" secondItem="Gi9-BG-AjD" secondAttribute="top" constant="11" id="w3O-wG-uq2"/>
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-nm-l8n">
@@ -407,6 +431,9 @@
                     <connections>
                         <outlet property="WeeklyCalendarView" destination="u3I-iM-Hcu" id="uQA-8p-b1E"/>
                         <outlet property="dashboardView" destination="iPf-CK-yM5" id="JSl-9i-ftz"/>
+                        <outlet property="labelBrCal" destination="BaW-qT-WpP" id="9Zv-Oh-eky"/>
+                        <outlet property="labelDiCal" destination="Kaa-Qv-R7a" id="hbv-o7-8yN"/>
+                        <outlet property="labelLuCal" destination="Wn6-pH-zRf" id="as9-3K-D8f"/>
                         <outlet property="mainViewHeightConstraint" destination="NqE-Tl-ckT" id="c58-tv-tfV"/>
                         <outlet property="mealPlanBreakfast" destination="j3U-V6-Ne2" id="weL-Ip-nzG"/>
                         <outlet property="mealPlanDinner" destination="bBn-nm-l8n" id="cXo-lI-Ifq"/>
