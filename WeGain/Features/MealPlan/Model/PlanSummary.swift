@@ -47,9 +47,5 @@ class PlanSummary: ObservableObject {
         carb.1 = eatenCals.1 / 4
         protein.1 = eatenCals.1 / 4
         fat.1  = eatenCals.1 / 9
-        
-        print("Carb: \(carb.1)")
-        print("Protein: \(protein.1)")
-        print("Fat: \(fat.1)")
     }
 }
