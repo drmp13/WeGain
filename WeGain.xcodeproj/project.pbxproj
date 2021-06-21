@@ -60,6 +60,8 @@
 		7DFE39D2266E712800B8F66B /* AddMeal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFE39D1266E712800B8F66B /* AddMeal.storyboard */; };
 		7DFE39D5266E71FA00B8F66B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE39D4266E71FA00B8F66B /* PersistenceManager.swift */; };
 		9626CFA2267897C9003C96E7 /* DateTimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626CFA1267897C9003C96E7 /* DateTimeHelper.swift */; };
+		964BEA6D2680A87D00E77E38 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BEA6C2680A87D00E77E38 /* LocalNotificationManager.swift */; };
+		964BEA6F2680A92300E77E38 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964BEA6E2680A92300E77E38 /* NotificationHelper.swift */; };
 		9654B6E026776537003C4079 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654B6DF26776537003C4079 /* StringHelper.swift */; };
 		9654B6E326776842003C4079 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654B6E226776842003C4079 /* Alert.swift */; };
 		968CEA9B2672CAE8007071DB /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968CEA9A2672CAE8007071DB /* MealModel.swift */; };
@@ -141,6 +143,8 @@
 		7DFE39D1266E712800B8F66B /* AddMeal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMeal.storyboard; sourceTree = "<group>"; };
 		7DFE39D4266E71FA00B8F66B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		9626CFA1267897C9003C96E7 /* DateTimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeHelper.swift; sourceTree = "<group>"; };
+		964BEA6C2680A87D00E77E38 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		964BEA6E2680A92300E77E38 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		9654B6DF26776537003C4079 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		9654B6E226776842003C4079 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		968CEA9A2672CAE8007071DB /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 				7D4B86D7266E4BB2006E9169 /* Core Data */,
 				968CEA9A2672CAE8007071DB /* MealModel.swift */,
 				968CEAA02672CD2B007071DB /* Response.swift */,
+				964BEA6C2680A87D00E77E38 /* LocalNotificationManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -565,6 +570,7 @@
 				9626CFA1267897C9003C96E7 /* DateTimeHelper.swift */,
 				7DCF0DB626789442000E0D9B /* Constants.swift */,
 				7DCF0DBC2678B01B000E0D9B /* HealthKitManager.swift */,
+				964BEA6E2680A92300E77E38 /* NotificationHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -763,6 +769,7 @@
 				7D23FA64266E448F00791CD4 /* AppDelegate.swift in Sources */,
 				AB6726E72670BD3F007313B6 /* OnboardingViewController.swift in Sources */,
 				00F961A726735753005ECED9 /* MealPlanSummaryViewController+CollectionViewDataSource+CollectionViewDelegate.swift in Sources */,
+				964BEA6D2680A87D00E77E38 /* LocalNotificationManager.swift in Sources */,
 				7D4B86F3266E584A006E9169 /* PlanDataStore.swift in Sources */,
 				7DFA8BE52679CF0900572C55 /* CalorieHistoryRepository.swift in Sources */,
 				ABBA562E2677323B00C9990A /* WeightHistoryTableViewCell.swift in Sources */,
@@ -771,6 +778,7 @@
 				BF55818D2670ECBB00F8DF9D /* CalendarCell.swift in Sources */,
 				7D23FA6E266E448F00791CD4 /* WeGain.xcdatamodeld in Sources */,
 				7D6A644726721F4400554DC1 /* HistoryDataStore.swift in Sources */,
+				964BEA6F2680A92300E77E38 /* NotificationHelper.swift in Sources */,
 				7DCF0DBB2678AC0D000E0D9B /* MealPlanSummary+PlanSummary.swift in Sources */,
 				7DCF0DB726789442000E0D9B /* Constants.swift in Sources */,
 				7D1D6C4726775BAB006A054F /* ViewRouter.swift in Sources */,
