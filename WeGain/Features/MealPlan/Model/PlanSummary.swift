@@ -44,9 +44,9 @@ class PlanSummary: ObservableObject {
             eatenCals.1 = CalorieHistoryRepository.shared.getCalorieHistory(for: date)
         }
         
-        carb.1 = eatenCals.1 * 4
-        protein.1 = eatenCals.1 * 4
-        fat.1  = eatenCals.1 * 9
+        carb.1 = eatenCals.1 / 4
+        protein.1 = eatenCals.1 / 4
+        fat.1  = eatenCals.1 / 9
         
     }
 }
