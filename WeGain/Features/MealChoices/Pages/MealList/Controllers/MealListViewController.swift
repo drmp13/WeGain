@@ -35,7 +35,7 @@ class MealListViewController: UIViewController, AddNewMealDelegate {
     var type: PlanType?
     
     var caloriesIntake: Double = 0
-    var limitCalories: Double = 900
+    var limitCalories: Double = ProfileRepository.shared.fetch().calorieIntake / 3
 
     var selected_date = helper_getCurrentDate(format: "yyyy-MM-dd")
     
@@ -86,6 +86,8 @@ class MealListViewController: UIViewController, AddNewMealDelegate {
         navigationItem.searchController = searchController
         
         alertMoreThan = false
+        
+        mealChoiceKCalLabel.text = String(format: "Meal Choices 0/%.0f KCal", self.limitCalories)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -134,7 +136,7 @@ extension MealListViewController: UITableViewDelegate{
         if selectedMeals.contains(self.filteredMeals[indexPath.section]) {
             let index = selectedMeals.firstIndex(of: self.filteredMeals[indexPath.section])
             caloriesIntake -= filteredMeals[indexPath.section].calories
-            mealChoiceKCalLabel.text = String(format: "Meal Choices %.0f/900KCal", abs(caloriesIntake))
+            mealChoiceKCalLabel.text = String(format: "Meal Choices %.0f/%.0f KCal", abs(caloriesIntake), self.limitCalories)
             selectedMeals.remove(at: index!)
             tableView.reloadSections(indexSet, with: .automatic)
             return
@@ -144,7 +146,7 @@ extension MealListViewController: UITableViewDelegate{
         tableView.reloadSections(indexSet, with: .automatic)
         
         caloriesIntake += self.filteredMeals[indexPath.section].calories
-        mealChoiceKCalLabel.text = String(format: "Meal Choices %.0f/900KCal", caloriesIntake)
+        mealChoiceKCalLabel.text = String(format: "Meal Choices %.0f/%.0fKcal", caloriesIntake, limitCalories)
         
         if caloriesIntake > limitCalories + 100 {
             alertMoreThan = true

@@ -22,6 +22,8 @@ struct Profile: Codable {
     
     var activityDescription: String {
         get {
+            let meal = Meal(context: PersistenceManager.shared.persistentContainer.viewContext)
+            
             switch activity {
                 case 1.2:
                     return "1.2 - bed/chair bound"
