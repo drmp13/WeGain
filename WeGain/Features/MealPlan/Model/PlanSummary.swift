@@ -41,7 +41,11 @@ class PlanSummary: ObservableObject {
                 fat.0 += plan.meal!.fat
             }
         }
-        
-        eatenCals.1 = CalorieHistoryRepository.shared.getCalorieHistory(for: date)
+
+        if CalorieHistoryRepository.shared.getCalorieHistory(for: date) == 0 {
+            eatenCals.1 = ProfileRepository.shared.fetch().calorieIntake
+        } else {
+            eatenCals.1 = CalorieHistoryRepository.shared.getCalorieHistory(for: date)
+        }
     }
 }
