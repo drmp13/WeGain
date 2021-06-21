@@ -24,7 +24,7 @@ extension MealPlanSummaryViewController {
         self.dashboardView.proteinProgressLabel.text = String(format: "%.2f/%.2f gr", protein.0, protein.1)
         
         self.dashboardView.FatProgressView.setProgress(Float(fat.0 / fat.1), animated: true)
-        self.dashboardView.fatProgressLabel.text = String(format: "%.2f/%.2f gr", protein.0, protein.1)
+        self.dashboardView.fatProgressLabel.text = String(format: "%.2f/%.2f gr", fat.0, fat.1)
         
         self.updateActivityCalorie()
     }
