@@ -30,10 +30,6 @@ class PlanSummary: ObservableObject {
         let plans = breakfastPlan + lunchPlan + dinnerPlan
         
         for plan in plans {
-            carb.1 += plan.meal!.carbohydrate
-            protein.1 += plan.meal!.protein
-            fat.1 += plan.meal!.fat
-            
             if plan.eaten {
                 eatenCals.0 += plan.meal!.calories
                 carb.0 += plan.meal!.carbohydrate
@@ -47,5 +43,10 @@ class PlanSummary: ObservableObject {
         } else {
             eatenCals.1 = CalorieHistoryRepository.shared.getCalorieHistory(for: date)
         }
+        
+        carb.1 = eatenCals.1 * 4
+        protein.1 = eatenCals.1 * 4
+        fat.1  = eatenCals.1 * 9
+        
     }
 }
