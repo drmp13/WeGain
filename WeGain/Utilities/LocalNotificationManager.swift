@@ -83,7 +83,6 @@ class LocalNotificationManager
     
     private func scheduleNotifications()
     {
-        print("Scheduled!")
         setNotification(notif_id: 1, notifTitle: "Plan your next meal!", notifBody: "Have you planned your next meal ?", hour: 20, minute: 00)
         setNotification(notif_id: 2, notifTitle: "Let's update your meal plan", notifBody: "Lots of small steps every day eventually add up. Let's log your breakfast!", hour: 07, minute: 00)
         setNotification(notif_id: 3, notifTitle: "Let's update your meal plan", notifBody: "Lots of small steps every day eventually add up. Let's log your lunch!", hour: 12, minute: 00)
