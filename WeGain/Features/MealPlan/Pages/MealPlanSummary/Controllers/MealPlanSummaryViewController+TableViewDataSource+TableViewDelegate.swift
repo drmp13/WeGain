@@ -10,12 +10,33 @@ import UIKit
 
 extension MealPlanSummaryViewController: UITableViewDataSource {
     func refreshMealPlan(tableView: UITableView){
+      let totalCalorieIntake = ProfileRepository.shared.fetch().calorieIntake / 3
+      var totalIntake = 0.0
+
+
+
         if(tableView == mealPlanBreakfast){
             planBreakfast = fetchDailyPlan(plan_type: .breakfast, selected_date: selected_date)
+            let dataChecked = PlanRepository.shared.fetchByDateChecked(date: helper_createDate(date: selected_date+" 00:00:00 +7"), type: .breakfast)
+
+            for xyz in dataChecked{
+              totalIntake = totalIntake + Double(xyz.meal!.calories) ?? 0
+            }
+            labelBrCal.text = String(format: "(%.0f / %.0f) KCal",totalIntake as! CVarArg,totalCalorieIntake as! CVarArg)
         }else if(tableView == mealPlanLunch){
             planLunch = fetchDailyPlan(plan_type: .lunch, selected_date: selected_date)
+          let dataChecked = PlanRepository.shared.fetchByDateChecked(date: helper_createDate(date: selected_date+" 00:00:00 +7"), type: .lunch)
+          for xyz in dataChecked{
+            totalIntake = totalIntake + Double(xyz.meal!.calories) ?? 0
+          }
+            labelLuCal.text = String(format: "(%.0f / %.0f) KCal",totalIntake as! CVarArg,totalCalorieIntake as! CVarArg)
         }else{
             planDinner = fetchDailyPlan(plan_type: .dinner, selected_date: selected_date)
+          let dataChecked = PlanRepository.shared.fetchByDateChecked(date: helper_createDate(date: selected_date+" 00:00:00 +7"), type: .dinner)
+          for xyz in dataChecked{
+            totalIntake = totalIntake + Double(xyz.meal!.calories) ?? 0
+          }
+            labelDiCal.text = String(format: "(%.0f / %.0f) KCal",totalIntake as! CVarArg,totalCalorieIntake as! CVarArg)
         }
         
         tableView.reloadData()
@@ -61,6 +82,7 @@ extension MealPlanSummaryViewController: UITableViewDataSource {
 
       let mealName = (node[indexPath.first!].meal?.name!.count)!>30 ? (node[indexPath.first!].meal?.name?.prefix(27))!+"..." : node[indexPath.first!].meal?.name
         cell.mealPlanCellNameLabel.text = mealName
+      cell.mealPlanCellKCalLabel.text = String(format: "%.2f KCal", node[indexPath.first!].meal?.calories as! CVarArg)
         
         cell.mealPlanCellView.layer.borderWidth = 3
         cell.mealPlanCellView.layer.cornerRadius = 10

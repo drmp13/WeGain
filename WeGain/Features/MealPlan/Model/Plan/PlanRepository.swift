@@ -22,6 +22,12 @@ class PlanRepository {
         
         return self.plans ?? []
     }
+
+  func fetchByDateChecked(date: Date, type: PlanType) -> [Plan] {
+      plans = self.dataStore?.fetchByDateChecked(date: date, type: type)
+
+      return self.plans ?? []
+  }
     
     func addPlan(for date: Date, meal: Meal, type: PlanType) {
         let context = PersistenceManager.shared.persistentContainer.viewContext

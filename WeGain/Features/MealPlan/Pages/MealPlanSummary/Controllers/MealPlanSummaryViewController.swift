@@ -22,7 +22,10 @@ class MealPlanSummaryViewController: UIViewController {
     @IBOutlet weak var dashboardView: DashboardCell!
   @IBOutlet weak var mainViewHeightConstraint: NSLayoutConstraint!
   @IBOutlet weak var stackViewMealPlan: UIStackView!
-
+  @IBOutlet weak var labelBrCal: UILabel!
+  @IBOutlet weak var labelLuCal: UILabel!
+  @IBOutlet weak var labelDiCal: UILabel!
+  
     
     var planBreakfast = [Plan]()
     var planLunch = [Plan]()
@@ -87,6 +90,8 @@ class MealPlanSummaryViewController: UIViewController {
       refreshMealPlan(tableView: mealPlanLunch)
       refreshMealPlan(tableView: mealPlanDinner)
       refreshConstraint()
+
+     
         
         self.planSummary.getSummary(for: helper_createDate(date: selected_date + " 00:00:00 +7"))
     }
